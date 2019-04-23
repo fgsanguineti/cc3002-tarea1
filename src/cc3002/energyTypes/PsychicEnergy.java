@@ -8,11 +8,6 @@ public class PsychicEnergy extends AbstractEnergy {
     }
 
     @Override
-    public String getCardType() {
-        return null;
-    }
-
-    @Override
     public void playCard() {
 
     }

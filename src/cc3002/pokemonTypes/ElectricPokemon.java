@@ -3,13 +3,13 @@ package cc3002.pokemonTypes;
 import cc3002.AbstractPokemon;
 
 public class ElectricPokemon extends AbstractPokemon {
-    @Override
-    public String getCardName() {
-        return null;
+
+    public ElectricPokemon(String cardName, int id, int hp) {
+        super(cardName, id, hp);
     }
 
     @Override
-    public String getCardType() {
+    public String getCardName() {
         return null;
     }
 

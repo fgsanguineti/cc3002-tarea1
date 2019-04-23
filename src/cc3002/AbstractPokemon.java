@@ -1,29 +1,27 @@
 package cc3002;
 
-import java.util.List;
+import cc3002.energyTypes.*;
+
+import java.util.Hashtable;
 
 public abstract class AbstractPokemon implements IPokemon {
 
     private String cardName;
     private int id;
     private int hp;
-    private List<List<IEnergy>> availableEnergies;
+    private Hashtable<IEnergy,Integer> energies;
 
     public AbstractPokemon(String cardName, int id, int hp) {
         this.cardName = cardName;
         this.id = id;
         this.hp = hp;
-    }
+        this.energies = new Hashtable<>();
 
+    }
 
     @Override
     public String getCardName() {
         return this.cardName;
-    }
-
-    @Override
-    public String getCardType() {
-        return CARD_TYPE;
     }
 
     @Override
@@ -42,9 +40,35 @@ public abstract class AbstractPokemon implements IPokemon {
     }
 
     @Override
-    public List<List<IEnergy>> getEnergies() {
-        return availableEnergies;
+    public void receiveElectricEnergy(ElectricEnergy energy) {
+
     }
+
+    @Override
+    public void receiveFightingEnergy(FightigEnergy energy) {
+
+    }
+
+    @Override
+    public void receiveFireEnergy(FireEnergy energy) {
+
+    }
+
+    @Override
+    public void receiveGrassEnergy(GrassEnergy energy) {
+
+    }
+
+    @Override
+    public void receivePsychicEnergy(PsychicEnergy energy) {
+
+    }
+
+    @Override
+    public void receiveWaterEnergy(WaterEnergy energy) {
+
+    }
+    public void receiveEnergy(IEnergy anIEnergy){}
 
 
 }
