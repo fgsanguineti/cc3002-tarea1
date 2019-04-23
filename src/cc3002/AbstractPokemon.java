@@ -9,6 +9,13 @@ public abstract class AbstractPokemon implements IPokemon {
     private int hp;
     private List<List<IEnergy>> availableEnergies;
 
+    public AbstractPokemon(String cardName, int id, int hp) {
+        this.cardName = cardName;
+        this.id = id;
+        this.hp = hp;
+    }
+
+
     @Override
     public String getCardName() {
         return this.cardName;
