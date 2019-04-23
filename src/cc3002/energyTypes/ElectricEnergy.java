@@ -7,10 +7,11 @@ import java.util.Objects;
 public class ElectricEnergy extends AbstractEnergy {
     private String cardName = "Electric Energy";
 
-    private ElectricEnergy() {}
+    ElectricEnergy() {
+    }
 
     @Override
-    public String getCardName(){return cardName;}
+    public String getCardName() {return cardName;}
 
     @Override
     public void playCard() {

@@ -45,7 +45,7 @@ public abstract class AbstractPokemon implements IPokemon {
     }
 
     @Override
-    public void receiveFightingEnergy(FightigEnergy energy) {
+    public void receiveFightingEnergy(FightingEnergy energy) {
 
     }
 

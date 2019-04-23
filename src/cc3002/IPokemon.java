@@ -6,7 +6,7 @@ public interface IPokemon extends ICard{
     int getID();
     int getHP();
     void receiveElectricEnergy(ElectricEnergy energy);
-    void receiveFightingEnergy(FightigEnergy energy);
+    void receiveFightingEnergy(FightingEnergy energy);
     void receiveFireEnergy(FireEnergy energy);
     void receiveGrassEnergy(GrassEnergy energy);
     void receivePsychicEnergy(PsychicEnergy energy);
