@@ -11,4 +11,5 @@ public class Trainer {
     IPokemon getActivePokemon() {
         return activePokemon;
     }
+
 }
