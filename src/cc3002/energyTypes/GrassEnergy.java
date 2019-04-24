@@ -1,23 +1,13 @@
 package cc3002.energyTypes;
 
 import cc3002.AbstractEnergy;
+import cc3002.IPokemon;
 
 import java.util.Objects;
 
 public class GrassEnergy extends AbstractEnergy {
-    private String cardName = "Grass Energy";
 
-    public GrassEnergy() {
-    }
-
-    @Override
-    public String getCardName() {
-        return null;
-    }
-
-    @Override
-    public void playCard() {
-
+    GrassEnergy() { super.setCardName("Grass Energy");
     }
 
     @Override
@@ -25,6 +15,11 @@ public class GrassEnergy extends AbstractEnergy {
         if (this == o) return true;
         if (!(o instanceof GrassEnergy)) return false;
         GrassEnergy that = (GrassEnergy) o;
-        return Objects.equals(cardName, that.cardName);
+        return Objects.equals(super.getCardName(), that.getCardName());
+    }
+
+    @Override
+    public void addEnergyToPokemon(IPokemon other) {
+        other.receiveGrassEnergy(this);
     }
 }

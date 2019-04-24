@@ -1,6 +1,7 @@
 package cc3002.pokemonTypes;
 
 import cc3002.AbstractPokemon;
+import cc3002.Trainer;
 
 public class FightningPokemon extends AbstractPokemon {
     public FightningPokemon(String cardName, int id, int hp) {
@@ -13,7 +14,12 @@ public class FightningPokemon extends AbstractPokemon {
     }
 
     @Override
-    public void playCard() {
+    public void setCardName(String cardName) {
+
+    }
+
+    @Override
+    public void playCard(Trainer aTrainer) {
 
     }
 }

@@ -1,21 +1,19 @@
 package cc3002.energyTypes;
 
 import cc3002.AbstractEnergy;
+import cc3002.IPokemon;
 
 import java.util.Objects;
 
 public class ElectricEnergy extends AbstractEnergy {
-    private String cardName = "Electric Energy";
 
     ElectricEnergy() {
+        super.setCardName("Electric Energy");
     }
 
     @Override
-    public String getCardName() {return cardName;}
-
-    @Override
-    public void playCard() {
-
+    public void addEnergyToPokemon(IPokemon other) {
+        other.receiveElectricEnergy(this);
     }
 
     @Override
@@ -23,6 +21,6 @@ public class ElectricEnergy extends AbstractEnergy {
         if (this == o) return true;
         if (!(o instanceof ElectricEnergy)) return false;
         ElectricEnergy that = (ElectricEnergy) o;
-        return Objects.equals(cardName, that.cardName);
+        return Objects.equals(super.getCardName(), that.getCardName());
     }
 }

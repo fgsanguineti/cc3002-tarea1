@@ -1,6 +1,7 @@
 package cc3002.pokemonTypes;
 
 import cc3002.AbstractPokemon;
+import cc3002.Trainer;
 
 public class PsychicPokemon extends AbstractPokemon {
     public PsychicPokemon(String cardName, int id, int hp) {
@@ -13,7 +14,12 @@ public class PsychicPokemon extends AbstractPokemon {
     }
 
     @Override
-    public void playCard() {
+    public void setCardName(String cardName) {
+
+    }
+
+    @Override
+    public void playCard(Trainer aTrainer) {
 
     }
 }

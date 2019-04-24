@@ -2,21 +2,31 @@ package cc3002;
 
 import cc3002.energyTypes.*;
 
-import java.util.Hashtable;
+import java.util.ArrayList;
 
 public abstract class AbstractPokemon implements IPokemon {
 
     private String cardName;
     private int id;
     private int hp;
-    private Hashtable<IEnergy,Integer> energies;
+
+    private ArrayList<ElectricEnergy> electric;
+    private ArrayList<FightingEnergy> fighting;
+    private ArrayList<FireEnergy> fire;
+    private ArrayList<GrassEnergy> grass;
+    private ArrayList<PsychicEnergy> psychic;
+    private ArrayList<WaterEnergy> water;
 
     public AbstractPokemon(String cardName, int id, int hp) {
         this.cardName = cardName;
         this.id = id;
         this.hp = hp;
-        this.energies = new Hashtable<>();
-
+        electric = new ArrayList<>();
+        fighting = new ArrayList<>();
+        fire = new ArrayList<>();
+        grass = new ArrayList<>();
+        psychic = new ArrayList<>();
+        water = new ArrayList<>();
     }
 
     @Override
@@ -25,8 +35,7 @@ public abstract class AbstractPokemon implements IPokemon {
     }
 
     @Override
-    public void playCard() {
-
+    public void playCard(Trainer aTrainer) {
     }
 
     @Override
@@ -41,34 +50,61 @@ public abstract class AbstractPokemon implements IPokemon {
 
     @Override
     public void receiveElectricEnergy(ElectricEnergy energy) {
-
+        this.electric.add(energy);
     }
 
     @Override
     public void receiveFightingEnergy(FightingEnergy energy) {
-
+        this.fighting.add(energy);
     }
 
     @Override
     public void receiveFireEnergy(FireEnergy energy) {
-
+        this.fire.add(energy);
     }
 
     @Override
     public void receiveGrassEnergy(GrassEnergy energy) {
-
+        this.grass.add(energy);
     }
 
     @Override
     public void receivePsychicEnergy(PsychicEnergy energy) {
+        this.psychic.add(energy);
+    }
+
+    @Override
+    public void receiveWaterEnergy(WaterEnergy energy) { this.water.add(energy);
 
     }
 
     @Override
-    public void receiveWaterEnergy(WaterEnergy energy) {
-
+    public int getElectricEnergyQuantity() {
+        return electric.size();
     }
-    public void receiveEnergy(IEnergy anIEnergy){}
 
+    @Override
+    public int getFightingEnergyQuantity() {
+        return fighting.size();
+    }
 
+    @Override
+    public int getFireEnergyQuantity() {
+        return fire.size();
+    }
+
+    @Override
+    public int getGrassEnergyQuantity() {
+        return grass.size();
+    }
+
+    @Override
+    public int getPsychicEnergyQuantity() {
+        return psychic.size();
+    }
+
+    @Override
+    public int getWaterEnergyQuantity() {
+        return water.size();
+    }
 }

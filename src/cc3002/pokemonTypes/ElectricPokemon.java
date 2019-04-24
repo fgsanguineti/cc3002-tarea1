@@ -1,6 +1,7 @@
 package cc3002.pokemonTypes;
 
 import cc3002.AbstractPokemon;
+import cc3002.Trainer;
 
 public class ElectricPokemon extends AbstractPokemon {
 
@@ -9,12 +10,12 @@ public class ElectricPokemon extends AbstractPokemon {
     }
 
     @Override
-    public String getCardName() {
-        return null;
+    public void setCardName(String cardName) {
+
     }
 
     @Override
-    public void playCard() {
+    public void playCard(Trainer aTrainer) {
 
     }
 }

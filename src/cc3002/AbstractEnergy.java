@@ -1,13 +1,11 @@
 package cc3002;
 
 public abstract class AbstractEnergy implements IEnergy{
-
+    private String cardName;
     @Override
-    public void addEnergyToPokemon() {
-
-    }
+    public String getCardName(){return this.cardName;}
     @Override
-    public void playCard() {
-        addEnergyToPokemon();
-    }
+    public void setCardName(String cardName){this.cardName = cardName;}
+    @Override
+    public void playCard(Trainer aTrainer) {this.addEnergyToPokemon(aTrainer.getActivePokemon());}
 }
