@@ -5,13 +5,8 @@ import cc3002.Trainer;
 
 public class ElectricPokemon extends AbstractPokemon {
 
-    public ElectricPokemon(String cardName, int id, int hp) {
+    ElectricPokemon(String cardName, int id, int hp) {
         super(cardName, id, hp);
-    }
-
-    @Override
-    public void setCardName(String cardName) {
-
     }
 
     @Override

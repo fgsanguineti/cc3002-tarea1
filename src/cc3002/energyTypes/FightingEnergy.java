@@ -7,7 +7,7 @@ import java.util.Objects;
 
 public class FightingEnergy extends AbstractEnergy {
 
-    FightingEnergy() {
+    public FightingEnergy() {
         super.setCardName("Fighting Energy");
     }
 

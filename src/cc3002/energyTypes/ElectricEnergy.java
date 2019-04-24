@@ -7,7 +7,7 @@ import java.util.Objects;
 
 public class ElectricEnergy extends AbstractEnergy {
 
-    ElectricEnergy() {
+    public ElectricEnergy() {
         super.setCardName("Electric Energy");
     }
 

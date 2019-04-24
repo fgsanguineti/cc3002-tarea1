@@ -7,7 +7,7 @@ import java.util.Objects;
 
 public class FireEnergy extends AbstractEnergy {
 
-    FireEnergy() { super.setCardName("Fire Energy");
+    public FireEnergy() { super.setCardName("Fire Energy");
     }
     @Override
     public boolean equals(Object o) {

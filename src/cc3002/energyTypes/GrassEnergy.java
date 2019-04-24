@@ -7,7 +7,7 @@ import java.util.Objects;
 
 public class GrassEnergy extends AbstractEnergy {
 
-    GrassEnergy() { super.setCardName("Grass Energy");
+    public GrassEnergy() { super.setCardName("Grass Energy");
     }
 
     @Override

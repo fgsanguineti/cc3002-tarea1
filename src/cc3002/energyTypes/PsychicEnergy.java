@@ -7,7 +7,7 @@ import java.util.Objects;
 
 public class PsychicEnergy extends AbstractEnergy {
 
-    PsychicEnergy() {
+    public PsychicEnergy() {
         super.setCardName("Psychic Energy");
     }
 

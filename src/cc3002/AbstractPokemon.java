@@ -21,6 +21,7 @@ public abstract class AbstractPokemon implements IPokemon {
         this.cardName = cardName;
         this.id = id;
         this.hp = hp;
+
         electric = new ArrayList<>();
         fighting = new ArrayList<>();
         fire = new ArrayList<>();
@@ -28,7 +29,6 @@ public abstract class AbstractPokemon implements IPokemon {
         psychic = new ArrayList<>();
         water = new ArrayList<>();
     }
-
     @Override
     public String getCardName() {
         return this.cardName;
@@ -107,4 +107,5 @@ public abstract class AbstractPokemon implements IPokemon {
     public int getWaterEnergyQuantity() {
         return water.size();
     }
+
 }

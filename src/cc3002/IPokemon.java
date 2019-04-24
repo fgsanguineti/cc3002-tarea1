@@ -2,8 +2,6 @@ package cc3002;
 import cc3002.energyTypes.*;
 
 public interface IPokemon extends ICard{
-    String CARD_TYPE = "Pokemon";
-
     int getID();
     int getHP();
     void receiveElectricEnergy(ElectricEnergy energy);
