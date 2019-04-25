@@ -9,6 +9,8 @@ public abstract class AbstractPokemon implements IPokemon {
     private String cardName;
     private int id;
     private int hp;
+    private AttackContainer attackList;
+    private Attack activeAttack;
 
     private ArrayList<ElectricEnergy> electric;
     private ArrayList<FightingEnergy> fighting;
@@ -17,10 +19,12 @@ public abstract class AbstractPokemon implements IPokemon {
     private ArrayList<PsychicEnergy> psychic;
     private ArrayList<WaterEnergy> water;
 
-    public AbstractPokemon(String cardName, int id, int hp) {
+    public AbstractPokemon(String cardName, int id, int hp, AttackContainer attackList) {
         this.cardName = cardName;
         this.id = id;
         this.hp = hp;
+        this.attackList = attackList;
+        this.activeAttack = attackList.getAttack(1);
 
         electric = new ArrayList<>();
         fighting = new ArrayList<>();
