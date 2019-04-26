@@ -33,15 +33,14 @@ public abstract class AbstractPokemon implements IPokemon {
         psychic = new ArrayList<>();
         water = new ArrayList<>();
     }
+
     @Override
     public String getCardName() {
         return this.cardName;
     }
-
     @Override
     public void playCard(Trainer aTrainer) {
     }
-
     @Override
     public int getID() {
         return this.id;
@@ -50,6 +49,12 @@ public abstract class AbstractPokemon implements IPokemon {
     @Override
     public int getHP() {
         return this.hp;
+    }
+
+    @Override
+
+    public Attack getActiveAttack() {
+        return activeAttack;
     }
 
     @Override
@@ -78,10 +83,9 @@ public abstract class AbstractPokemon implements IPokemon {
     }
 
     @Override
-    public void receiveWaterEnergy(WaterEnergy energy) { this.water.add(energy);
-
+    public void receiveWaterEnergy(WaterEnergy energy) {
+        this.water.add(energy);
     }
-
     @Override
     public int getElectricEnergyQuantity() {
         return electric.size();
@@ -112,4 +116,50 @@ public abstract class AbstractPokemon implements IPokemon {
         return water.size();
     }
 
+    @Override
+    public void receiveElectricPokemonAttack(Attack anAttack) {
+        receiveAttack(anAttack);
+    }
+
+    @Override
+    public void receiveFightingPokemonAttack(Attack anAttack) {
+        receiveAttack(anAttack);
+    }
+
+    @Override
+    public void receiveFirePokemonAttack(Attack anAttack) {
+        receiveAttack(anAttack);
+    }
+
+    @Override
+    public void receiveGrassPokemonAttack(Attack anAttack) {
+        receiveAttack(anAttack);
+    }
+
+    @Override
+    public void receivePsychicPokemonAttack(Attack anAttack) {
+        receiveAttack(anAttack);
+    }
+
+    @Override
+    public void receiveWaterPokemonAttack(Attack anAttack) {
+        receiveAttack(anAttack);
+    }
+
+    @Override
+    public void receiveWeaknessPokemonTypeAttack(Attack anAttack) {
+        this.hp -= 2 * anAttack.getBaseDamage();
+    }
+
+    @Override
+    public void receiveResistantPokemonTypeAttack(Attack anAttack) {
+        this.hp -= (anAttack.getBaseDamage() - 30);
+    }
+
+    private void receiveAttack(Attack anAttack) {
+        this.hp -= anAttack.getBaseDamage();
+    }
+
+    @Override
+    public abstract void attack(IPokemon other);
 }

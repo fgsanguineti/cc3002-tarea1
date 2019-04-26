@@ -5,6 +5,8 @@ public interface IPokemon extends ICard{
 
     int getID();
     int getHP();
+
+    Attack getActiveAttack();
     void receiveElectricEnergy(ElectricEnergy energy);
     void receiveFightingEnergy(FightingEnergy energy);
     void receiveFireEnergy(FireEnergy energy);
@@ -25,5 +27,11 @@ public interface IPokemon extends ICard{
     void receiveGrassPokemonAttack(Attack anAttack);
     void receivePsychicPokemonAttack(Attack anAttack);
     void receiveWaterPokemonAttack(Attack anAttack);
+
+    void receiveWeaknessPokemonTypeAttack(Attack anAttack);
+
+    void receiveResistantPokemonTypeAttack(Attack anAttack);
+
+    void attack(IPokemon other);
 
 }

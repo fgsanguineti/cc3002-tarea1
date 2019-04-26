@@ -1,6 +1,6 @@
 package cc3002;
 
-class AttackContainer {
+public class AttackContainer {
     private Attack[] attackContainer;
 
     AttackContainer(Attack a, Attack b, Attack c, Attack d){
