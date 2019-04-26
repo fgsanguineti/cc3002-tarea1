@@ -6,7 +6,7 @@ public class Attack implements IAbility {
     private int baseDamage;
     private EnergyContainer costs;
 
-    protected Attack(String name, String description, int baseDamage, EnergyContainer costs) {
+    public Attack(String name, String description, int baseDamage, EnergyContainer costs) {
         this.name = name;
         this.description = description;
         this.baseDamage = baseDamage;
@@ -31,4 +31,16 @@ public class Attack implements IAbility {
     int getBaseDamage() {
         return this.baseDamage;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Attack)) return false;
+        Attack attack = (Attack) o;
+        return baseDamage == attack.baseDamage &&
+                name.equals(attack.name) &&
+                description.equals(attack.description) &&
+                costs.equals(attack.costs);
+    }
+
 }

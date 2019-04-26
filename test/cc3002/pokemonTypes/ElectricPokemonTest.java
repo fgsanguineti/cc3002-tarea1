@@ -1,14 +1,19 @@
 package cc3002.pokemonTypes;
 
-import cc3002.ICard;
+import cc3002.Attack;
+import cc3002.AttackContainer;
+import cc3002.EnergyContainer;
 import cc3002.energyTypes.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ElectricPokemonTest {
     private ElectricPokemon pikachu, jolteon;
+    private Attack firstAttack, secondAttack, thirdAttack, fourthAttack;
+
+
 
     private ElectricEnergy electric1, electric2, electric3;
     private FightingEnergy fighting1, fighting2, fighting3;
@@ -17,10 +22,30 @@ class ElectricPokemonTest {
     private PsychicEnergy psychic1, psychic2, psychic3;
     private WaterEnergy water1, water2, water3;
 
+    private AttackContainer firstContainer, secondContainer, thirdContainer, fourthContainer;
+
     @BeforeEach
     void setUp() {
-        pikachu = new ElectricPokemon("Pikachu", 54, 60);
-        jolteon = new ElectricPokemon("Jolteon", 28, 160);
+
+        EnergyContainer first = new EnergyContainer(0, 1, 5, 0, 0, 0);
+        EnergyContainer second = new EnergyContainer(4, 0, 2, 0, 0, 0);
+        EnergyContainer third = new EnergyContainer(0, 1, 2, 1, 2, 1);
+        EnergyContainer fourth = new EnergyContainer(0, 1, 1, 0, 2, 1);
+
+        firstAttack = new Attack("Látigo Cepa", "Le pega con un látigo cepa al pókemon oponente",
+                40, first);
+        secondAttack = new Attack("Placaje", "Le pega un buen colpe al oponente con su cuerpo",
+                30, second);
+        thirdAttack = new Attack("Vuelo", "Vuela y le pega al oponente", 50, third);
+        fourthAttack = new Attack("Golpe Karate", "Le pega un golpe de karate", 20, fourth);
+
+        firstContainer = new AttackContainer(firstAttack, secondAttack, null, null);
+        secondContainer = new AttackContainer(thirdAttack, null, null, null);
+        thirdContainer = new AttackContainer(firstAttack, secondAttack, thirdAttack, null);
+        fourthContainer = new AttackContainer(fourthAttack, thirdAttack, secondAttack, firstAttack);
+
+        pikachu = new ElectricPokemon("Pikachu", 54, 60, firstContainer);
+        jolteon = new ElectricPokemon("Jolteon", 28, 160, fourthContainer);
         electric1 = new ElectricEnergy();
         electric2 = new ElectricEnergy();
         electric3 = new ElectricEnergy();

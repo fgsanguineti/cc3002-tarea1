@@ -1,9 +1,10 @@
 package cc3002;
 import java.util.HashMap;
-class EnergyContainer {
+
+public class EnergyContainer {
     private HashMap<String, Integer> container = new HashMap<>();
 
-    EnergyContainer(int el, int fig, int fir, int gr, int psy, int wa){
+    public EnergyContainer(int el, int fig, int fir, int gr, int psy, int wa) {
         container.put("Electric", el);
         container.put("Fighting", fig);
         container.put("Fire", fir);
@@ -17,4 +18,17 @@ class EnergyContainer {
     int getGrass(){return container.get("Grass");}
     int getPsychic(){return container.get("Psychic");}
     int getWater(){return container.get("Water");}
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof EnergyContainer)) return false;
+        EnergyContainer that = (EnergyContainer) o;
+        return container.equals(that.container);
+    }
+
+    @Override
+    public int hashCode() {
+        return 0;
+    }
 }
