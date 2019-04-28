@@ -19,6 +19,8 @@ public interface IPokemon extends ICard{
 
     Attack getActiveAttack();
 
+    EnergyContainer getAllEnergyQuantity();
+
     int getElectricEnergyQuantity();
 
     int getFightingEnergyQuantity();

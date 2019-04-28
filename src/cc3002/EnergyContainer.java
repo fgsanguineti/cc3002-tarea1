@@ -44,6 +44,7 @@ public class EnergyContainer {
         return container.get("Water");
     }
 
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -51,5 +52,4 @@ public class EnergyContainer {
         EnergyContainer that = (EnergyContainer) o;
         return container.equals(that.container);
     }
-
 }

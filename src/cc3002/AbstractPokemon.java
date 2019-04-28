@@ -83,7 +83,7 @@ public abstract class AbstractPokemon implements IPokemon {
     @Override
     public void setActiveAttack(int index) {
         Attack aux = this.attackList.getAttack(index);
-        if (aux.isEnoughEnergyToUseTheAttack(pokemonEnergy) && isAlive()) activeAttack = aux;
+        if (aux.isEnoughEnergyToUseTheAbility(this) && isAlive()) activeAttack = aux;
     }
 
     /**
@@ -151,7 +151,17 @@ public abstract class AbstractPokemon implements IPokemon {
     }
 
     /**
-     * Shows the number of electric energies that has the Pokemon.
+     * Return the EnergyContainer that store all the energies of the Pokemon.
+     *
+     * @return a EnergyCContainer with all the Pokemon energies.
+     */
+    @Override
+    public EnergyContainer getAllEnergyQuantity() {
+        return this.pokemonEnergy;
+    }
+
+    /**
+     * Return the number of electric energies that has the Pokemon.
      * @return a int with the number of electric energies of the Pokemon.
      */
     @Override
@@ -160,7 +170,7 @@ public abstract class AbstractPokemon implements IPokemon {
     }
 
     /**
-     * Shows the number of fighting energies that has the Pokemon.
+     * Return the number of fighting energies that has the Pokemon.
      * @return a int with the number of fighting energies of the Pokemon.
      */
     @Override
@@ -169,7 +179,7 @@ public abstract class AbstractPokemon implements IPokemon {
     }
 
     /**
-     * Shows the number of fire energies that has the Pokemon.
+     * Return the number of fire energies that has the Pokemon.
      * @return a int with the number of fire energies of the Pokemon.
      */
     @Override
@@ -178,7 +188,7 @@ public abstract class AbstractPokemon implements IPokemon {
     }
 
     /**
-     * Shows the number of grass energies that has the Pokemon.
+     * Return the number of grass energies that has the Pokemon.
      * @return a int with the number of grass energies of the Pokemon.
      */
     @Override
@@ -187,7 +197,7 @@ public abstract class AbstractPokemon implements IPokemon {
     }
 
     /**
-     * Shows the number of grass energies that has the Pokemon.
+     * Return the number of grass energies that has the Pokemon.
      * @return a int with the number of grass energies of the Pokemon.
      */
     @Override
@@ -196,7 +206,7 @@ public abstract class AbstractPokemon implements IPokemon {
     }
 
     /**
-     * Shows the number of water energies that has the Pokemon.
+     * Return the number of water energies that has the Pokemon.
      * @return a int with the water of fighting energies of the Pokemon.
      */
     @Override
