@@ -75,7 +75,6 @@ public class Attack implements IAttack {
     public int getBaseDamage() {
         return this.baseDamage;
     }
-
     /**
      * Compares the Attack with another Attack.
      *
