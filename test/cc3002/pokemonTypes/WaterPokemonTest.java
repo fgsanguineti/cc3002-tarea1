@@ -169,4 +169,8 @@ public class WaterPokemonTest {
         assertEquals(gyarados.getHP(), 50);
     }
 
+    @Test
+    public void equals() {
+        assertEquals(gyarados, new WaterPokemon("Gyarados", 85, 100, thirdContainer));
+    }
 }

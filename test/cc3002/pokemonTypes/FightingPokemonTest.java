@@ -165,4 +165,9 @@ public class FightingPokemonTest {
         assertEquals(lucario.getHP(), 60);
     }
 
+    @Test
+    public void equals() {
+        assertEquals(riolu, new FightingPokemon("Riolu", 33, 60, firstContainer));
+    }
+
 }

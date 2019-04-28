@@ -18,6 +18,7 @@ public class ElectricEnergy extends AbstractEnergy {
         super.setCardName("Electric Energy");
     }
 
+
     /**
      * {@inheritDoc}
      * @param other Pokemon that receives the energy.
@@ -27,4 +28,17 @@ public class ElectricEnergy extends AbstractEnergy {
         other.receiveElectricEnergy(this);
     }
 
+    /**
+     * {@inheritDoc}
+     *
+     * @param o The target energy object.
+     * @return True if both are equals, false otherwise.
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof ElectricEnergy)) return false;
+        ElectricEnergy that = (ElectricEnergy) o;
+        return getCardName().equals(that.getCardName());
+    }
 }

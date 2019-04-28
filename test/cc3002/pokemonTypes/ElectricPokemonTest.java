@@ -153,4 +153,9 @@ public class ElectricPokemonTest {
         pikachu.receiveFightingPokemonAttack(thirdAttack);
         assertEquals(pikachu.getHP(), -40);
     }
+
+    @Test
+    public void equals() {
+        assertEquals(pikachu, new ElectricPokemon("Pikachu", 54, 60, firstContainer));
+    }
 }

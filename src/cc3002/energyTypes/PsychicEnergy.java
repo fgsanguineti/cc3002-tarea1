@@ -26,4 +26,19 @@ public class PsychicEnergy extends AbstractEnergy {
     public void addEnergyToPokemon(IPokemon other) {
         other.receivePsychicEnergy(this);
     }
+
+
+    /**
+     * {@inheritDoc}
+     *
+     * @param o The target energy object.
+     * @return True if both are equals, false otherwise.
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof PsychicEnergy)) return false;
+        PsychicEnergy that = (PsychicEnergy) o;
+        return getCardName().equals(that.getCardName());
+    }
 }

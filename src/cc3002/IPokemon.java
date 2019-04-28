@@ -3,7 +3,7 @@ import cc3002.energyTypes.*;
 
 /**
  * Common interface for all the Pokemon, that also is a card. Besides the cards attributes, a Pokemon also has a ID,
- * an HP value, an alive status, an active attack and a energy number for each type. A Pokemon should be able to
+ * an HP value, an alive status, an attack list, an active attack and a energy number for each type. A Pokemon should be able to
  * receive a Energy Card of every class, receive an attack of every Pokemon kind and should be able to attack a
  * another Pokemon.
  *
@@ -18,6 +18,8 @@ public interface IPokemon extends ICard{
     boolean isAlive();
 
     Attack getActiveAttack();
+
+    AttackContainer getAttackList();
 
     EnergyContainer getAllEnergyQuantity();
 

@@ -39,11 +39,13 @@ public abstract class AbstractEnergy implements IEnergy {
     @Override
     public abstract void addEnergyToPokemon(IPokemon other);
 
+    /**
+     * Check if the energy object are the same that the target energy object.
+     *
+     * @param o The target energy object.
+     * @return True if both are equals, false otherwise.
+     */
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof AbstractEnergy)) return false;
-        AbstractEnergy that = (AbstractEnergy) o;
-        return getCardName().equals(that.getCardName());
-    }
+
+    public abstract boolean equals(Object o);
 }

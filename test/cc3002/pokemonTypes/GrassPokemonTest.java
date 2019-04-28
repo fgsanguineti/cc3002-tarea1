@@ -171,4 +171,9 @@ public class GrassPokemonTest {
         assertEquals(bulbasaur.getHP(), 60);
     }
 
+    @Test
+    public void equals() {
+        assertEquals(chikorita, new GrassPokemon("Chikorita", 33, 60, secondContainer));
+    }
+
 }

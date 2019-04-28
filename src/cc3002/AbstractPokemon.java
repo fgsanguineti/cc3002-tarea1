@@ -67,6 +67,16 @@ public abstract class AbstractPokemon implements IPokemon {
         return this.hp;
     }
 
+
+    /**
+     * Returns the list of the Pokemon attacks.
+     *
+     * @return a AttackContainer with the Pokemon attacks.
+     */
+    @Override
+    public AttackContainer getAttackList() {
+        return this.attackList;
+    }
     /**
      * Returns the Pokemon active attack
      * @return the active attack.
@@ -306,17 +316,12 @@ public abstract class AbstractPokemon implements IPokemon {
     @Override
     public abstract void attack(IPokemon other);
 
+    /**
+     * Checks if the Pokemon object are the same that the target Pokemon object.
+     * @param o The target Pokemon object
+     * @return True if are equals, false otherwise
+     */
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof AbstractPokemon)) return false;
-        AbstractPokemon that = (AbstractPokemon) o;
-        return id == that.id &&
-                hp == that.hp &&
-                getCardName().equals(that.getCardName()) &&
-                attackList.equals(that.attackList) &&
-                getActiveAttack().equals(that.getActiveAttack()) &&
-                pokemonEnergy.equals(that.pokemonEnergy);
-    }
+    public abstract boolean equals(Object o);
 
 }

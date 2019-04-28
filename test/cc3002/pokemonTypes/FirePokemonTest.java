@@ -157,4 +157,8 @@ public class FirePokemonTest {
         assertEquals(flareon.getHP(), 50);
     }
 
+    @Test
+    public void equals() {
+        assertEquals(tepig, new FirePokemon("Tepig", 3, 70, thirdContainer));
+    }
 }

@@ -26,4 +26,18 @@ public class WaterEnergy extends AbstractEnergy {
         other.receiveWaterEnergy(this);
     }
 
+
+    /**
+     * {@inheritDoc}
+     *
+     * @param o The target energy object.
+     * @return True if both are equals, false otherwise.
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof WaterEnergy)) return false;
+        WaterEnergy that = (WaterEnergy) o;
+        return getCardName().equals(that.getCardName());
+    }
 }

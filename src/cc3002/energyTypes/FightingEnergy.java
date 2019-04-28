@@ -27,4 +27,17 @@ public class FightingEnergy extends AbstractEnergy {
         other.receiveFightingEnergy(this);
     }
 
+    /**
+     * {@inheritDoc}
+     *
+     * @param o The target energy object.
+     * @return True if both are equals, false otherwise.
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof FightingEnergy)) return false;
+        FightingEnergy that = (FightingEnergy) o;
+        return getCardName().equals(that.getCardName());
+    }
 }

@@ -26,4 +26,19 @@ public class FireEnergy extends AbstractEnergy {
     public void addEnergyToPokemon(IPokemon other) {
         other.receiveFireEnergy(this);
     }
+
+
+    /**
+     * {@inheritDoc}
+     *
+     * @param o The target energy object.
+     * @return True if both are equals, false otherwise.
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof FireEnergy)) return false;
+        FireEnergy that = (FireEnergy) o;
+        return getCardName().equals(that.getCardName());
+    }
 }
