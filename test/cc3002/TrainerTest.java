@@ -81,8 +81,10 @@ public class TrainerTest {
 
     @Test
     public void getActivePokemon() {
-        Franco.playPokemon(pikachu);
-        Giovanni.playPokemon(squirtle);
+        Franco.addCardToHand(pikachu);
+        Giovanni.addCardToHand(squirtle);
+        Franco.Play(Franco.getHand().get(Franco.getHand().indexOf(pikachu)));
+        Giovanni.Play(Giovanni.getHand().get(Giovanni.getHand().indexOf(squirtle)));
         assertEquals(Franco.getActivePokemon(), pikachu);
         assertEquals(Giovanni.getActivePokemon(), squirtle);
     }
@@ -162,18 +164,18 @@ public class TrainerTest {
         Franco.addCardToHand(chikorita);
         Franco.addCardToHand(mewto);
 
-        Franco.playPokemon(pikachu);
-        Franco.playPokemon(lucario);
+        Franco.Play(Franco.getHand().get(Franco.getHand().indexOf(pikachu)));
+        Franco.Play(Franco.getHand().get(Franco.getHand().indexOf(lucario)));
 
         ArrayList<IPokemon> bench = new ArrayList<>();
         bench.add(lucario);
 
         assertEquals(bench, Franco.getBench());
 
-        Franco.playPokemon(tepig);
-        Franco.playPokemon(bulbasaur);
-        Franco.playPokemon(espeon);
-        Franco.playPokemon(gyarados);
+        Franco.Play(Franco.getHand().get(Franco.getHand().indexOf(tepig)));
+        Franco.Play(Franco.getHand().get(Franco.getHand().indexOf(bulbasaur)));
+        Franco.Play(Franco.getHand().get(Franco.getHand().indexOf(espeon)));
+        Franco.Play(Franco.getHand().get(Franco.getHand().indexOf(gyarados)));
 
         bench.add(tepig);
         bench.add(bulbasaur);
@@ -182,7 +184,7 @@ public class TrainerTest {
 
         assertEquals(bench, Franco.getBench());
 
-        Franco.playPokemon(mewto);
+        Franco.Play(Franco.getHand().get(Franco.getHand().indexOf(mewto)));
         bench.add(mewto);
         assertNotEquals(bench, Franco.getBench());
     }
@@ -247,5 +249,22 @@ public class TrainerTest {
         assertEquals(Franco.getActivePokemon().getHP(), 50);
         Giovanni.makeAnAttack(2, Franco);
         assertEquals(pikachu, Franco.getActivePokemon());
+    }
+
+    @Test
+    public void equals() {
+        assertNotEquals(Franco, Giovanni);
+        assertEquals(Franco, new Trainer("Franco"));
+        Giovanni.addCardToHand(pikachu);
+        Giovanni.Play(Giovanni.getHand().get(Giovanni.getHand().indexOf(pikachu)));
+        Trainer Giova = new Trainer("Giovanni");
+        Giova.addCardToHand(pikachu);
+        Giova.Play(Giova.getHand().get(Giova.getHand().indexOf(pikachu)));
+        assertEquals(Giova, Giovanni);
+
+        Giovanni.addCardToHand(pikachu);
+        Giova.Play(Giovanni.getHand().get(Giovanni.getHand().indexOf(pikachu)));
+
+
     }
 }

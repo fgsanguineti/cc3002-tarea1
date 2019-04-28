@@ -76,6 +76,12 @@ public class Attack implements IAttack {
         return this.baseDamage;
     }
 
+    /**
+     * Compares the Attack with another Attack.
+     *
+     * @param o Another Attack .
+     * @return true if are equals. False otherwise.
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
