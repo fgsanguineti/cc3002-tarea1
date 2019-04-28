@@ -1,9 +1,9 @@
 # CC3001 - PokemonTCG Game - Homework 1
 
-This is the Homework 1 project. Includes all the files that implements the requested for this work. Here, you can see the UML Java class diagram.
+This is the Homework 1 project, developed using the Java 1.8 SDK. Includes all the files that implements the requested for this work. Here, you can see the UML Java class diagram.
 Please refers to the file "uml_diagram.png" in the repo root directory for a better view.
 
-![Alt text](uml_diagram.png "Title")
+![Alt text](uml_diagram.png "UML")
 
 ## Design
 
@@ -65,10 +65,6 @@ This class implements IAttack interface. Describes an attack and knows if a Pók
 ### EnergyContainer class
 
 This class use a HasMap to storage up to six energy types. Can add energies and return the number of energies that contains.
-    
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
 
 ## Testing
 
