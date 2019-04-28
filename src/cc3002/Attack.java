@@ -1,5 +1,6 @@
 package cc3002;
 
+
 public class Attack implements IAbility {
     private String name;
     private String description;
