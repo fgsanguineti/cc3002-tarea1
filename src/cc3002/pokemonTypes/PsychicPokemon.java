@@ -1,9 +1,12 @@
 package cc3002.pokemonTypes;
 
-import cc3002.*;
+import cc3002.AbstractPokemon;
+import cc3002.Attack;
+import cc3002.AttackContainer;
+import cc3002.IPokemon;
 
 public class PsychicPokemon extends AbstractPokemon {
-    PsychicPokemon(String cardName, int id, int hp, AttackContainer attackList) {
+    public PsychicPokemon(String cardName, int id, int hp, AttackContainer attackList) {
         super(cardName, id, hp, attackList);
     }
 
@@ -13,18 +16,13 @@ public class PsychicPokemon extends AbstractPokemon {
     }
 
     @Override
-    public void playCard(Trainer aTrainer) {
-
-    }
-
-    @Override
     public void receiveFightingPokemonAttack(Attack anAttack) {
-        super.receiveWeaknessPokemonTypeAttack(anAttack);
+        super.receiveResistantPokemonTypeAttack(anAttack);
     }
 
     @Override
     public void receivePsychicPokemonAttack(Attack anAttack) {
-        super.receiveResistantPokemonTypeAttack(anAttack);
+        super.receiveWeaknessPokemonTypeAttack(anAttack);
     }
 
     @Override

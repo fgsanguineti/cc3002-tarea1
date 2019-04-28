@@ -11,9 +11,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ElectricPokemonTest {
     private ElectricPokemon pikachu, jolteon;
+
+
     private Attack firstAttack, secondAttack, thirdAttack, fourthAttack;
-
-
 
     private ElectricEnergy electric1, electric2, electric3;
     private FightingEnergy fighting1, fighting2, fighting3;
@@ -46,6 +46,8 @@ class ElectricPokemonTest {
 
         pikachu = new ElectricPokemon("Pikachu", 54, 60, firstContainer);
         jolteon = new ElectricPokemon("Jolteon", 28, 160, fourthContainer);
+
+
         electric1 = new ElectricEnergy();
         electric2 = new ElectricEnergy();
         electric3 = new ElectricEnergy();
@@ -146,4 +148,9 @@ class ElectricPokemonTest {
         assertEquals(jolteon.getWaterEnergyQuantity(),2);
     }
 
+    @Test
+    void receiveFightingPokemonAttack() {
+        pikachu.receiveFightingPokemonAttack(thirdAttack);
+        assertEquals(pikachu.getHP(), -40);
+    }
 }

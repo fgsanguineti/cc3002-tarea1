@@ -32,6 +32,12 @@ public class Attack implements IAbility {
         return this.baseDamage;
     }
 
+    boolean isEnoughEnergyToUseTheAttack(EnergyContainer pokemonEnergies) {
+        EnergyContainer aux = this.getCost();
+        return aux.getFighting() <= pokemonEnergies.getFighting() && aux.getElectric() <= pokemonEnergies.getElectric()
+                && aux.getFire() <= pokemonEnergies.getFire() && aux.getGrass() <= pokemonEnergies.getGrass() &&
+                aux.getPsychic() <= pokemonEnergies.getPsychic() && aux.getWater() <= pokemonEnergies.getWater();
+    }
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

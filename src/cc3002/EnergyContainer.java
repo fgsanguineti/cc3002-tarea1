@@ -1,4 +1,5 @@
 package cc3002;
+
 import java.util.HashMap;
 
 public class EnergyContainer {
@@ -12,12 +13,36 @@ public class EnergyContainer {
         container.put("Psychic", psy);
         container.put("Water", wa);
     }
-    int getElectric(){return container.get("Electric"); }
-    int getFighting(){return container.get("Fighting");}
-    int getFire(){return container.get("Fire");}
-    int getGrass(){return container.get("Grass");}
-    int getPsychic(){return container.get("Psychic");}
-    int getWater(){return container.get("Water");}
+
+    void addEnergy(String type) {
+        int aux = container.get(type);
+        aux++;
+        container.replace(type, aux);
+    }
+
+    int getElectric() {
+        return container.get("Electric");
+    }
+
+    int getFighting() {
+        return container.get("Fighting");
+    }
+
+    int getFire() {
+        return container.get("Fire");
+    }
+
+    int getGrass() {
+        return container.get("Grass");
+    }
+
+    int getPsychic() {
+        return container.get("Psychic");
+    }
+
+    int getWater() {
+        return container.get("Water");
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -27,8 +52,4 @@ public class EnergyContainer {
         return container.equals(that.container);
     }
 
-    @Override
-    public int hashCode() {
-        return 0;
-    }
 }

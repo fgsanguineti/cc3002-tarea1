@@ -7,6 +7,10 @@ public interface IPokemon extends ICard{
     int getHP();
 
     Attack getActiveAttack();
+
+    boolean isAlive();
+
+    void setActiveAttack(int index);
     void receiveElectricEnergy(ElectricEnergy energy);
     void receiveFightingEnergy(FightingEnergy energy);
     void receiveFireEnergy(FireEnergy energy);

@@ -8,11 +8,10 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
-class PsychicPokemonTest {
+class FightingPokemonTest {
     private Attack firstAttack, secondAttack, thirdAttack, fourthAttack;
-    private PsychicPokemon espeon, mewto;
+    private FightingPokemon riolu, lucario;
 
     private ElectricEnergy electric1, electric2, electric3;
     private FightingEnergy fighting1, fighting2, fighting3;
@@ -42,8 +41,10 @@ class PsychicPokemonTest {
         thirdContainer = new AttackContainer(firstAttack, secondAttack, thirdAttack, null);
         fourthContainer = new AttackContainer(fourthAttack, thirdAttack, secondAttack, firstAttack);
 
-        espeon = new PsychicPokemon("Espeon", 33, 60, fourthContainer);
-        mewto = new PsychicPokemon("Mewto", 85, 100, firstContainer);
+
+        riolu = new FightingPokemon("Riolu", 33, 60, firstContainer);
+        lucario = new FightingPokemon("Lucario", 85, 100, secondContainer);
+
         electric1 = new ElectricEnergy();
         electric2 = new ElectricEnergy();
         electric3 = new ElectricEnergy();
@@ -72,106 +73,96 @@ class PsychicPokemonTest {
 
     @Test
     void getCardName() {
-        assertEquals(espeon.getCardName(), "Espeon");
-        assertEquals(mewto.getCardName(), "Mewto");
+        assertEquals(riolu.getCardName(), "Riolu");
+        assertEquals(lucario.getCardName(), "Lucario");
     }
 
     @Test
     void getID() {
-        assertEquals(espeon.getID(), 33);
-        assertEquals(mewto.getID(), 85);
+        assertEquals(riolu.getID(), 33);
+        assertEquals(lucario.getID(), 85);
     }
 
     @Test
     void getHP() {
-        assertEquals(espeon.getHP(), 60);
-        assertEquals(mewto.getHP(), 100);
+        assertEquals(riolu.getHP(), 60);
+        assertEquals(lucario.getHP(), 100);
     }
+
     @Test
     void receiveElectricEnergy() {
-        espeon.receiveElectricEnergy(electric1);
-        espeon.receiveElectricEnergy(electric2);
-        mewto.receiveElectricEnergy(electric3);
-        assertEquals(espeon.getElectricEnergyQuantity(), 2);
-        assertEquals(mewto.getElectricEnergyQuantity(), 1);
+        riolu.receiveElectricEnergy(electric1);
+        riolu.receiveElectricEnergy(electric2);
+        lucario.receiveElectricEnergy(electric3);
+        assertEquals(riolu.getElectricEnergyQuantity(), 2);
+        assertEquals(lucario.getElectricEnergyQuantity(), 1);
     }
 
     @Test
     void receiveFightingEnergy() {
-        mewto.receiveFightingEnergy(fighting1);
-        mewto.receiveFightingEnergy(fighting2);
-        espeon.receiveFightingEnergy(fighting3);
-        assertEquals(espeon.getFightingEnergyQuantity(),1);
-        assertEquals(mewto.getFightingEnergyQuantity(),2);
+        lucario.receiveFightingEnergy(fighting1);
+        lucario.receiveFightingEnergy(fighting2);
+        riolu.receiveFightingEnergy(fighting3);
+        assertEquals(riolu.getFightingEnergyQuantity(), 1);
+        assertEquals(lucario.getFightingEnergyQuantity(), 2);
     }
 
     @Test
     void receiveFireEnergy() {
-        mewto.receiveFireEnergy(fire1);
-        mewto.receiveFireEnergy(fire2);
-        mewto.receiveFireEnergy(fire3);
-        assertEquals(mewto.getFireEnergyQuantity(), 3);
-        assertEquals(espeon.getFireEnergyQuantity(), 0);
+        lucario.receiveFireEnergy(fire1);
+        lucario.receiveFireEnergy(fire2);
+        lucario.receiveFireEnergy(fire3);
+        assertEquals(lucario.getFireEnergyQuantity(), 3);
+        assertEquals(riolu.getFireEnergyQuantity(), 0);
 
 
     }
 
     @Test
     void receiveGrassEnergy() {
-        espeon.receiveGrassEnergy(grass1);
-        espeon.receiveGrassEnergy(grass2);
-        espeon.receiveGrassEnergy(grass3);
-        assertEquals(espeon.getGrassEnergyQuantity(), 3);
-        assertEquals(mewto.getGrassEnergyQuantity(), 0);
+        riolu.receiveGrassEnergy(grass1);
+        riolu.receiveGrassEnergy(grass2);
+        riolu.receiveGrassEnergy(grass3);
+        assertEquals(riolu.getGrassEnergyQuantity(), 3);
+        assertEquals(lucario.getGrassEnergyQuantity(), 0);
 
     }
 
     @Test
     void receivePsychicEnergy() {
-        espeon.receivePsychicEnergy(psychic1);
-        espeon.receivePsychicEnergy(psychic2);
-        mewto.receivePsychicEnergy(psychic3);
-        assertEquals(espeon.getPsychicEnergyQuantity(), 2);
-        assertEquals(mewto.getPsychicEnergyQuantity(), 1);
+        riolu.receivePsychicEnergy(psychic1);
+        riolu.receivePsychicEnergy(psychic2);
+        lucario.receivePsychicEnergy(psychic3);
+        assertEquals(riolu.getPsychicEnergyQuantity(), 2);
+        assertEquals(lucario.getPsychicEnergyQuantity(), 1);
     }
 
     @Test
     void receiveWaterEnergy() {
-        mewto.receiveWaterEnergy(water1);
-        mewto.receiveWaterEnergy(water2);
-        espeon.receiveWaterEnergy(water3);
-        assertEquals(espeon.getWaterEnergyQuantity(),1);
-        assertEquals(mewto.getWaterEnergyQuantity(),2);
+        lucario.receiveWaterEnergy(water1);
+        lucario.receiveWaterEnergy(water2);
+        riolu.receiveWaterEnergy(water3);
+        assertEquals(riolu.getWaterEnergyQuantity(), 1);
+        assertEquals(lucario.getWaterEnergyQuantity(), 2);
     }
 
     @Test
-    void receiveFightingPokemonAttack() {
-        mewto.receiveFightingPokemonAttack(firstAttack);
-        assertEquals(mewto.getHP(), 90);
+    void receiveGrassPokemonAttack() {
+        riolu.receiveGrassPokemonAttack(secondAttack);
+        assertEquals(riolu.getHP(), 0);
     }
 
     @Test
     void receivePsychicPokemonAttack() {
-        mewto.receivePsychicPokemonAttack(secondAttack);
-        assertEquals(mewto.getHP(), 40);
+        riolu.receivePsychicPokemonAttack(secondAttack);
+        assertEquals(riolu.getHP(), 0);
     }
 
     @Test
     void attack() {
-        espeon.setActiveAttack(1);
-        espeon.attack(mewto);
-        assertEquals(mewto.getHP(), 60);
+        riolu.setActiveAttack(1);
+        riolu.attack(lucario);
+        assertEquals(lucario.getHP(), 60);
     }
-
-    @Test
-    void equals() {
-        assertNotEquals(espeon, mewto);
-        assertEquals(espeon, espeon);
-        assertEquals(mewto, new PsychicPokemon("Mewto", 85, 100, firstContainer));
-        assertNotEquals(mewto, new PsychicPokemon("Meto", 85, 100, firstContainer));
-    }
-
-
-
 
 }

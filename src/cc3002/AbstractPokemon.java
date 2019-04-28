@@ -2,8 +2,6 @@ package cc3002;
 
 import cc3002.energyTypes.*;
 
-import java.util.ArrayList;
-
 public abstract class AbstractPokemon implements IPokemon {
 
     private String cardName;
@@ -11,13 +9,7 @@ public abstract class AbstractPokemon implements IPokemon {
     private int hp;
     private AttackContainer attackList;
     private Attack activeAttack;
-
-    private ArrayList<ElectricEnergy> electric;
-    private ArrayList<FightingEnergy> fighting;
-    private ArrayList<FireEnergy> fire;
-    private ArrayList<GrassEnergy> grass;
-    private ArrayList<PsychicEnergy> psychic;
-    private ArrayList<WaterEnergy> water;
+    private EnergyContainer pokemonEnergy;
 
     public AbstractPokemon(String cardName, int id, int hp, AttackContainer attackList) {
         this.cardName = cardName;
@@ -25,22 +17,19 @@ public abstract class AbstractPokemon implements IPokemon {
         this.hp = hp;
         this.attackList = attackList;
         this.activeAttack = attackList.getAttack(1);
-
-        electric = new ArrayList<>();
-        fighting = new ArrayList<>();
-        fire = new ArrayList<>();
-        grass = new ArrayList<>();
-        psychic = new ArrayList<>();
-        water = new ArrayList<>();
+        this.pokemonEnergy = new EnergyContainer(0, 0, 0, 0, 0, 0);
     }
 
     @Override
     public String getCardName() {
         return this.cardName;
     }
+
     @Override
     public void playCard(Trainer aTrainer) {
+        aTrainer.playPokemon(this);
     }
+
     @Override
     public int getID() {
         return this.id;
@@ -52,68 +41,79 @@ public abstract class AbstractPokemon implements IPokemon {
     }
 
     @Override
-
     public Attack getActiveAttack() {
         return activeAttack;
     }
 
     @Override
+    public boolean isAlive() {
+        return this.hp > 0;
+    }
+
+    @Override
+    public void setActiveAttack(int index) {
+        Attack aux = this.attackList.getAttack(index);
+        if (aux.isEnoughEnergyToUseTheAttack(pokemonEnergy) && isAlive()) activeAttack = aux;
+    }
+
+    @Override
     public void receiveElectricEnergy(ElectricEnergy energy) {
-        this.electric.add(energy);
+        this.pokemonEnergy.addEnergy("Electric");
     }
 
     @Override
     public void receiveFightingEnergy(FightingEnergy energy) {
-        this.fighting.add(energy);
+        this.pokemonEnergy.addEnergy("Fighting");
     }
 
     @Override
     public void receiveFireEnergy(FireEnergy energy) {
-        this.fire.add(energy);
+        this.pokemonEnergy.addEnergy("Fire");
     }
 
     @Override
     public void receiveGrassEnergy(GrassEnergy energy) {
-        this.grass.add(energy);
+        this.pokemonEnergy.addEnergy("Grass");
     }
 
     @Override
     public void receivePsychicEnergy(PsychicEnergy energy) {
-        this.psychic.add(energy);
+        this.pokemonEnergy.addEnergy("Psychic");
     }
 
     @Override
     public void receiveWaterEnergy(WaterEnergy energy) {
-        this.water.add(energy);
+        this.pokemonEnergy.addEnergy("Water");
     }
+
     @Override
     public int getElectricEnergyQuantity() {
-        return electric.size();
+        return this.pokemonEnergy.getElectric();
     }
 
     @Override
     public int getFightingEnergyQuantity() {
-        return fighting.size();
+        return this.pokemonEnergy.getFighting();
     }
 
     @Override
     public int getFireEnergyQuantity() {
-        return fire.size();
+        return this.pokemonEnergy.getFire();
     }
 
     @Override
     public int getGrassEnergyQuantity() {
-        return grass.size();
+        return this.pokemonEnergy.getGrass();
     }
 
     @Override
     public int getPsychicEnergyQuantity() {
-        return psychic.size();
+        return this.pokemonEnergy.getPsychic();
     }
 
     @Override
     public int getWaterEnergyQuantity() {
-        return water.size();
+        return this.pokemonEnergy.getWater();
     }
 
     @Override
@@ -153,13 +153,28 @@ public abstract class AbstractPokemon implements IPokemon {
 
     @Override
     public void receiveResistantPokemonTypeAttack(Attack anAttack) {
-        this.hp -= (anAttack.getBaseDamage() - 30);
+        int aux = anAttack.getBaseDamage() - 30;
+        if (aux > 0) this.hp -= (anAttack.getBaseDamage() - 30);
     }
+
+    @Override
+    public abstract void attack(IPokemon other);
 
     private void receiveAttack(Attack anAttack) {
         this.hp -= anAttack.getBaseDamage();
     }
 
     @Override
-    public abstract void attack(IPokemon other);
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof AbstractPokemon)) return false;
+        AbstractPokemon that = (AbstractPokemon) o;
+        return id == that.id &&
+                hp == that.hp &&
+                getCardName().equals(that.getCardName()) &&
+                attackList.equals(that.attackList) &&
+                getActiveAttack().equals(that.getActiveAttack()) &&
+                pokemonEnergy.equals(that.pokemonEnergy);
+    }
+
 }

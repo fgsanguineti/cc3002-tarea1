@@ -144,7 +144,29 @@ class WaterPokemonTest {
         assertEquals(gyarados.getWaterEnergyQuantity(),2);
     }
 
+    @Test
+    void receiveElectricPokemonAttack() {
+        gyarados.receiveElectricPokemonAttack(secondAttack);
+        assertEquals(gyarados.getHP(), 40);
+    }
 
+    @Test
+    void receiveGrassPokemonAttack() {
+        gyarados.receiveGrassPokemonAttack(fourthAttack);
+        assertEquals(gyarados.getHP(), 60);
+    }
 
+    @Test
+    void receiveFightingPokemonAttack() {
+        gyarados.receiveFightingPokemonAttack(thirdAttack);
+        assertEquals(gyarados.getHP(), 80);
+    }
+
+    @Test
+    void attack() {
+        squirtle.setActiveAttack(1);
+        squirtle.attack(gyarados);
+        assertEquals(gyarados.getHP(), 50);
+    }
 
 }

@@ -1,19 +1,18 @@
 package cc3002.pokemonTypes;
 
-import cc3002.*;
+import cc3002.AbstractPokemon;
+import cc3002.Attack;
+import cc3002.AttackContainer;
+import cc3002.IPokemon;
 
 public class ElectricPokemon extends AbstractPokemon {
 
-    ElectricPokemon(String cardName, int id, int hp, AttackContainer attackList) {
+    public ElectricPokemon(String cardName, int id, int hp, AttackContainer attackList) {
         super(cardName, id, hp, attackList);
     }
 
     @Override
-    public void playCard(Trainer aTrainer) {
-    }
-
-    @Override
-    public void receiveElectricPokemonAttack(Attack anAttack) {
+    public void receiveFightingPokemonAttack(Attack anAttack) {
         super.receiveWeaknessPokemonTypeAttack(anAttack);
     }
 

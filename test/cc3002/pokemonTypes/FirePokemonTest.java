@@ -143,6 +143,17 @@ class FirePokemonTest {
         assertEquals(flareon.getWaterEnergyQuantity(),2);
     }
 
+    @Test
+    void receiveWaterPokemonAttack() {
+        flareon.receiveWaterPokemonAttack(firstAttack);
+        assertEquals(flareon.getHP(), 10);
+    }
 
+    @Test
+    void attack() {
+        tepig.setActiveAttack(1);
+        tepig.attack(flareon);
+        assertEquals(flareon.getHP(), 50);
+    }
 
 }

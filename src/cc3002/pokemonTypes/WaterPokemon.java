@@ -1,10 +1,13 @@
 package cc3002.pokemonTypes;
 
-import cc3002.*;
+import cc3002.AbstractPokemon;
+import cc3002.Attack;
+import cc3002.AttackContainer;
+import cc3002.IPokemon;
 
 public class WaterPokemon extends AbstractPokemon {
 
-    WaterPokemon(String cardName, int id, int hp, AttackContainer attackList) {
+    public WaterPokemon(String cardName, int id, int hp, AttackContainer attackList) {
         super(cardName, id, hp, attackList);
     }
 
@@ -33,8 +36,4 @@ public class WaterPokemon extends AbstractPokemon {
         other.receiveWaterPokemonAttack(super.getActiveAttack());
     }
 
-    @Override
-    public void playCard(Trainer aTrainer) {
-
-    }
 }

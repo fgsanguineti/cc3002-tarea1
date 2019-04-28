@@ -11,9 +11,17 @@ public abstract class AbstractEnergy implements IEnergy {
     protected void setCardName(String cardName) {
         this.cardName = cardName;
     }
-
     @Override
     public void playCard(Trainer aTrainer) {
-        this.addEnergyToPokemon(aTrainer.getActivePokemon());
+        if (aTrainer.getHand() != null)
+            this.addEnergyToPokemon(aTrainer.getActivePokemon());
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof AbstractEnergy)) return false;
+        AbstractEnergy that = (AbstractEnergy) o;
+        return getCardName().equals(that.getCardName());
     }
 }

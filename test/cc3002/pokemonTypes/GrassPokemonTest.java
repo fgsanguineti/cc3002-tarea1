@@ -143,6 +143,32 @@ class GrassPokemonTest {
         assertEquals(bulbasaur.getWaterEnergyQuantity(),2);
     }
 
+    @Test
+    void receiveWaterPokemonAttack() {
+        bulbasaur.receiveWaterPokemonAttack(thirdAttack);
+        assertEquals(bulbasaur.getHP(), 80);
 
+        chikorita.receiveWaterPokemonAttack(fourthAttack);
+        assertEquals(chikorita.getHP(), 60);
+    }
+
+    @Test
+    void receiveFirePokemonAttack() {
+        bulbasaur.receiveFirePokemonAttack(firstAttack);
+        assertEquals(bulbasaur.getHP(), 20);
+    }
+
+    @Test
+    void attack() {
+        chikorita.setActiveAttack(1);
+        chikorita.attack(bulbasaur);
+        assertEquals(bulbasaur.getHP(), 50);
+    }
+
+    @Test
+    void receivePsychicPokemonAttack() {
+        bulbasaur.receivePsychicPokemonAttack(firstAttack);
+        assertEquals(bulbasaur.getHP(), 60);
+    }
 
 }

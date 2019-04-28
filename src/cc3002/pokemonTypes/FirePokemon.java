@@ -1,15 +1,14 @@
 package cc3002.pokemonTypes;
 
-import cc3002.*;
+import cc3002.AbstractPokemon;
+import cc3002.Attack;
+import cc3002.AttackContainer;
+import cc3002.IPokemon;
 
 public class FirePokemon extends AbstractPokemon {
 
-    FirePokemon(String cardName, int id, int hp, AttackContainer attackList) {
+    public FirePokemon(String cardName, int id, int hp, AttackContainer attackList) {
         super(cardName, id, hp, attackList);
-    }
-
-    @Override
-    public void playCard(Trainer aTrainer) {
     }
 
     @Override
