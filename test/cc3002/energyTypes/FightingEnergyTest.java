@@ -1,15 +1,16 @@
 package cc3002.energyTypes;
 
 import cc3002.IEnergy;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.Before;
+import org.junit.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.assertEquals;
 
-class FightingEnergyTest {
+public class FightingEnergyTest {
     private IEnergy  firstFightingEnergy, secondFightingEnergy, thirdFightingEnergy;
-    @BeforeEach
-    void setUp() {
+
+    @Before
+    public void setUp() {
         firstFightingEnergy = new FightingEnergy();
         secondFightingEnergy = new FightingEnergy();
         thirdFightingEnergy = new FightingEnergy();
@@ -17,14 +18,14 @@ class FightingEnergyTest {
     }
 
     @Test
-    void getCardName() {
+    public void getCardName() {
         assertEquals("Fighting Energy", firstFightingEnergy.getCardName());
         assertEquals("Fighting Energy", secondFightingEnergy.getCardName());
         assertEquals("Fighting Energy", thirdFightingEnergy.getCardName());
     }
 
     @Test
-    void equalsTest() {
+    public void equalsTest() {
         assertEquals(firstFightingEnergy, new FightingEnergy());
         assertEquals(secondFightingEnergy, new FightingEnergy());
         assertEquals(thirdFightingEnergy, new FightingEnergy());

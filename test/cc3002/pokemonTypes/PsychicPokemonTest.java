@@ -4,13 +4,13 @@ import cc3002.Attack;
 import cc3002.AttackContainer;
 import cc3002.EnergyContainer;
 import cc3002.energyTypes.*;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.Before;
+import org.junit.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 
-class PsychicPokemonTest {
+public class PsychicPokemonTest {
     private Attack firstAttack, secondAttack, thirdAttack, fourthAttack;
     private PsychicPokemon espeon, mewto;
 
@@ -23,8 +23,8 @@ class PsychicPokemonTest {
 
     private AttackContainer firstContainer, secondContainer, thirdContainer, fourthContainer;
 
-    @BeforeEach
-    void setUp() {
+    @Before
+    public void setUp() {
         EnergyContainer first = new EnergyContainer(0, 1, 5, 0, 0, 0);
         EnergyContainer second = new EnergyContainer(4, 0, 2, 0, 0, 0);
         EnergyContainer third = new EnergyContainer(0, 1, 2, 1, 2, 1);
@@ -71,24 +71,24 @@ class PsychicPokemonTest {
     }
 
     @Test
-    void getCardName() {
+    public void getCardName() {
         assertEquals(espeon.getCardName(), "Espeon");
         assertEquals(mewto.getCardName(), "Mewto");
     }
 
     @Test
-    void getID() {
+    public void getID() {
         assertEquals(espeon.getID(), 33);
         assertEquals(mewto.getID(), 85);
     }
 
     @Test
-    void getHP() {
+    public void getHP() {
         assertEquals(espeon.getHP(), 60);
         assertEquals(mewto.getHP(), 100);
     }
     @Test
-    void receiveElectricEnergy() {
+    public void receiveElectricEnergy() {
         espeon.receiveElectricEnergy(electric1);
         espeon.receiveElectricEnergy(electric2);
         mewto.receiveElectricEnergy(electric3);
@@ -97,7 +97,7 @@ class PsychicPokemonTest {
     }
 
     @Test
-    void receiveFightingEnergy() {
+    public void receiveFightingEnergy() {
         mewto.receiveFightingEnergy(fighting1);
         mewto.receiveFightingEnergy(fighting2);
         espeon.receiveFightingEnergy(fighting3);
@@ -106,7 +106,7 @@ class PsychicPokemonTest {
     }
 
     @Test
-    void receiveFireEnergy() {
+    public void receiveFireEnergy() {
         mewto.receiveFireEnergy(fire1);
         mewto.receiveFireEnergy(fire2);
         mewto.receiveFireEnergy(fire3);
@@ -117,7 +117,7 @@ class PsychicPokemonTest {
     }
 
     @Test
-    void receiveGrassEnergy() {
+    public void receiveGrassEnergy() {
         espeon.receiveGrassEnergy(grass1);
         espeon.receiveGrassEnergy(grass2);
         espeon.receiveGrassEnergy(grass3);
@@ -127,7 +127,7 @@ class PsychicPokemonTest {
     }
 
     @Test
-    void receivePsychicEnergy() {
+    public void receivePsychicEnergy() {
         espeon.receivePsychicEnergy(psychic1);
         espeon.receivePsychicEnergy(psychic2);
         mewto.receivePsychicEnergy(psychic3);
@@ -136,7 +136,7 @@ class PsychicPokemonTest {
     }
 
     @Test
-    void receiveWaterEnergy() {
+    public void receiveWaterEnergy() {
         mewto.receiveWaterEnergy(water1);
         mewto.receiveWaterEnergy(water2);
         espeon.receiveWaterEnergy(water3);
@@ -145,26 +145,26 @@ class PsychicPokemonTest {
     }
 
     @Test
-    void receiveFightingPokemonAttack() {
+    public void receiveFightingPokemonAttack() {
         mewto.receiveFightingPokemonAttack(firstAttack);
         assertEquals(mewto.getHP(), 90);
     }
 
     @Test
-    void receivePsychicPokemonAttack() {
+    public void receivePsychicPokemonAttack() {
         mewto.receivePsychicPokemonAttack(secondAttack);
         assertEquals(mewto.getHP(), 40);
     }
 
     @Test
-    void attack() {
+    public void attack() {
         espeon.setActiveAttack(1);
         espeon.attack(mewto);
         assertEquals(mewto.getHP(), 60);
     }
 
     @Test
-    void equals() {
+    public void equals() {
         assertNotEquals(espeon, mewto);
         assertEquals(espeon, espeon);
         assertEquals(mewto, new PsychicPokemon("Mewto", 85, 100, firstContainer));

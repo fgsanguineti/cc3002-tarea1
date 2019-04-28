@@ -4,12 +4,12 @@ import cc3002.Attack;
 import cc3002.AttackContainer;
 import cc3002.EnergyContainer;
 import cc3002.energyTypes.*;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.Before;
+import org.junit.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.Assert.assertEquals;
 
-class FirePokemonTest {
+public class FirePokemonTest {
 
     private FirePokemon tepig, flareon;
     private Attack firstAttack, secondAttack, thirdAttack, fourthAttack;
@@ -21,8 +21,9 @@ class FirePokemonTest {
     private WaterEnergy water1, water2, water3;
 
     private AttackContainer firstContainer, secondContainer, thirdContainer, fourthContainer;
-    @BeforeEach
-    void setUp() {
+
+    @Before
+    public void setUp() {
 
         EnergyContainer first = new EnergyContainer(0, 1, 5, 0, 0, 0);
         EnergyContainer second = new EnergyContainer(4, 0, 2, 0, 0, 0);
@@ -70,24 +71,24 @@ class FirePokemonTest {
     }
 
     @Test
-    void getCardName() {
+    public void getCardName() {
         assertEquals(tepig.getCardName(), "Tepig");
         assertEquals(flareon.getCardName(), "Flareon");
     }
 
     @Test
-    void getID() {
+    public void getID() {
         assertEquals(tepig.getID(), 3);
         assertEquals(flareon.getID(), 88);
     }
 
     @Test
-    void getHP() {
+    public void getHP() {
         assertEquals(tepig.getHP(), 70);
         assertEquals(flareon.getHP(), 90);
     }
     @Test
-    void receiveElectricEnergy() {
+    public void receiveElectricEnergy() {
         tepig.receiveElectricEnergy(electric1);
         tepig.receiveElectricEnergy(electric2);
         flareon.receiveElectricEnergy(electric3);
@@ -96,7 +97,7 @@ class FirePokemonTest {
     }
 
     @Test
-    void receiveFightingEnergy() {
+    public void receiveFightingEnergy() {
         flareon.receiveFightingEnergy(fighting1);
         flareon.receiveFightingEnergy(fighting2);
         tepig.receiveFightingEnergy(fighting3);
@@ -105,7 +106,7 @@ class FirePokemonTest {
     }
 
     @Test
-    void receiveFireEnergy() {
+    public void receiveFireEnergy() {
         flareon.receiveFireEnergy(fire1);
         flareon.receiveFireEnergy(fire2);
         flareon.receiveFireEnergy(fire3);
@@ -116,7 +117,7 @@ class FirePokemonTest {
     }
 
     @Test
-    void receiveGrassEnergy() {
+    public void receiveGrassEnergy() {
         tepig.receiveGrassEnergy(grass1);
         tepig.receiveGrassEnergy(grass2);
         tepig.receiveGrassEnergy(grass3);
@@ -126,7 +127,7 @@ class FirePokemonTest {
     }
 
     @Test
-    void receivePsychicEnergy() {
+    public void receivePsychicEnergy() {
         tepig.receivePsychicEnergy(psychic1);
         tepig.receivePsychicEnergy(psychic2);
         flareon.receivePsychicEnergy(psychic3);
@@ -135,7 +136,7 @@ class FirePokemonTest {
     }
 
     @Test
-    void receiveWaterEnergy() {
+    public void receiveWaterEnergy() {
         flareon.receiveWaterEnergy(water1);
         flareon.receiveWaterEnergy(water2);
         tepig.receiveWaterEnergy(water3);
@@ -144,13 +145,13 @@ class FirePokemonTest {
     }
 
     @Test
-    void receiveWaterPokemonAttack() {
+    public void receiveWaterPokemonAttack() {
         flareon.receiveWaterPokemonAttack(firstAttack);
         assertEquals(flareon.getHP(), 10);
     }
 
     @Test
-    void attack() {
+    public void attack() {
         tepig.setActiveAttack(1);
         tepig.attack(flareon);
         assertEquals(flareon.getHP(), 50);

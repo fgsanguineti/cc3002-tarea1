@@ -1,11 +1,13 @@
 package cc3002;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.Before;
+import org.junit.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static junit.framework.TestCase.assertNotNull;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 
-class AttackContainerTest {
+public class AttackContainerTest {
     private EnergyContainer first = new EnergyContainer(0, 1, 5, 0, 0, 0);
     private EnergyContainer second = new EnergyContainer(4, 0, 2, 0, 0, 0);
     private EnergyContainer third = new EnergyContainer(0, 1, 2, 1, 2, 1);
@@ -26,8 +28,8 @@ class AttackContainerTest {
     private AttackContainer aFourth;
     private AttackContainer aFifth;
 
-    @BeforeEach
-    void setUp() {
+    @Before
+    public void setUp() {
         aFirst = new AttackContainer(null, null, null, null);
         aSecond = new AttackContainer(firstAttack, null, null, null);
         aThird = new AttackContainer(secondAttack, firstAttack, null, null);
@@ -36,7 +38,7 @@ class AttackContainerTest {
     }
 
     @Test
-    void getAttack() {
+    public void getAttack() {
         assertNull(aFirst.getAttack(1));
         assertNull(aFirst.getAttack(2));
         assertNull(aFirst.getAttack(3));

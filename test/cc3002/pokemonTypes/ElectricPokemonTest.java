@@ -4,12 +4,12 @@ import cc3002.Attack;
 import cc3002.AttackContainer;
 import cc3002.EnergyContainer;
 import cc3002.energyTypes.*;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.Before;
+import org.junit.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.Assert.assertEquals;
 
-class ElectricPokemonTest {
+public class ElectricPokemonTest {
     private ElectricPokemon pikachu, jolteon;
 
 
@@ -24,8 +24,8 @@ class ElectricPokemonTest {
 
     private AttackContainer firstContainer, secondContainer, thirdContainer, fourthContainer;
 
-    @BeforeEach
-    void setUp() {
+    @Before
+    public void setUp() {
 
         EnergyContainer first = new EnergyContainer(0, 1, 5, 0, 0, 0);
         EnergyContainer second = new EnergyContainer(4, 0, 2, 0, 0, 0);
@@ -75,24 +75,24 @@ class ElectricPokemonTest {
     }
 
     @Test
-    void getCardName() {
+    public void getCardName() {
         assertEquals(pikachu.getCardName(), "Pikachu");
         assertEquals(jolteon.getCardName(), "Jolteon");
     }
 
     @Test
-    void getID() {
+    public void getID() {
         assertEquals(pikachu.getID(), 54);
         assertEquals(jolteon.getID(), 28);
     }
 
     @Test
-    void getHP() {
+    public void getHP() {
         assertEquals(pikachu.getHP(), 60);
         assertEquals(jolteon.getHP(), 160);
     }
     @Test
-    void receiveElectricEnergy() {
+    public void receiveElectricEnergy() {
         pikachu.receiveElectricEnergy(electric1);
         pikachu.receiveElectricEnergy(electric2);
         jolteon.receiveElectricEnergy(electric3);
@@ -101,7 +101,7 @@ class ElectricPokemonTest {
     }
 
     @Test
-    void receiveFightingEnergy() {
+    public void receiveFightingEnergy() {
         jolteon.receiveFightingEnergy(fighting1);
         jolteon.receiveFightingEnergy(fighting2);
         pikachu.receiveFightingEnergy(fighting3);
@@ -110,7 +110,7 @@ class ElectricPokemonTest {
     }
 
     @Test
-    void receiveFireEnergy() {
+    public void receiveFireEnergy() {
         jolteon.receiveFireEnergy(fire1);
         jolteon.receiveFireEnergy(fire2);
         jolteon.receiveFireEnergy(fire3);
@@ -121,7 +121,7 @@ class ElectricPokemonTest {
     }
 
     @Test
-    void receiveGrassEnergy() {
+    public void receiveGrassEnergy() {
         pikachu.receiveGrassEnergy(grass1);
         pikachu.receiveGrassEnergy(grass2);
         pikachu.receiveGrassEnergy(grass3);
@@ -131,7 +131,7 @@ class ElectricPokemonTest {
     }
 
     @Test
-    void receivePsychicEnergy() {
+    public void receivePsychicEnergy() {
         pikachu.receivePsychicEnergy(psychic1);
         pikachu.receivePsychicEnergy(psychic2);
         jolteon.receivePsychicEnergy(psychic3);
@@ -140,7 +140,7 @@ class ElectricPokemonTest {
     }
 
     @Test
-    void receiveWaterEnergy() {
+    public void receiveWaterEnergy() {
         jolteon.receiveWaterEnergy(water1);
         jolteon.receiveWaterEnergy(water2);
         pikachu.receiveWaterEnergy(water3);
@@ -149,7 +149,7 @@ class ElectricPokemonTest {
     }
 
     @Test
-    void receiveFightingPokemonAttack() {
+    public void receiveFightingPokemonAttack() {
         pikachu.receiveFightingPokemonAttack(thirdAttack);
         assertEquals(pikachu.getHP(), -40);
     }

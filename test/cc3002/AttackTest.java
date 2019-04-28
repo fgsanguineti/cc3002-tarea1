@@ -1,16 +1,16 @@
 package cc3002;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.Before;
+import org.junit.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 
-class AttackTest {
+public class AttackTest {
     private Attack firstAttack, secondAttack, thirdAttack, fourthAttack;
 
-    @BeforeEach
-    void setUp() {
+    @Before
+    public void setUp() {
         EnergyContainer first = new EnergyContainer(0, 1, 5, 0, 0, 0);
         EnergyContainer second = new EnergyContainer(4, 0, 2, 0, 0, 0);
         EnergyContainer third = new EnergyContainer(0, 1, 2, 1, 2, 1);
@@ -26,7 +26,7 @@ class AttackTest {
     }
 
     @Test
-    void getName() {
+    public void getName() {
         assertEquals(firstAttack.getName(), "Látigo Cepa");
         assertEquals(secondAttack.getName(), "Placaje");
         assertEquals(thirdAttack.getName(), "Vuelo");
@@ -34,7 +34,7 @@ class AttackTest {
     }
 
     @Test
-    void getDescription() {
+    public void getDescription() {
         assertEquals(firstAttack.getDescription(), "Le pega con un látigo cepa al pókemon oponente");
         assertEquals(secondAttack.getDescription(), "Le pega un buen colpe al oponente con su cuerpo");
         assertEquals(thirdAttack.getDescription(), "Vuela y le pega al oponente");
@@ -42,7 +42,7 @@ class AttackTest {
     }
 
     @Test
-    void getCost() {
+    public void getCost() {
         assertEquals(firstAttack.getCost().getFighting(), 1);
         assertEquals(secondAttack.getCost().getGrass(), 0);
         assertEquals(thirdAttack.getCost().getWater(), 1);
@@ -52,7 +52,7 @@ class AttackTest {
     }
 
     @Test
-    void getBaseDamage() {
+    public void getBaseDamage() {
         assertEquals(firstAttack.getBaseDamage(), 40);
         assertEquals(secondAttack.getBaseDamage(), 30);
         assertEquals(thirdAttack.getBaseDamage(), 50);
@@ -60,7 +60,7 @@ class AttackTest {
     }
 
     @Test
-    void equals() {
+    public void equals() {
         EnergyContainer first = new EnergyContainer(0, 1, 5, 0, 0, 0);
         assertNotEquals(firstAttack, secondAttack);
         assertNotEquals(thirdAttack, fourthAttack);

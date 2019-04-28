@@ -4,12 +4,12 @@ import cc3002.Attack;
 import cc3002.AttackContainer;
 import cc3002.EnergyContainer;
 import cc3002.energyTypes.*;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.Before;
+import org.junit.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.Assert.assertEquals;
 
-class WaterPokemonTest {
+public class WaterPokemonTest {
     private Attack firstAttack, secondAttack, thirdAttack, fourthAttack;
     private WaterPokemon squirtle, gyarados;
 
@@ -22,8 +22,8 @@ class WaterPokemonTest {
 
     private AttackContainer firstContainer, secondContainer, thirdContainer, fourthContainer;
 
-    @BeforeEach
-    void setUp() {
+    @Before
+    public void setUp() {
 
         EnergyContainer first = new EnergyContainer(0, 1, 5, 0, 0, 0);
         EnergyContainer second = new EnergyContainer(4, 0, 2, 0, 0, 0);
@@ -71,24 +71,24 @@ class WaterPokemonTest {
     }
 
     @Test
-    void getCardName() {
+    public void getCardName() {
         assertEquals(squirtle.getCardName(), "Squirtle");
         assertEquals(gyarados.getCardName(), "Gyarados");
     }
 
     @Test
-    void getID() {
+    public void getID() {
         assertEquals(squirtle.getID(), 33);
         assertEquals(gyarados.getID(), 85);
     }
 
     @Test
-    void getHP() {
+    public void getHP() {
         assertEquals(squirtle.getHP(), 60);
         assertEquals(gyarados.getHP(), 100);
     }
     @Test
-    void receiveElectricEnergy() {
+    public void receiveElectricEnergy() {
         squirtle.receiveElectricEnergy(electric1);
         squirtle.receiveElectricEnergy(electric2);
         gyarados.receiveElectricEnergy(electric3);
@@ -97,7 +97,7 @@ class WaterPokemonTest {
     }
 
     @Test
-    void receiveFightingEnergy() {
+    public void receiveFightingEnergy() {
         gyarados.receiveFightingEnergy(fighting1);
         gyarados.receiveFightingEnergy(fighting2);
         squirtle.receiveFightingEnergy(fighting3);
@@ -106,7 +106,7 @@ class WaterPokemonTest {
     }
 
     @Test
-    void receiveFireEnergy() {
+    public void receiveFireEnergy() {
         gyarados.receiveFireEnergy(fire1);
         gyarados.receiveFireEnergy(fire2);
         gyarados.receiveFireEnergy(fire3);
@@ -117,7 +117,7 @@ class WaterPokemonTest {
     }
 
     @Test
-    void receiveGrassEnergy() {
+    public void receiveGrassEnergy() {
         squirtle.receiveGrassEnergy(grass1);
         squirtle.receiveGrassEnergy(grass2);
         squirtle.receiveGrassEnergy(grass3);
@@ -127,7 +127,7 @@ class WaterPokemonTest {
     }
 
     @Test
-    void receivePsychicEnergy() {
+    public void receivePsychicEnergy() {
         squirtle.receivePsychicEnergy(psychic1);
         squirtle.receivePsychicEnergy(psychic2);
         gyarados.receivePsychicEnergy(psychic3);
@@ -136,7 +136,7 @@ class WaterPokemonTest {
     }
 
     @Test
-    void receiveWaterEnergy() {
+    public void receiveWaterEnergy() {
         gyarados.receiveWaterEnergy(water1);
         gyarados.receiveWaterEnergy(water2);
         squirtle.receiveWaterEnergy(water3);
@@ -145,25 +145,25 @@ class WaterPokemonTest {
     }
 
     @Test
-    void receiveElectricPokemonAttack() {
+    public void receiveElectricPokemonAttack() {
         gyarados.receiveElectricPokemonAttack(secondAttack);
         assertEquals(gyarados.getHP(), 40);
     }
 
     @Test
-    void receiveGrassPokemonAttack() {
+    public void receiveGrassPokemonAttack() {
         gyarados.receiveGrassPokemonAttack(fourthAttack);
         assertEquals(gyarados.getHP(), 60);
     }
 
     @Test
-    void receiveFightingPokemonAttack() {
+    public void receiveFightingPokemonAttack() {
         gyarados.receiveFightingPokemonAttack(thirdAttack);
         assertEquals(gyarados.getHP(), 80);
     }
 
     @Test
-    void attack() {
+    public void attack() {
         squirtle.setActiveAttack(1);
         squirtle.attack(gyarados);
         assertEquals(gyarados.getHP(), 50);

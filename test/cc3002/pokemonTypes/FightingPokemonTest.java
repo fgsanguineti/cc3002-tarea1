@@ -4,12 +4,12 @@ import cc3002.Attack;
 import cc3002.AttackContainer;
 import cc3002.EnergyContainer;
 import cc3002.energyTypes.*;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.Before;
+import org.junit.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.Assert.assertEquals;
 
-class FightingPokemonTest {
+public class FightingPokemonTest {
     private Attack firstAttack, secondAttack, thirdAttack, fourthAttack;
     private FightingPokemon riolu, lucario;
 
@@ -22,8 +22,8 @@ class FightingPokemonTest {
 
     private AttackContainer firstContainer, secondContainer, thirdContainer, fourthContainer;
 
-    @BeforeEach
-    void setUp() {
+    @Before
+    public void setUp() {
         EnergyContainer first = new EnergyContainer(0, 1, 5, 0, 0, 0);
         EnergyContainer second = new EnergyContainer(4, 0, 2, 0, 0, 0);
         EnergyContainer third = new EnergyContainer(0, 1, 2, 1, 2, 1);
@@ -72,25 +72,25 @@ class FightingPokemonTest {
     }
 
     @Test
-    void getCardName() {
+    public void getCardName() {
         assertEquals(riolu.getCardName(), "Riolu");
         assertEquals(lucario.getCardName(), "Lucario");
     }
 
     @Test
-    void getID() {
+    public void getID() {
         assertEquals(riolu.getID(), 33);
         assertEquals(lucario.getID(), 85);
     }
 
     @Test
-    void getHP() {
+    public void getHP() {
         assertEquals(riolu.getHP(), 60);
         assertEquals(lucario.getHP(), 100);
     }
 
     @Test
-    void receiveElectricEnergy() {
+    public void receiveElectricEnergy() {
         riolu.receiveElectricEnergy(electric1);
         riolu.receiveElectricEnergy(electric2);
         lucario.receiveElectricEnergy(electric3);
@@ -99,7 +99,7 @@ class FightingPokemonTest {
     }
 
     @Test
-    void receiveFightingEnergy() {
+    public void receiveFightingEnergy() {
         lucario.receiveFightingEnergy(fighting1);
         lucario.receiveFightingEnergy(fighting2);
         riolu.receiveFightingEnergy(fighting3);
@@ -108,7 +108,7 @@ class FightingPokemonTest {
     }
 
     @Test
-    void receiveFireEnergy() {
+    public void receiveFireEnergy() {
         lucario.receiveFireEnergy(fire1);
         lucario.receiveFireEnergy(fire2);
         lucario.receiveFireEnergy(fire3);
@@ -119,7 +119,7 @@ class FightingPokemonTest {
     }
 
     @Test
-    void receiveGrassEnergy() {
+    public void receiveGrassEnergy() {
         riolu.receiveGrassEnergy(grass1);
         riolu.receiveGrassEnergy(grass2);
         riolu.receiveGrassEnergy(grass3);
@@ -129,7 +129,7 @@ class FightingPokemonTest {
     }
 
     @Test
-    void receivePsychicEnergy() {
+    public void receivePsychicEnergy() {
         riolu.receivePsychicEnergy(psychic1);
         riolu.receivePsychicEnergy(psychic2);
         lucario.receivePsychicEnergy(psychic3);
@@ -138,7 +138,7 @@ class FightingPokemonTest {
     }
 
     @Test
-    void receiveWaterEnergy() {
+    public void receiveWaterEnergy() {
         lucario.receiveWaterEnergy(water1);
         lucario.receiveWaterEnergy(water2);
         riolu.receiveWaterEnergy(water3);
@@ -147,19 +147,19 @@ class FightingPokemonTest {
     }
 
     @Test
-    void receiveGrassPokemonAttack() {
+    public void receiveGrassPokemonAttack() {
         riolu.receiveGrassPokemonAttack(secondAttack);
         assertEquals(riolu.getHP(), 0);
     }
 
     @Test
-    void receivePsychicPokemonAttack() {
+    public void receivePsychicPokemonAttack() {
         riolu.receivePsychicPokemonAttack(secondAttack);
         assertEquals(riolu.getHP(), 0);
     }
 
     @Test
-    void attack() {
+    public void attack() {
         riolu.setActiveAttack(1);
         riolu.attack(lucario);
         assertEquals(lucario.getHP(), 60);

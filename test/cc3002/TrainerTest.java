@@ -2,15 +2,16 @@ package cc3002;
 
 import cc3002.energyTypes.*;
 import cc3002.pokemonTypes.*;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.Before;
+import org.junit.Test;
 
 import java.util.ArrayList;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 
-class TrainerTest {
+
+public class TrainerTest {
     private EnergyContainer first = new EnergyContainer(0, 1, 0, 0, 0, 0);
     private EnergyContainer second = new EnergyContainer(4, 0, 2, 0, 0, 0);
     private EnergyContainer third = new EnergyContainer(0, 1, 1, 0, 0, 0);
@@ -29,8 +30,8 @@ class TrainerTest {
     private PsychicEnergy psychic1;
     private WaterEnergy water1;
 
-    @BeforeEach
-    void setUp() {
+    @Before
+    public void setUp() {
         Franco = new Trainer("Franco");
         Giovanni = new Trainer("Giovanni");
 
@@ -73,13 +74,13 @@ class TrainerTest {
     }
 
     @Test
-    void getPlayerName() {
+    public void getPlayerName() {
         assertEquals(Franco.getPlayerName(), "Franco");
         assertEquals(Giovanni.getPlayerName(), "Giovanni");
     }
 
     @Test
-    void getActivePokemon() {
+    public void getActivePokemon() {
         Franco.playPokemon(pikachu);
         Giovanni.playPokemon(squirtle);
         assertEquals(Franco.getActivePokemon(), pikachu);
@@ -87,7 +88,7 @@ class TrainerTest {
     }
 
     @Test
-    void getHand() {
+    public void getHand() {
         Franco.addCardToHand(pikachu);
         Franco.addCardToHand(lucario);
         Franco.addCardToHand(tepig);
@@ -148,7 +149,7 @@ class TrainerTest {
     }
 
     @Test
-    void getBench() {
+    public void getBench() {
         Franco.addCardToHand(pikachu);
         Franco.addCardToHand(lucario);
         Franco.addCardToHand(tepig);
@@ -187,7 +188,7 @@ class TrainerTest {
     }
 
     @Test
-    void Play() {
+    public void Play() {
 
         Giovanni.addCardToHand(jolteon);
         Giovanni.addCardToHand(riolu);
@@ -225,7 +226,7 @@ class TrainerTest {
     }
 
     @Test
-    void makeAnAttack() {
+    public void makeAnAttack() {
         Franco.addCardToHand(flareon);
         Franco.addCardToHand(pikachu);
         Franco.Play(Franco.getHand().get(0));
@@ -246,9 +247,5 @@ class TrainerTest {
         assertEquals(Franco.getActivePokemon().getHP(), 50);
         Giovanni.makeAnAttack(2, Franco);
         assertEquals(pikachu, Franco.getActivePokemon());
-    }
-
-    @Test
-    void receiveAnAttack() {
     }
 }

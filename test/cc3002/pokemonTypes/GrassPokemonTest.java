@@ -4,12 +4,12 @@ import cc3002.Attack;
 import cc3002.AttackContainer;
 import cc3002.EnergyContainer;
 import cc3002.energyTypes.*;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.Before;
+import org.junit.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.Assert.assertEquals;
 
-class GrassPokemonTest {
+public class GrassPokemonTest {
     private Attack firstAttack, secondAttack, thirdAttack, fourthAttack;
     private GrassPokemon chikorita, bulbasaur;
 
@@ -22,8 +22,8 @@ class GrassPokemonTest {
 
     private AttackContainer firstContainer, secondContainer, thirdContainer, fourthContainer;
 
-    @BeforeEach
-    void setUp() {
+    @Before
+    public void setUp() {
         EnergyContainer first = new EnergyContainer(0, 1, 5, 0, 0, 0);
         EnergyContainer second = new EnergyContainer(4, 0, 2, 0, 0, 0);
         EnergyContainer third = new EnergyContainer(0, 1, 2, 1, 2, 1);
@@ -70,24 +70,24 @@ class GrassPokemonTest {
     }
 
     @Test
-    void getCardName() {
+    public void getCardName() {
         assertEquals(chikorita.getCardName(), "Chikorita");
         assertEquals(bulbasaur.getCardName(), "Bulbasaur");
     }
 
     @Test
-    void getID() {
+    public void getID() {
         assertEquals(chikorita.getID(), 33);
         assertEquals(bulbasaur.getID(), 85);
     }
 
     @Test
-    void getHP() {
+    public void getHP() {
         assertEquals(chikorita.getHP(), 60);
         assertEquals(bulbasaur.getHP(), 100);
     }
     @Test
-    void receiveElectricEnergy() {
+    public void receiveElectricEnergy() {
         chikorita.receiveElectricEnergy(electric1);
         chikorita.receiveElectricEnergy(electric2);
         bulbasaur.receiveElectricEnergy(electric3);
@@ -96,7 +96,7 @@ class GrassPokemonTest {
     }
 
     @Test
-    void receiveFightingEnergy() {
+    public void receiveFightingEnergy() {
         bulbasaur.receiveFightingEnergy(fighting1);
         bulbasaur.receiveFightingEnergy(fighting2);
         chikorita.receiveFightingEnergy(fighting3);
@@ -105,7 +105,7 @@ class GrassPokemonTest {
     }
 
     @Test
-    void receiveFireEnergy() {
+    public void receiveFireEnergy() {
         bulbasaur.receiveFireEnergy(fire1);
         bulbasaur.receiveFireEnergy(fire2);
         bulbasaur.receiveFireEnergy(fire3);
@@ -116,7 +116,7 @@ class GrassPokemonTest {
     }
 
     @Test
-    void receiveGrassEnergy() {
+    public void receiveGrassEnergy() {
         chikorita.receiveGrassEnergy(grass1);
         chikorita.receiveGrassEnergy(grass2);
         chikorita.receiveGrassEnergy(grass3);
@@ -126,7 +126,7 @@ class GrassPokemonTest {
     }
 
     @Test
-    void receivePsychicEnergy() {
+    public void receivePsychicEnergy() {
         chikorita.receivePsychicEnergy(psychic1);
         chikorita.receivePsychicEnergy(psychic2);
         bulbasaur.receivePsychicEnergy(psychic3);
@@ -135,7 +135,7 @@ class GrassPokemonTest {
     }
 
     @Test
-    void receiveWaterEnergy() {
+    public void receiveWaterEnergy() {
         bulbasaur.receiveWaterEnergy(water1);
         bulbasaur.receiveWaterEnergy(water2);
         chikorita.receiveWaterEnergy(water3);
@@ -144,7 +144,7 @@ class GrassPokemonTest {
     }
 
     @Test
-    void receiveWaterPokemonAttack() {
+    public void receiveWaterPokemonAttack() {
         bulbasaur.receiveWaterPokemonAttack(thirdAttack);
         assertEquals(bulbasaur.getHP(), 80);
 
@@ -153,20 +153,20 @@ class GrassPokemonTest {
     }
 
     @Test
-    void receiveFirePokemonAttack() {
+    public void receiveFirePokemonAttack() {
         bulbasaur.receiveFirePokemonAttack(firstAttack);
         assertEquals(bulbasaur.getHP(), 20);
     }
 
     @Test
-    void attack() {
+    public void attack() {
         chikorita.setActiveAttack(1);
         chikorita.attack(bulbasaur);
         assertEquals(bulbasaur.getHP(), 50);
     }
 
     @Test
-    void receivePsychicPokemonAttack() {
+    public void receivePsychicPokemonAttack() {
         bulbasaur.receivePsychicPokemonAttack(firstAttack);
         assertEquals(bulbasaur.getHP(), 60);
     }
