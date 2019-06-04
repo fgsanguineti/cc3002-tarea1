@@ -12,6 +12,9 @@ class Trainer {
     private IPokemon activePokemon;
     private ArrayList<IPokemon> bench;
     private ArrayList<ICard> hand;
+    private ArrayList<ICard> deck;
+    private ArrayList<ICard> discardHeap;
+    private ICard[] prizeCards;
     private String playerName;
 
     /**
@@ -22,7 +25,11 @@ class Trainer {
         this.activePokemon = null;
         this.bench = new ArrayList<>();
         this.hand = new ArrayList<>();
+        this.deck = new ArrayList<>();
+        this.discardHeap = new ArrayList<>();
+        this.prizeCards = new ICard[6];
         this.playerName = playerName;
+
     }
 
     /**
