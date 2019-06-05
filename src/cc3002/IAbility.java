@@ -9,6 +9,5 @@ public interface IAbility {
     String getName();
     String getDescription();
     EnergyContainer getCost();
-
     boolean isEnoughEnergyToUseTheAbility(IPokemon aPokemon);
 }
