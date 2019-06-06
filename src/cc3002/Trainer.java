@@ -8,7 +8,7 @@ import java.util.Objects;
  *
  * @author F. Giovanni Sanguineti
  */
-class Trainer {
+public class Trainer {
     private IPokemon activePokemon;
     private ArrayList<IPokemon> bench;
     private ArrayList<ICard> hand;
