@@ -1,4 +1,5 @@
 package cc3002;
+import cc3002.Abilities.Attack;
 import cc3002.energyTypes.*;
 
 /**

@@ -1,10 +1,14 @@
-package cc3002;
+package cc3002.Abilities;
+
+import cc3002.EnergyContainer;
+import cc3002.IPokemon;
+
 /**
  * This class contents implements the IAbility interface
  *
  * @author F. Giovanni Sanguineti
  */
-public class Ability implements IAbility{
+public class Ability implements IAbility {
     private String name;
     private String description;
     private EnergyContainer costs;

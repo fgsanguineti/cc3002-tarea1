@@ -1,6 +1,6 @@
 package cc3002.pokemonTypes;
 
-import cc3002.Attack;
+import cc3002.Abilities.Attack;
 import cc3002.AttackContainer;
 import cc3002.EnergyContainer;
 import cc3002.energyTypes.*;

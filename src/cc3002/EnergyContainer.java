@@ -45,7 +45,7 @@ public class EnergyContainer {
      * Gets the number of electric energies
      * @return Integer with the value of electric energies available.
      */
-    int getElectric() {
+    public int getElectric() {
         return container.get("Electric");
     }
 
@@ -53,7 +53,7 @@ public class EnergyContainer {
      * Gets the number of fighting energies
      * @return Integer with the value of fighting energies available.
      */
-    int getFighting() {
+    public int getFighting() {
         return container.get("Fighting");
     }
 
@@ -61,7 +61,7 @@ public class EnergyContainer {
      * Gets the number of fire energies
      * @return Integer with the value of fire energies available.
      */
-    int getFire() {
+    public int getFire() {
         return container.get("Fire");
     }
 
@@ -69,7 +69,7 @@ public class EnergyContainer {
      * Gets the number of grass energies
      * @return Integer with the value of grass energies available.
      */
-    int getGrass() {
+    public int getGrass() {
         return container.get("Grass");
     }
 
@@ -77,7 +77,7 @@ public class EnergyContainer {
      * Gets the number of psychic energies
      * @return Integer with the value of psychic energies available.
      */
-    int getPsychic() {
+    public int getPsychic() {
         return container.get("Psychic");
     }
 
@@ -85,7 +85,7 @@ public class EnergyContainer {
      * Gets the number of water energies
      * @return Integer with the value of water energies available.
      */
-    int getWater() {
+    public int getWater() {
         return container.get("Water");
     }
 

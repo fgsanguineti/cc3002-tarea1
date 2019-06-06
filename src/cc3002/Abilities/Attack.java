@@ -1,4 +1,7 @@
-package cc3002;
+package cc3002.Abilities;
+
+import cc3002.EnergyContainer;
+
 /**
  * This class implements the IAttack interface.
  *
@@ -22,7 +25,7 @@ public class Attack extends Ability {
      *
      * @return A int with the base damage of the attack.
      */
-    int getBaseDamage() {
+    public int getBaseDamage() {
         return this.baseDamage;
     }
 

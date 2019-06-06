@@ -1,4 +1,7 @@
-package cc3002;
+package cc3002.Abilities;
+
+import cc3002.EnergyContainer;
+import cc3002.IPokemon;
 
 /**
  * Common interface for all the abilities. Abilities had a name, a description and a energy cost.
