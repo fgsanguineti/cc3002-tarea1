@@ -1,4 +1,4 @@
 package cc3002.effectVisitor;
 
-class StadiumEffectVisitor extends EffectVisitor{
+public class StadiumEffectVisitor extends EffectVisitor{
 }
