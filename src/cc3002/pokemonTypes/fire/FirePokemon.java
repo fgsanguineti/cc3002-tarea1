@@ -1,36 +1,31 @@
-package cc3002.pokemonTypes;
+package cc3002.pokemonTypes.fire;
 
-import cc3002.AbstractPokemon;
+import cc3002.pokemonTypes.AbstractPokemon;
 import cc3002.Abilities.Attack;
-import cc3002.AttackContainer;
-import cc3002.IPokemon;
+import cc3002.Abilities.AttackContainer;
+import cc3002.pokemonTypes.IPokemon;
 
-public class FightingPokemon extends AbstractPokemon {
+public class FirePokemon extends AbstractPokemon {
     /**
-     * Creates a new fighting pokemon.
+     * Creates a new fire pokemon.
      *
      * @param cardName   The name of the card.
      * @param id         The card ID.
      * @param hp         The HP of the pokemon
      * @param attackList a list with the attacks of the Pokemon, that can be up to 4.
      */
-    public FightingPokemon(String cardName, int id, int hp, AttackContainer attackList) {
+    public FirePokemon(String cardName, int id, int hp, AttackContainer attackList) {
         super(cardName, id, hp, attackList);
     }
 
     @Override
-    public void receiveGrassPokemonAttack(Attack anAttack) {
-        super.receiveWeaknessPokemonTypeAttack(anAttack);
-    }
-
-    @Override
-    public void receivePsychicPokemonAttack(Attack anAttack) {
+    public void receiveWaterPokemonAttack(Attack anAttack) {
         super.receiveWeaknessPokemonTypeAttack(anAttack);
     }
 
     @Override
     public void attack(IPokemon other) {
-        other.receiveFightingPokemonAttack(super.getActiveAttack());
+        other.receiveFirePokemonAttack(super.getActiveAttack());
     }
 
     /**
@@ -42,8 +37,8 @@ public class FightingPokemon extends AbstractPokemon {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof FightingPokemon)) return false;
-        FightingPokemon that = (FightingPokemon) o;
+        if (!(o instanceof FirePokemon)) return false;
+        FirePokemon that = (FirePokemon) o;
         return this.getID() == that.getID() &&
                 this.getHP() == that.getHP() &&
                 getCardName().equals(that.getCardName()) &&

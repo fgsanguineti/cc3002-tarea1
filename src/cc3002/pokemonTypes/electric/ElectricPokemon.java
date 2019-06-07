@@ -1,41 +1,33 @@
-package cc3002.pokemonTypes;
+package cc3002.pokemonTypes.electric;
 
-import cc3002.AbstractPokemon;
+import cc3002.pokemonTypes.AbstractPokemon;
 import cc3002.Abilities.Attack;
-import cc3002.AttackContainer;
-import cc3002.IPokemon;
+import cc3002.Abilities.AttackContainer;
+import cc3002.pokemonTypes.IPokemon;
 
-public class GrassPokemon extends AbstractPokemon {
+public class ElectricPokemon extends AbstractPokemon {
+
     /**
-     * Creates a new grass pokemon.
+     * Creates a new electric pokemon.
      *
      * @param cardName   The name of the card.
      * @param id         The card ID.
      * @param hp         The HP of the pokemon
      * @param attackList a list with the attacks of the Pokemon, that can be up to 4.
      */
-    public GrassPokemon(String cardName, int id, int hp, AttackContainer attackList) {
+    public ElectricPokemon(String cardName, int id, int hp, AttackContainer attackList) {
         super(cardName, id, hp, attackList);
     }
 
     @Override
-    public String getCardName() {
-        return super.getCardName();
-    }
-
-    @Override
-    public void receiveFirePokemonAttack(Attack anAttack) {
+    public void receiveFightingPokemonAttack(Attack anAttack) {
         super.receiveWeaknessPokemonTypeAttack(anAttack);
     }
 
     @Override
-    public void receiveWaterPokemonAttack(Attack anAttack) {
-        super.receiveResistantPokemonTypeAttack(anAttack);
-    }
 
-    @Override
     public void attack(IPokemon other) {
-        other.receiveGrassPokemonAttack(super.getActiveAttack());
+        other.receiveElectricPokemonAttack(super.getActiveAttack());
     }
 
     /**
@@ -47,8 +39,8 @@ public class GrassPokemon extends AbstractPokemon {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof GrassPokemon)) return false;
-        GrassPokemon that = (GrassPokemon) o;
+        if (!(o instanceof ElectricPokemon)) return false;
+        ElectricPokemon that = (ElectricPokemon) o;
         return this.getID() == that.getID() &&
                 this.getHP() == that.getHP() &&
                 getCardName().equals(that.getCardName()) &&

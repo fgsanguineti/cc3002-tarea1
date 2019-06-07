@@ -1,6 +1,9 @@
-package cc3002;
+package cc3002.pokemonTypes;
 
 import cc3002.Abilities.Attack;
+import cc3002.Abilities.AttackContainer;
+import cc3002.energyTypes.EnergyContainer;
+import cc3002.Trainer;
 import cc3002.energyTypes.*;
 
 /**

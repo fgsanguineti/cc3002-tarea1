@@ -1,4 +1,4 @@
-package cc3002;
+package cc3002.Abilities;
 
 import cc3002.Abilities.IAbility;
 

@@ -1,5 +1,8 @@
-package cc3002;
+package cc3002.pokemonTypes;
 import cc3002.Abilities.Attack;
+import cc3002.Abilities.AttackContainer;
+import cc3002.energyTypes.EnergyContainer;
+import cc3002.ICard;
 import cc3002.energyTypes.*;
 
 /**
@@ -10,7 +13,7 @@ import cc3002.energyTypes.*;
  *
  * @author F. Giovanni Sanguineti
  */
-public interface IPokemon extends ICard{
+public interface IPokemon extends ICard {
 
     int getID();
 

@@ -1,8 +1,15 @@
 package cc3002;
 
 import cc3002.Abilities.Attack;
+import cc3002.Abilities.AttackContainer;
 import cc3002.energyTypes.*;
-import cc3002.pokemonTypes.*;
+import cc3002.pokemonTypes.IPokemon;
+import cc3002.pokemonTypes.electric.ElectricPokemon;
+import cc3002.pokemonTypes.fighting.FightingPokemon;
+import cc3002.pokemonTypes.fire.FirePokemon;
+import cc3002.pokemonTypes.grass.GrassPokemon;
+import cc3002.pokemonTypes.psychic.PsychicPokemon;
+import cc3002.pokemonTypes.water.WaterPokemon;
 import org.junit.Before;
 import org.junit.Test;
 

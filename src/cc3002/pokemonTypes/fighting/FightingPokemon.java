@@ -1,36 +1,21 @@
-package cc3002.pokemonTypes;
+package cc3002.pokemonTypes.fighting;
 
-import cc3002.AbstractPokemon;
+import cc3002.pokemonTypes.AbstractPokemon;
 import cc3002.Abilities.Attack;
-import cc3002.AttackContainer;
-import cc3002.IPokemon;
+import cc3002.Abilities.AttackContainer;
+import cc3002.pokemonTypes.IPokemon;
 
-public class WaterPokemon extends AbstractPokemon {
+public class FightingPokemon extends AbstractPokemon {
     /**
-     * Creates a new water pokemon.
+     * Creates a new fighting pokemon.
      *
      * @param cardName   The name of the card.
      * @param id         The card ID.
      * @param hp         The HP of the pokemon
      * @param attackList a list with the attacks of the Pokemon, that can be up to 4.
      */
-    public WaterPokemon(String cardName, int id, int hp, AttackContainer attackList) {
+    public FightingPokemon(String cardName, int id, int hp, AttackContainer attackList) {
         super(cardName, id, hp, attackList);
-    }
-
-    @Override
-    public String getCardName() {
-        return super.getCardName();
-    }
-
-    @Override
-    public void receiveElectricPokemonAttack(Attack anAttack) {
-        super.receiveWeaknessPokemonTypeAttack(anAttack);
-    }
-
-    @Override
-    public void receiveFightingPokemonAttack(Attack anAttack) {
-        super.receiveResistantPokemonTypeAttack(anAttack);
     }
 
     @Override
@@ -39,8 +24,13 @@ public class WaterPokemon extends AbstractPokemon {
     }
 
     @Override
+    public void receivePsychicPokemonAttack(Attack anAttack) {
+        super.receiveWeaknessPokemonTypeAttack(anAttack);
+    }
+
+    @Override
     public void attack(IPokemon other) {
-        other.receiveWaterPokemonAttack(super.getActiveAttack());
+        other.receiveFightingPokemonAttack(super.getActiveAttack());
     }
 
     /**
@@ -52,8 +42,8 @@ public class WaterPokemon extends AbstractPokemon {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof WaterPokemon)) return false;
-        WaterPokemon that = (WaterPokemon) o;
+        if (!(o instanceof FightingPokemon)) return false;
+        FightingPokemon that = (FightingPokemon) o;
         return this.getID() == that.getID() &&
                 this.getHP() == that.getHP() &&
                 getCardName().equals(that.getCardName()) &&

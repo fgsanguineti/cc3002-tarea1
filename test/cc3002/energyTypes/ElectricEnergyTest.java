@@ -1,6 +1,5 @@
 package cc3002.energyTypes;
 
-import cc3002.IEnergy;
 import org.junit.Before;
 import org.junit.Test;
 

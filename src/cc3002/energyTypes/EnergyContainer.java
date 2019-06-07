@@ -1,4 +1,4 @@
-package cc3002;
+package cc3002.energyTypes;
 
 import java.util.HashMap;
 
@@ -35,7 +35,7 @@ public class EnergyContainer {
      *              Fighting adds 1 fighting energy, "Fire" adds 1 fire energy, "Grass" adds 1 grass energy,
      *             "Psychic" adds 1 psychic energy and "Water" adds 1 water energy.
      */
-    void addEnergy(String type) {
+    public void addEnergy(String type) {
         int aux = container.get(type);
         aux++;
         container.replace(type, aux);

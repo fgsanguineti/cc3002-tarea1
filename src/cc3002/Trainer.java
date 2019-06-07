@@ -1,5 +1,7 @@
 package cc3002;
 
+import cc3002.pokemonTypes.IPokemon;
+
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -44,14 +46,14 @@ public class Trainer {
      * Returns the trainer's active Pokemon.
      * @return the active Pokemon object.
      */
-    IPokemon getActivePokemon() {
+    public IPokemon getActivePokemon() {
         return activePokemon;
     }
 
     /** Gives the trainer's hand
      * @return the trainer's hand object.
      */
-    ArrayList<ICard> getHand() {
+    public ArrayList<ICard> getHand() {
         return hand;
     }
 
@@ -85,7 +87,7 @@ public class Trainer {
      * Lets the trainer plays a Pokemon.
      * @param aPokemon the Pokemon that wants to be played.
      */
-    void playPokemon(IPokemon aPokemon) {
+    public void playPokemon(IPokemon aPokemon) {
         if (activePokemon == null) activePokemon = aPokemon;
         else if (bench.size() < 5) bench.add(aPokemon);
     }

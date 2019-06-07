@@ -1,9 +1,10 @@
 package cc3002.pokemonTypes;
 
 import cc3002.Abilities.Attack;
-import cc3002.AttackContainer;
-import cc3002.EnergyContainer;
+import cc3002.Abilities.AttackContainer;
+import cc3002.energyTypes.EnergyContainer;
 import cc3002.energyTypes.*;
+import cc3002.pokemonTypes.fighting.FightingPokemon;
 import org.junit.Before;
 import org.junit.Test;
 

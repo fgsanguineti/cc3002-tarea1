@@ -1,6 +1,6 @@
 package cc3002.Abilities;
 
-import cc3002.EnergyContainer;
+import cc3002.energyTypes.EnergyContainer;
 
 /**
  * This class implements the IAttack interface.

@@ -1,5 +1,8 @@
-package cc3002;
+package cc3002.energyTypes;
 
+
+import cc3002.Trainer;
+import cc3002.pokemonTypes.IPokemon;
 
 /**
  * This class implements the IPokemon interface.

@@ -1,6 +1,4 @@
-package cc3002;
-
-import cc3002.Abilities.Attack;
+package cc3002.Abilities;
 
 import java.util.Arrays;
 
@@ -32,7 +30,7 @@ public class AttackContainer {
      * @param n The number of the attack. Values must be a integer between 1 and 4.
      * @return The specified attack. If a null was returned is because there are not attack in his slot.
      */
-    Attack getAttack(int n){
+    public Attack getAttack(int n){
         return this.attackContainer[n-1];
     }
 
