@@ -1,11 +1,10 @@
 package cc3002.pokemonTypes.psychic;
 
-import cc3002.pokemonTypes.AbstractPokemon;
-import cc3002.Abilities.Attack;
 import cc3002.Abilities.AttackContainer;
-import cc3002.pokemonTypes.IPokemon;
+import cc3002.pokemonTypes.IBasicPokemon;
+import cc3002.pokemonTypes.IPhaseOnePokemon;
 
-public class BasicPsychicPokemon extends AbstractPokemon {
+public class BasicPsychicPokemon extends AbstractPsychicPokemon implements IBasicPokemon {
     /**
      * Creates a new psychic pokemon.
      *
@@ -19,25 +18,8 @@ public class BasicPsychicPokemon extends AbstractPokemon {
     }
 
     @Override
-    public String getCardName() {
-        return super.getCardName();
+    public void evolveToPhaseOne(IPhaseOnePokemon other) {
     }
-
-    @Override
-    public void receiveFightingPokemonAttack(Attack anAttack) {
-        super.receiveResistantPokemonTypeAttack(anAttack);
-    }
-
-    @Override
-    public void receivePsychicPokemonAttack(Attack anAttack) {
-        super.receiveWeaknessPokemonTypeAttack(anAttack);
-    }
-
-    @Override
-    public void attack(IPokemon other) {
-        other.receivePsychicPokemonAttack(super.getActiveAttack());
-    }
-
     /**
      * {@inheritDoc}
      *
@@ -48,12 +30,7 @@ public class BasicPsychicPokemon extends AbstractPokemon {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof BasicPsychicPokemon)) return false;
-        BasicPsychicPokemon that = (BasicPsychicPokemon) o;
-        return this.getID() == that.getID() &&
-                this.getHP() == that.getHP() &&
-                getCardName().equals(that.getCardName()) &&
-                this.getAttackList().equals(that.getAttackList()) &&
-                getActiveAttack().equals(that.getActiveAttack()) &&
-                this.getAllEnergyQuantity().equals(that.getAllEnergyQuantity());
+        return super.equals(o);
     }
+
 }
