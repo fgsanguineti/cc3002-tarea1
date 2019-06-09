@@ -1,5 +1,5 @@
 package cc3002.pokemonTypes;
 
 public interface IBasicPokemon {
-    void evolveToPhaseOne();
+    void evolveToPhaseOne(IPhaseOnePokemon other);
 }

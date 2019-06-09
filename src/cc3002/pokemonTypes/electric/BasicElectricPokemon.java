@@ -1,11 +1,10 @@
 package cc3002.pokemonTypes.electric;
 
-import cc3002.pokemonTypes.AbstractPokemon;
-import cc3002.Abilities.Attack;
 import cc3002.Abilities.AttackContainer;
-import cc3002.pokemonTypes.IPokemon;
+import cc3002.pokemonTypes.IBasicPokemon;
+import cc3002.pokemonTypes.IPhaseOnePokemon;
 
-public class BasicElectricPokemon extends AbstractPokemon {
+public class BasicElectricPokemon extends AbstractElectricPokemon implements IBasicPokemon {
 
     /**
      * Creates a new electric pokemon.
@@ -20,16 +19,7 @@ public class BasicElectricPokemon extends AbstractPokemon {
     }
 
     @Override
-    public void receiveFightingPokemonAttack(Attack anAttack) {
-        super.receiveWeaknessPokemonTypeAttack(anAttack);
-    }
-
-    @Override
-
-    public void attack(IPokemon other) {
-        other.receiveElectricPokemonAttack(super.getActiveAttack());
-    }
-
+    public void evolveToPhaseOne(IPhaseOnePokemon other) {}
     /**
      * {@inheritDoc}
      *
@@ -40,12 +30,7 @@ public class BasicElectricPokemon extends AbstractPokemon {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof BasicElectricPokemon)) return false;
-        BasicElectricPokemon that = (BasicElectricPokemon) o;
-        return this.getID() == that.getID() &&
-                this.getHP() == that.getHP() &&
-                getCardName().equals(that.getCardName()) &&
-                this.getAttackList().equals(that.getAttackList()) &&
-                getActiveAttack().equals(that.getActiveAttack()) &&
-                this.getAllEnergyQuantity().equals(that.getAllEnergyQuantity());
+        return super.equals(o);
     }
+
 }

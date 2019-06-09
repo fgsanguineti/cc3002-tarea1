@@ -5,6 +5,7 @@ import cc3002.Abilities.AttackContainer;
 import cc3002.energyTypes.EnergyContainer;
 import cc3002.Trainer;
 import cc3002.energyTypes.*;
+import cc3002.pokemonTypes.electric.BasicElectricPokemon;
 
 /**
  * This class implements the IPokemon interface
@@ -321,11 +322,21 @@ public abstract class AbstractPokemon implements IPokemon {
     public abstract void attack(IPokemon other);
 
     /**
-     * Checks if the Pokemon object are the same that the target Pokemon object.
+     * {@inheritDoc}
+     *
      * @param o The target Pokemon object
      * @return True if are equals, false otherwise
      */
     @Override
-    public abstract boolean equals(Object o);
-
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof AbstractPokemon)) return false;
+        AbstractPokemon that = (AbstractPokemon) o;
+        return this.getID() == that.getID() &&
+                this.getHP() == that.getHP() &&
+                getCardName().equals(that.getCardName()) &&
+                this.getAttackList().equals(that.getAttackList()) &&
+                getActiveAttack().equals(that.getActiveAttack()) &&
+                this.getAllEnergyQuantity().equals(that.getAllEnergyQuantity());
+    }
 }
