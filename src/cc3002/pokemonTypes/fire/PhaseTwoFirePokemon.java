@@ -1,7 +1,6 @@
 package cc3002.pokemonTypes.fire;
 
 import cc3002.Abilities.AttackContainer;
-import cc3002.Trainer;
 import cc3002.pokemonTypes.IPhaseTwoPokemon;
 
 public class PhaseTwoFirePokemon extends AbstractFirePokemon implements IPhaseTwoPokemon {
@@ -15,11 +14,6 @@ public class PhaseTwoFirePokemon extends AbstractFirePokemon implements IPhaseTw
      */
     PhaseTwoFirePokemon(String cardName, int id, int hp, AttackContainer attackList) {
         super(cardName, id, hp, attackList);
-    }
-
-    @Override
-    public void checkPhaseOnePrePokemon(Trainer aTrainer) {
-
     }
 
     /**

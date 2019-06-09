@@ -1,9 +1,7 @@
 package cc3002.pokemonTypes.water;
 
 import cc3002.Abilities.AttackContainer;
-import cc3002.Trainer;
 import cc3002.pokemonTypes.IPhaseOnePokemon;
-import cc3002.pokemonTypes.IPhaseTwoPokemon;
 
 public class PhaseOneWaterPokemon extends AbstractWaterPokemon implements IPhaseOnePokemon {
     /**
@@ -16,16 +14,6 @@ public class PhaseOneWaterPokemon extends AbstractWaterPokemon implements IPhase
      */
     public PhaseOneWaterPokemon(String cardName, int id, int hp, AttackContainer attackList) {
         super(cardName, id, hp, attackList);
-    }
-
-    @Override
-    public void evolveToPhaseTwo(IPhaseTwoPokemon other) {
-
-    }
-
-    @Override
-    public void checkBasicPrePokemon(Trainer aTrainer) {
-
     }
 
     /**

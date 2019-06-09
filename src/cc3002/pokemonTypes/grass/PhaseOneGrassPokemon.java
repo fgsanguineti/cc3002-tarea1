@@ -1,9 +1,8 @@
 package cc3002.pokemonTypes.grass;
 
 import cc3002.Abilities.AttackContainer;
-import cc3002.Trainer;
 import cc3002.pokemonTypes.IPhaseOnePokemon;
-import cc3002.pokemonTypes.IPhaseTwoPokemon;
+
 
 public class PhaseOneGrassPokemon extends AbstractGrassPokemon implements IPhaseOnePokemon {
     /**
@@ -16,16 +15,6 @@ public class PhaseOneGrassPokemon extends AbstractGrassPokemon implements IPhase
      */
     PhaseOneGrassPokemon(String cardName, int id, int hp, AttackContainer attackList) {
         super(cardName, id, hp, attackList);
-    }
-
-    @Override
-    public void evolveToPhaseTwo(IPhaseTwoPokemon other) {
-
-    }
-
-    @Override
-    public void checkBasicPrePokemon(Trainer aTrainer) {
-
     }
 
     /**

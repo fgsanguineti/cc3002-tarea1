@@ -1,7 +1,6 @@
 package cc3002.pokemonTypes.fighting;
 
 import cc3002.Abilities.AttackContainer;
-import cc3002.Trainer;
 import cc3002.pokemonTypes.IPhaseTwoPokemon;
 
 public class PhaseTwoFightingPokemon extends AbstractFightingPokemon implements IPhaseTwoPokemon {
@@ -15,10 +14,6 @@ public class PhaseTwoFightingPokemon extends AbstractFightingPokemon implements 
      */
     PhaseTwoFightingPokemon(String cardName, int id, int hp, AttackContainer attackList) {
         super(cardName, id, hp, attackList);
-    }
-
-    @Override
-    public void checkPhaseOnePrePokemon(Trainer aTrainer) {
     }
 
     /**

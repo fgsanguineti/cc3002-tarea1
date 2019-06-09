@@ -2,7 +2,6 @@ package cc3002.pokemonTypes.water;
 
 import cc3002.Abilities.AttackContainer;
 import cc3002.pokemonTypes.IBasicPokemon;
-import cc3002.pokemonTypes.IPhaseOnePokemon;
 
 public class BasicWaterPokemon extends AbstractWaterPokemon implements IBasicPokemon {
     /**
@@ -17,9 +16,6 @@ public class BasicWaterPokemon extends AbstractWaterPokemon implements IBasicPok
         super(cardName, id, hp, attackList);
     }
 
-    @Override
-    public void evolveToPhaseOne(IPhaseOnePokemon other) {
-    }
     /**
      * {@inheritDoc}
      *

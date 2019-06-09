@@ -1,8 +1,8 @@
 package cc3002.pokemonTypes.electric;
 
 import cc3002.Abilities.AttackContainer;
-import cc3002.Trainer;
 import cc3002.pokemonTypes.IPhaseTwoPokemon;
+
 
 public class PhaseTwoElectricPokemon extends AbstractElectricPokemon implements IPhaseTwoPokemon {
     /**
@@ -15,11 +15,6 @@ public class PhaseTwoElectricPokemon extends AbstractElectricPokemon implements 
      */
     PhaseTwoElectricPokemon(String cardName, int id, int hp, AttackContainer attackList) {
         super(cardName, id, hp, attackList);
-    }
-
-    @Override
-    public void checkPhaseOnePrePokemon(Trainer aTrainer) {
-
     }
 
     /**

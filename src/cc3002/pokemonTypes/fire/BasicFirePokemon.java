@@ -2,7 +2,6 @@ package cc3002.pokemonTypes.fire;
 
 import cc3002.Abilities.AttackContainer;
 import cc3002.pokemonTypes.IBasicPokemon;
-import cc3002.pokemonTypes.IPhaseOnePokemon;
 
 public class BasicFirePokemon extends AbstractFirePokemon implements IBasicPokemon {
     /**
@@ -16,9 +15,7 @@ public class BasicFirePokemon extends AbstractFirePokemon implements IBasicPokem
     public BasicFirePokemon(String cardName, int id, int hp, AttackContainer attackList) {
         super(cardName, id, hp, attackList);
     }
-    @Override
-    public void evolveToPhaseOne(IPhaseOnePokemon other) {
-    }
+
     /**
      * {@inheritDoc}
      *

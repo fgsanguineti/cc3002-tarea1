@@ -58,7 +58,7 @@ public class Trainer {
     }
 
     /**
-     * Add a cadt to the trainer's hand.
+     * Add a card to the trainer's hand.
      * @param aCard the card to add in the hand.
      */
     void addCardToHand(ICard aCard) {
