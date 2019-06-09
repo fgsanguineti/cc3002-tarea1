@@ -4,15 +4,15 @@ import cc3002.Abilities.Attack;
 import cc3002.Abilities.AttackContainer;
 import cc3002.energyTypes.EnergyContainer;
 import cc3002.energyTypes.*;
-import cc3002.pokemonTypes.grass.GrassPokemon;
+import cc3002.pokemonTypes.water.BasicWaterPokemon;
 import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-public class GrassPokemonTest {
+public class BasicWaterPokemonTest {
     private Attack firstAttack, secondAttack, thirdAttack, fourthAttack;
-    private GrassPokemon chikorita, bulbasaur;
+    private BasicWaterPokemon squirtle, gyarados;
 
     private ElectricEnergy electric1, electric2, electric3;
     private FightingEnergy fighting1, fighting2, fighting3;
@@ -25,6 +25,7 @@ public class GrassPokemonTest {
 
     @Before
     public void setUp() {
+
         EnergyContainer first = new EnergyContainer(0, 1, 5, 0, 0, 0);
         EnergyContainer second = new EnergyContainer(4, 0, 2, 0, 0, 0);
         EnergyContainer third = new EnergyContainer(0, 1, 2, 1, 2, 1);
@@ -42,8 +43,8 @@ public class GrassPokemonTest {
         thirdContainer = new AttackContainer(firstAttack, secondAttack, thirdAttack, null);
         fourthContainer = new AttackContainer(fourthAttack, thirdAttack, secondAttack, firstAttack);
 
-        chikorita = new GrassPokemon("Chikorita", 33, 60, secondContainer);
-        bulbasaur = new GrassPokemon("Bulbasaur", 85, 100, firstContainer);
+        squirtle = new BasicWaterPokemon("Squirtle", 33, 60, secondContainer);
+        gyarados = new BasicWaterPokemon("Gyarados", 85, 100, thirdContainer);
         electric1 = new ElectricEnergy();
         electric2 = new ElectricEnergy();
         electric3 = new ElectricEnergy();
@@ -72,109 +73,105 @@ public class GrassPokemonTest {
 
     @Test
     public void getCardName() {
-        assertEquals(chikorita.getCardName(), "Chikorita");
-        assertEquals(bulbasaur.getCardName(), "Bulbasaur");
+        assertEquals(squirtle.getCardName(), "Squirtle");
+        assertEquals(gyarados.getCardName(), "Gyarados");
     }
 
     @Test
     public void getID() {
-        assertEquals(chikorita.getID(), 33);
-        assertEquals(bulbasaur.getID(), 85);
+        assertEquals(squirtle.getID(), 33);
+        assertEquals(gyarados.getID(), 85);
     }
 
     @Test
     public void getHP() {
-        assertEquals(chikorita.getHP(), 60);
-        assertEquals(bulbasaur.getHP(), 100);
+        assertEquals(squirtle.getHP(), 60);
+        assertEquals(gyarados.getHP(), 100);
     }
     @Test
     public void receiveElectricEnergy() {
-        chikorita.receiveElectricEnergy(electric1);
-        chikorita.receiveElectricEnergy(electric2);
-        bulbasaur.receiveElectricEnergy(electric3);
-        assertEquals(chikorita.getElectricEnergyQuantity(), 2);
-        assertEquals(bulbasaur.getElectricEnergyQuantity(), 1);
+        squirtle.receiveElectricEnergy(electric1);
+        squirtle.receiveElectricEnergy(electric2);
+        gyarados.receiveElectricEnergy(electric3);
+        assertEquals(squirtle.getElectricEnergyQuantity(), 2);
+        assertEquals(gyarados.getElectricEnergyQuantity(), 1);
     }
 
     @Test
     public void receiveFightingEnergy() {
-        bulbasaur.receiveFightingEnergy(fighting1);
-        bulbasaur.receiveFightingEnergy(fighting2);
-        chikorita.receiveFightingEnergy(fighting3);
-        assertEquals(chikorita.getFightingEnergyQuantity(),1);
-        assertEquals(bulbasaur.getFightingEnergyQuantity(),2);
+        gyarados.receiveFightingEnergy(fighting1);
+        gyarados.receiveFightingEnergy(fighting2);
+        squirtle.receiveFightingEnergy(fighting3);
+        assertEquals(squirtle.getFightingEnergyQuantity(),1);
+        assertEquals(gyarados.getFightingEnergyQuantity(),2);
     }
 
     @Test
     public void receiveFireEnergy() {
-        bulbasaur.receiveFireEnergy(fire1);
-        bulbasaur.receiveFireEnergy(fire2);
-        bulbasaur.receiveFireEnergy(fire3);
-        assertEquals(bulbasaur.getFireEnergyQuantity(), 3);
-        assertEquals(chikorita.getFireEnergyQuantity(), 0);
+        gyarados.receiveFireEnergy(fire1);
+        gyarados.receiveFireEnergy(fire2);
+        gyarados.receiveFireEnergy(fire3);
+        assertEquals(gyarados.getFireEnergyQuantity(), 3);
+        assertEquals(squirtle.getFireEnergyQuantity(), 0);
 
 
     }
 
     @Test
     public void receiveGrassEnergy() {
-        chikorita.receiveGrassEnergy(grass1);
-        chikorita.receiveGrassEnergy(grass2);
-        chikorita.receiveGrassEnergy(grass3);
-        assertEquals(chikorita.getGrassEnergyQuantity(), 3);
-        assertEquals(bulbasaur.getGrassEnergyQuantity(), 0);
+        squirtle.receiveGrassEnergy(grass1);
+        squirtle.receiveGrassEnergy(grass2);
+        squirtle.receiveGrassEnergy(grass3);
+        assertEquals(squirtle.getGrassEnergyQuantity(), 3);
+        assertEquals(gyarados.getGrassEnergyQuantity(), 0);
 
     }
 
     @Test
     public void receivePsychicEnergy() {
-        chikorita.receivePsychicEnergy(psychic1);
-        chikorita.receivePsychicEnergy(psychic2);
-        bulbasaur.receivePsychicEnergy(psychic3);
-        assertEquals(chikorita.getPsychicEnergyQuantity(), 2);
-        assertEquals(bulbasaur.getPsychicEnergyQuantity(), 1);
+        squirtle.receivePsychicEnergy(psychic1);
+        squirtle.receivePsychicEnergy(psychic2);
+        gyarados.receivePsychicEnergy(psychic3);
+        assertEquals(squirtle.getPsychicEnergyQuantity(), 2);
+        assertEquals(gyarados.getPsychicEnergyQuantity(), 1);
     }
 
     @Test
     public void receiveWaterEnergy() {
-        bulbasaur.receiveWaterEnergy(water1);
-        bulbasaur.receiveWaterEnergy(water2);
-        chikorita.receiveWaterEnergy(water3);
-        assertEquals(chikorita.getWaterEnergyQuantity(),1);
-        assertEquals(bulbasaur.getWaterEnergyQuantity(),2);
+        gyarados.receiveWaterEnergy(water1);
+        gyarados.receiveWaterEnergy(water2);
+        squirtle.receiveWaterEnergy(water3);
+        assertEquals(squirtle.getWaterEnergyQuantity(),1);
+        assertEquals(gyarados.getWaterEnergyQuantity(),2);
     }
 
     @Test
-    public void receiveWaterPokemonAttack() {
-        bulbasaur.receiveWaterPokemonAttack(thirdAttack);
-        assertEquals(bulbasaur.getHP(), 80);
-
-        chikorita.receiveWaterPokemonAttack(fourthAttack);
-        assertEquals(chikorita.getHP(), 60);
+    public void receiveElectricPokemonAttack() {
+        gyarados.receiveElectricPokemonAttack(secondAttack);
+        assertEquals(gyarados.getHP(), 40);
     }
 
     @Test
-    public void receiveFirePokemonAttack() {
-        bulbasaur.receiveFirePokemonAttack(firstAttack);
-        assertEquals(bulbasaur.getHP(), 20);
+    public void receiveGrassPokemonAttack() {
+        gyarados.receiveGrassPokemonAttack(fourthAttack);
+        assertEquals(gyarados.getHP(), 60);
+    }
+
+    @Test
+    public void receiveFightingPokemonAttack() {
+        gyarados.receiveFightingPokemonAttack(thirdAttack);
+        assertEquals(gyarados.getHP(), 80);
     }
 
     @Test
     public void attack() {
-        chikorita.setActiveAttack(1);
-        chikorita.attack(bulbasaur);
-        assertEquals(bulbasaur.getHP(), 50);
-    }
-
-    @Test
-    public void receivePsychicPokemonAttack() {
-        bulbasaur.receivePsychicPokemonAttack(firstAttack);
-        assertEquals(bulbasaur.getHP(), 60);
+        squirtle.setActiveAttack(1);
+        squirtle.attack(gyarados);
+        assertEquals(gyarados.getHP(), 50);
     }
 
     @Test
     public void equals() {
-        assertEquals(chikorita, new GrassPokemon("Chikorita", 33, 60, secondContainer));
+        assertEquals(gyarados, new BasicWaterPokemon("Gyarados", 85, 100, thirdContainer));
     }
-
 }

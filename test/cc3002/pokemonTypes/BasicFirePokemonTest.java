@@ -4,16 +4,16 @@ import cc3002.Abilities.Attack;
 import cc3002.Abilities.AttackContainer;
 import cc3002.energyTypes.EnergyContainer;
 import cc3002.energyTypes.*;
-import cc3002.pokemonTypes.water.WaterPokemon;
+import cc3002.pokemonTypes.fire.BasicFirePokemon;
 import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-public class WaterPokemonTest {
-    private Attack firstAttack, secondAttack, thirdAttack, fourthAttack;
-    private WaterPokemon squirtle, gyarados;
+public class BasicFirePokemonTest {
 
+    private BasicFirePokemon tepig, flareon;
+    private Attack firstAttack, secondAttack, thirdAttack, fourthAttack;
     private ElectricEnergy electric1, electric2, electric3;
     private FightingEnergy fighting1, fighting2, fighting3;
     private FireEnergy fire1, fire2, fire3;
@@ -42,9 +42,9 @@ public class WaterPokemonTest {
         secondContainer = new AttackContainer(thirdAttack, null, null, null);
         thirdContainer = new AttackContainer(firstAttack, secondAttack, thirdAttack, null);
         fourthContainer = new AttackContainer(fourthAttack, thirdAttack, secondAttack, firstAttack);
+        tepig = new BasicFirePokemon("Tepig", 3, 70, thirdContainer);
+        flareon = new BasicFirePokemon("Flareon", 88, 90, fourthContainer);
 
-        squirtle = new WaterPokemon("Squirtle", 33, 60, secondContainer);
-        gyarados = new WaterPokemon("Gyarados", 85, 100, thirdContainer);
         electric1 = new ElectricEnergy();
         electric2 = new ElectricEnergy();
         electric3 = new ElectricEnergy();
@@ -73,105 +73,93 @@ public class WaterPokemonTest {
 
     @Test
     public void getCardName() {
-        assertEquals(squirtle.getCardName(), "Squirtle");
-        assertEquals(gyarados.getCardName(), "Gyarados");
+        assertEquals(tepig.getCardName(), "Tepig");
+        assertEquals(flareon.getCardName(), "Flareon");
     }
 
     @Test
     public void getID() {
-        assertEquals(squirtle.getID(), 33);
-        assertEquals(gyarados.getID(), 85);
+        assertEquals(tepig.getID(), 3);
+        assertEquals(flareon.getID(), 88);
     }
 
     @Test
     public void getHP() {
-        assertEquals(squirtle.getHP(), 60);
-        assertEquals(gyarados.getHP(), 100);
+        assertEquals(tepig.getHP(), 70);
+        assertEquals(flareon.getHP(), 90);
     }
     @Test
     public void receiveElectricEnergy() {
-        squirtle.receiveElectricEnergy(electric1);
-        squirtle.receiveElectricEnergy(electric2);
-        gyarados.receiveElectricEnergy(electric3);
-        assertEquals(squirtle.getElectricEnergyQuantity(), 2);
-        assertEquals(gyarados.getElectricEnergyQuantity(), 1);
+        tepig.receiveElectricEnergy(electric1);
+        tepig.receiveElectricEnergy(electric2);
+        flareon.receiveElectricEnergy(electric3);
+        assertEquals(tepig.getElectricEnergyQuantity(), 2);
+        assertEquals(flareon.getElectricEnergyQuantity(), 1);
     }
 
     @Test
     public void receiveFightingEnergy() {
-        gyarados.receiveFightingEnergy(fighting1);
-        gyarados.receiveFightingEnergy(fighting2);
-        squirtle.receiveFightingEnergy(fighting3);
-        assertEquals(squirtle.getFightingEnergyQuantity(),1);
-        assertEquals(gyarados.getFightingEnergyQuantity(),2);
+        flareon.receiveFightingEnergy(fighting1);
+        flareon.receiveFightingEnergy(fighting2);
+        tepig.receiveFightingEnergy(fighting3);
+        assertEquals(tepig.getFightingEnergyQuantity(),1);
+        assertEquals(flareon.getFightingEnergyQuantity(),2);
     }
 
     @Test
     public void receiveFireEnergy() {
-        gyarados.receiveFireEnergy(fire1);
-        gyarados.receiveFireEnergy(fire2);
-        gyarados.receiveFireEnergy(fire3);
-        assertEquals(gyarados.getFireEnergyQuantity(), 3);
-        assertEquals(squirtle.getFireEnergyQuantity(), 0);
+        flareon.receiveFireEnergy(fire1);
+        flareon.receiveFireEnergy(fire2);
+        flareon.receiveFireEnergy(fire3);
+        assertEquals(flareon.getFireEnergyQuantity(), 3);
+        assertEquals(tepig.getFireEnergyQuantity(), 0);
 
 
     }
 
     @Test
     public void receiveGrassEnergy() {
-        squirtle.receiveGrassEnergy(grass1);
-        squirtle.receiveGrassEnergy(grass2);
-        squirtle.receiveGrassEnergy(grass3);
-        assertEquals(squirtle.getGrassEnergyQuantity(), 3);
-        assertEquals(gyarados.getGrassEnergyQuantity(), 0);
+        tepig.receiveGrassEnergy(grass1);
+        tepig.receiveGrassEnergy(grass2);
+        tepig.receiveGrassEnergy(grass3);
+        assertEquals(tepig.getGrassEnergyQuantity(), 3);
+        assertEquals(flareon.getGrassEnergyQuantity(), 0);
 
     }
 
     @Test
     public void receivePsychicEnergy() {
-        squirtle.receivePsychicEnergy(psychic1);
-        squirtle.receivePsychicEnergy(psychic2);
-        gyarados.receivePsychicEnergy(psychic3);
-        assertEquals(squirtle.getPsychicEnergyQuantity(), 2);
-        assertEquals(gyarados.getPsychicEnergyQuantity(), 1);
+        tepig.receivePsychicEnergy(psychic1);
+        tepig.receivePsychicEnergy(psychic2);
+        flareon.receivePsychicEnergy(psychic3);
+        assertEquals(tepig.getPsychicEnergyQuantity(), 2);
+        assertEquals(flareon.getPsychicEnergyQuantity(), 1);
     }
 
     @Test
     public void receiveWaterEnergy() {
-        gyarados.receiveWaterEnergy(water1);
-        gyarados.receiveWaterEnergy(water2);
-        squirtle.receiveWaterEnergy(water3);
-        assertEquals(squirtle.getWaterEnergyQuantity(),1);
-        assertEquals(gyarados.getWaterEnergyQuantity(),2);
+        flareon.receiveWaterEnergy(water1);
+        flareon.receiveWaterEnergy(water2);
+        tepig.receiveWaterEnergy(water3);
+        assertEquals(tepig.getWaterEnergyQuantity(),1);
+        assertEquals(flareon.getWaterEnergyQuantity(),2);
     }
 
     @Test
-    public void receiveElectricPokemonAttack() {
-        gyarados.receiveElectricPokemonAttack(secondAttack);
-        assertEquals(gyarados.getHP(), 40);
-    }
-
-    @Test
-    public void receiveGrassPokemonAttack() {
-        gyarados.receiveGrassPokemonAttack(fourthAttack);
-        assertEquals(gyarados.getHP(), 60);
-    }
-
-    @Test
-    public void receiveFightingPokemonAttack() {
-        gyarados.receiveFightingPokemonAttack(thirdAttack);
-        assertEquals(gyarados.getHP(), 80);
+    public void receiveWaterPokemonAttack() {
+        flareon.receiveWaterPokemonAttack(firstAttack);
+        assertEquals(flareon.getHP(), 10);
     }
 
     @Test
     public void attack() {
-        squirtle.setActiveAttack(1);
-        squirtle.attack(gyarados);
-        assertEquals(gyarados.getHP(), 50);
+        tepig.setActiveAttack(1);
+        tepig.attack(flareon);
+        assertEquals(flareon.getHP(), 50);
     }
 
     @Test
     public void equals() {
-        assertEquals(gyarados, new WaterPokemon("Gyarados", 85, 100, thirdContainer));
+        assertEquals(tepig, new BasicFirePokemon("Tepig", 3, 70, thirdContainer));
     }
 }

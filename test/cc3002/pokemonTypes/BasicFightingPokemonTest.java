@@ -4,15 +4,15 @@ import cc3002.Abilities.Attack;
 import cc3002.Abilities.AttackContainer;
 import cc3002.energyTypes.EnergyContainer;
 import cc3002.energyTypes.*;
-import cc3002.pokemonTypes.fighting.FightingPokemon;
+import cc3002.pokemonTypes.fighting.BasicFightingPokemon;
 import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-public class FightingPokemonTest {
+public class BasicFightingPokemonTest {
     private Attack firstAttack, secondAttack, thirdAttack, fourthAttack;
-    private FightingPokemon riolu, lucario;
+    private BasicFightingPokemon riolu, lucario;
 
     private ElectricEnergy electric1, electric2, electric3;
     private FightingEnergy fighting1, fighting2, fighting3;
@@ -43,8 +43,8 @@ public class FightingPokemonTest {
         fourthContainer = new AttackContainer(fourthAttack, thirdAttack, secondAttack, firstAttack);
 
 
-        riolu = new FightingPokemon("Riolu", 33, 60, firstContainer);
-        lucario = new FightingPokemon("Lucario", 85, 100, secondContainer);
+        riolu = new BasicFightingPokemon("Riolu", 33, 60, firstContainer);
+        lucario = new BasicFightingPokemon("Lucario", 85, 100, secondContainer);
 
         electric1 = new ElectricEnergy();
         electric2 = new ElectricEnergy();
@@ -168,7 +168,7 @@ public class FightingPokemonTest {
 
     @Test
     public void equals() {
-        assertEquals(riolu, new FightingPokemon("Riolu", 33, 60, firstContainer));
+        assertEquals(riolu, new BasicFightingPokemon("Riolu", 33, 60, firstContainer));
     }
 
 }

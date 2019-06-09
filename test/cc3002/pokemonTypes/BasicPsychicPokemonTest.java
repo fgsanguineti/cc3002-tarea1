@@ -4,16 +4,16 @@ import cc3002.Abilities.Attack;
 import cc3002.Abilities.AttackContainer;
 import cc3002.energyTypes.EnergyContainer;
 import cc3002.energyTypes.*;
-import cc3002.pokemonTypes.psychic.PsychicPokemon;
+import cc3002.pokemonTypes.psychic.BasicPsychicPokemon;
 import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 
-public class PsychicPokemonTest {
+public class BasicPsychicPokemonTest {
     private Attack firstAttack, secondAttack, thirdAttack, fourthAttack;
-    private PsychicPokemon espeon, mewto;
+    private BasicPsychicPokemon espeon, mewto;
 
     private ElectricEnergy electric1, electric2, electric3;
     private FightingEnergy fighting1, fighting2, fighting3;
@@ -43,8 +43,8 @@ public class PsychicPokemonTest {
         thirdContainer = new AttackContainer(firstAttack, secondAttack, thirdAttack, null);
         fourthContainer = new AttackContainer(fourthAttack, thirdAttack, secondAttack, firstAttack);
 
-        espeon = new PsychicPokemon("Espeon", 33, 60, fourthContainer);
-        mewto = new PsychicPokemon("Mewto", 85, 100, firstContainer);
+        espeon = new BasicPsychicPokemon("Espeon", 33, 60, fourthContainer);
+        mewto = new BasicPsychicPokemon("Mewto", 85, 100, firstContainer);
         electric1 = new ElectricEnergy();
         electric2 = new ElectricEnergy();
         electric3 = new ElectricEnergy();
@@ -168,8 +168,8 @@ public class PsychicPokemonTest {
     public void equals() {
         assertNotEquals(espeon, mewto);
         assertEquals(espeon, espeon);
-        assertEquals(mewto, new PsychicPokemon("Mewto", 85, 100, firstContainer));
-        assertNotEquals(mewto, new PsychicPokemon("Meto", 85, 100, firstContainer));
+        assertEquals(mewto, new BasicPsychicPokemon("Mewto", 85, 100, firstContainer));
+        assertNotEquals(mewto, new BasicPsychicPokemon("Meto", 85, 100, firstContainer));
     }
 
 

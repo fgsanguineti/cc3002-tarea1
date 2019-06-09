@@ -4,12 +4,12 @@ import cc3002.Abilities.Attack;
 import cc3002.Abilities.AttackContainer;
 import cc3002.energyTypes.*;
 import cc3002.pokemonTypes.IPokemon;
-import cc3002.pokemonTypes.electric.ElectricPokemon;
-import cc3002.pokemonTypes.fighting.FightingPokemon;
-import cc3002.pokemonTypes.fire.FirePokemon;
-import cc3002.pokemonTypes.grass.GrassPokemon;
-import cc3002.pokemonTypes.psychic.PsychicPokemon;
-import cc3002.pokemonTypes.water.WaterPokemon;
+import cc3002.pokemonTypes.electric.BasicElectricPokemon;
+import cc3002.pokemonTypes.fighting.BasicFightingPokemon;
+import cc3002.pokemonTypes.fire.BasicFirePokemon;
+import cc3002.pokemonTypes.grass.BasicGrassPokemon;
+import cc3002.pokemonTypes.psychic.BasicPsychicPokemon;
+import cc3002.pokemonTypes.water.BasicWaterPokemon;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -25,12 +25,12 @@ public class TrainerTest {
     private EnergyContainer third = new EnergyContainer(0, 1, 1, 0, 0, 0);
     private EnergyContainer fourth = new EnergyContainer(0, 1, 1, 0, 2, 1);
     private Trainer Franco, Giovanni;
-    private ElectricPokemon pikachu, jolteon;
-    private FightingPokemon riolu, lucario;
-    private FirePokemon tepig, flareon;
-    private GrassPokemon chikorita, bulbasaur;
-    private PsychicPokemon espeon, mewto;
-    private WaterPokemon squirtle, gyarados;
+    private BasicElectricPokemon pikachu, jolteon;
+    private BasicFightingPokemon riolu, lucario;
+    private BasicFirePokemon tepig, flareon;
+    private BasicGrassPokemon chikorita, bulbasaur;
+    private BasicPsychicPokemon espeon, mewto;
+    private BasicWaterPokemon squirtle, gyarados;
     private ElectricEnergy electric1;
     private FightingEnergy fighting1;
     private FireEnergy fire1;
@@ -64,20 +64,20 @@ public class TrainerTest {
         AttackContainer fourthContainer = new AttackContainer(fourthAttack, thirdAttack, secondAttack, firstAttack);
 
         // Franco
-        pikachu = new ElectricPokemon("Pikachu", 54, 60, firstContainer);
-        lucario = new FightingPokemon("Lucario", 85, 100, secondContainer);
-        tepig = new FirePokemon("Tepig", 3, 70, thirdContainer);
-        bulbasaur = new GrassPokemon("Bulbasaur", 85, 100, firstContainer);
-        espeon = new PsychicPokemon("Espeon", 33, 60, fourthContainer);
-        gyarados = new WaterPokemon("Gyarados", 85, 100, thirdContainer);
+        pikachu = new BasicElectricPokemon("Pikachu", 54, 60, firstContainer);
+        lucario = new BasicFightingPokemon("Lucario", 85, 100, secondContainer);
+        tepig = new BasicFirePokemon("Tepig", 3, 70, thirdContainer);
+        bulbasaur = new BasicGrassPokemon("Bulbasaur", 85, 100, firstContainer);
+        espeon = new BasicPsychicPokemon("Espeon", 33, 60, fourthContainer);
+        gyarados = new BasicWaterPokemon("Gyarados", 85, 100, thirdContainer);
 
         //Giovanni
-        jolteon = new ElectricPokemon("Jolteon", 28, 160, fourthContainer);
-        riolu = new FightingPokemon("Riolu", 33, 60, firstContainer);
-        flareon = new FirePokemon("Flareon", 88, 90, fourthContainer);
-        chikorita = new GrassPokemon("Chikorita", 33, 60, secondContainer);
-        mewto = new PsychicPokemon("Mewto", 85, 100, firstContainer);
-        squirtle = new WaterPokemon("Squirtle", 33, 60, secondContainer);
+        jolteon = new BasicElectricPokemon("Jolteon", 28, 160, fourthContainer);
+        riolu = new BasicFightingPokemon("Riolu", 33, 60, firstContainer);
+        flareon = new BasicFirePokemon("Flareon", 88, 90, fourthContainer);
+        chikorita = new BasicGrassPokemon("Chikorita", 33, 60, secondContainer);
+        mewto = new BasicPsychicPokemon("Mewto", 85, 100, firstContainer);
+        squirtle = new BasicWaterPokemon("Squirtle", 33, 60, secondContainer);
 
     }
 

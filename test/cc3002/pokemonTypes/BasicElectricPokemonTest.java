@@ -4,16 +4,18 @@ import cc3002.Abilities.Attack;
 import cc3002.Abilities.AttackContainer;
 import cc3002.energyTypes.EnergyContainer;
 import cc3002.energyTypes.*;
-import cc3002.pokemonTypes.fire.FirePokemon;
+import cc3002.pokemonTypes.electric.BasicElectricPokemon;
 import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-public class FirePokemonTest {
+public class BasicElectricPokemonTest {
+    private BasicElectricPokemon pikachu, jolteon;
 
-    private FirePokemon tepig, flareon;
+
     private Attack firstAttack, secondAttack, thirdAttack, fourthAttack;
+
     private ElectricEnergy electric1, electric2, electric3;
     private FightingEnergy fighting1, fighting2, fighting3;
     private FireEnergy fire1, fire2, fire3;
@@ -42,8 +44,10 @@ public class FirePokemonTest {
         secondContainer = new AttackContainer(thirdAttack, null, null, null);
         thirdContainer = new AttackContainer(firstAttack, secondAttack, thirdAttack, null);
         fourthContainer = new AttackContainer(fourthAttack, thirdAttack, secondAttack, firstAttack);
-        tepig = new FirePokemon("Tepig", 3, 70, thirdContainer);
-        flareon = new FirePokemon("Flareon", 88, 90, fourthContainer);
+
+        pikachu = new BasicElectricPokemon("Pikachu", 54, 60, firstContainer);
+        jolteon = new BasicElectricPokemon("Jolteon", 28, 160, fourthContainer);
+
 
         electric1 = new ElectricEnergy();
         electric2 = new ElectricEnergy();
@@ -73,93 +77,86 @@ public class FirePokemonTest {
 
     @Test
     public void getCardName() {
-        assertEquals(tepig.getCardName(), "Tepig");
-        assertEquals(flareon.getCardName(), "Flareon");
+        assertEquals(pikachu.getCardName(), "Pikachu");
+        assertEquals(jolteon.getCardName(), "Jolteon");
     }
 
     @Test
     public void getID() {
-        assertEquals(tepig.getID(), 3);
-        assertEquals(flareon.getID(), 88);
+        assertEquals(pikachu.getID(), 54);
+        assertEquals(jolteon.getID(), 28);
     }
 
     @Test
     public void getHP() {
-        assertEquals(tepig.getHP(), 70);
-        assertEquals(flareon.getHP(), 90);
+        assertEquals(pikachu.getHP(), 60);
+        assertEquals(jolteon.getHP(), 160);
     }
     @Test
     public void receiveElectricEnergy() {
-        tepig.receiveElectricEnergy(electric1);
-        tepig.receiveElectricEnergy(electric2);
-        flareon.receiveElectricEnergy(electric3);
-        assertEquals(tepig.getElectricEnergyQuantity(), 2);
-        assertEquals(flareon.getElectricEnergyQuantity(), 1);
+        pikachu.receiveElectricEnergy(electric1);
+        pikachu.receiveElectricEnergy(electric2);
+        jolteon.receiveElectricEnergy(electric3);
+        assertEquals(pikachu.getElectricEnergyQuantity(), 2);
+        assertEquals(jolteon.getElectricEnergyQuantity(), 1);
     }
 
     @Test
     public void receiveFightingEnergy() {
-        flareon.receiveFightingEnergy(fighting1);
-        flareon.receiveFightingEnergy(fighting2);
-        tepig.receiveFightingEnergy(fighting3);
-        assertEquals(tepig.getFightingEnergyQuantity(),1);
-        assertEquals(flareon.getFightingEnergyQuantity(),2);
+        jolteon.receiveFightingEnergy(fighting1);
+        jolteon.receiveFightingEnergy(fighting2);
+        pikachu.receiveFightingEnergy(fighting3);
+        assertEquals(pikachu.getFightingEnergyQuantity(),1);
+        assertEquals(jolteon.getFightingEnergyQuantity(),2);
     }
 
     @Test
     public void receiveFireEnergy() {
-        flareon.receiveFireEnergy(fire1);
-        flareon.receiveFireEnergy(fire2);
-        flareon.receiveFireEnergy(fire3);
-        assertEquals(flareon.getFireEnergyQuantity(), 3);
-        assertEquals(tepig.getFireEnergyQuantity(), 0);
+        jolteon.receiveFireEnergy(fire1);
+        jolteon.receiveFireEnergy(fire2);
+        jolteon.receiveFireEnergy(fire3);
+        assertEquals(jolteon.getFireEnergyQuantity(), 3);
+        assertEquals(pikachu.getFireEnergyQuantity(), 0);
 
 
     }
 
     @Test
     public void receiveGrassEnergy() {
-        tepig.receiveGrassEnergy(grass1);
-        tepig.receiveGrassEnergy(grass2);
-        tepig.receiveGrassEnergy(grass3);
-        assertEquals(tepig.getGrassEnergyQuantity(), 3);
-        assertEquals(flareon.getGrassEnergyQuantity(), 0);
+        pikachu.receiveGrassEnergy(grass1);
+        pikachu.receiveGrassEnergy(grass2);
+        pikachu.receiveGrassEnergy(grass3);
+        assertEquals(pikachu.getGrassEnergyQuantity(), 3);
+        assertEquals(jolteon.getGrassEnergyQuantity(), 0);
 
     }
 
     @Test
     public void receivePsychicEnergy() {
-        tepig.receivePsychicEnergy(psychic1);
-        tepig.receivePsychicEnergy(psychic2);
-        flareon.receivePsychicEnergy(psychic3);
-        assertEquals(tepig.getPsychicEnergyQuantity(), 2);
-        assertEquals(flareon.getPsychicEnergyQuantity(), 1);
+        pikachu.receivePsychicEnergy(psychic1);
+        pikachu.receivePsychicEnergy(psychic2);
+        jolteon.receivePsychicEnergy(psychic3);
+        assertEquals(pikachu.getPsychicEnergyQuantity(), 2);
+        assertEquals(jolteon.getPsychicEnergyQuantity(), 1);
     }
 
     @Test
     public void receiveWaterEnergy() {
-        flareon.receiveWaterEnergy(water1);
-        flareon.receiveWaterEnergy(water2);
-        tepig.receiveWaterEnergy(water3);
-        assertEquals(tepig.getWaterEnergyQuantity(),1);
-        assertEquals(flareon.getWaterEnergyQuantity(),2);
+        jolteon.receiveWaterEnergy(water1);
+        jolteon.receiveWaterEnergy(water2);
+        pikachu.receiveWaterEnergy(water3);
+        assertEquals(pikachu.getWaterEnergyQuantity(),1);
+        assertEquals(jolteon.getWaterEnergyQuantity(),2);
     }
 
     @Test
-    public void receiveWaterPokemonAttack() {
-        flareon.receiveWaterPokemonAttack(firstAttack);
-        assertEquals(flareon.getHP(), 10);
-    }
-
-    @Test
-    public void attack() {
-        tepig.setActiveAttack(1);
-        tepig.attack(flareon);
-        assertEquals(flareon.getHP(), 50);
+    public void receiveFightingPokemonAttack() {
+        pikachu.receiveFightingPokemonAttack(thirdAttack);
+        assertEquals(pikachu.getHP(), -40);
     }
 
     @Test
     public void equals() {
-        assertEquals(tepig, new FirePokemon("Tepig", 3, 70, thirdContainer));
+        assertEquals(pikachu, new BasicElectricPokemon("Pikachu", 54, 60, firstContainer));
     }
 }
