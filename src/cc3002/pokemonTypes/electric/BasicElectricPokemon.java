@@ -5,7 +5,6 @@ import cc3002.pokemonTypes.IBasicPokemon;
 import cc3002.pokemonTypes.IPhaseOnePokemon;
 
 public class BasicElectricPokemon extends AbstractElectricPokemon implements IBasicPokemon {
-
     /**
      * Creates a new electric pokemon.
      *
@@ -17,7 +16,6 @@ public class BasicElectricPokemon extends AbstractElectricPokemon implements IBa
     public BasicElectricPokemon(String cardName, int id, int hp, AttackContainer attackList) {
         super(cardName, id, hp, attackList);
     }
-
     @Override
     public void evolveToPhaseOne(IPhaseOnePokemon other) {}
     /**

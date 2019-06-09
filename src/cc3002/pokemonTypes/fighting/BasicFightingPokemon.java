@@ -1,11 +1,10 @@
 package cc3002.pokemonTypes.fighting;
 
-import cc3002.pokemonTypes.AbstractPokemon;
-import cc3002.Abilities.Attack;
 import cc3002.Abilities.AttackContainer;
-import cc3002.pokemonTypes.IPokemon;
+import cc3002.pokemonTypes.IBasicPokemon;
+import cc3002.pokemonTypes.IPhaseOnePokemon;
 
-public class BasicFightingPokemon extends AbstractPokemon {
+public class BasicFightingPokemon extends AbstractFightingPokemon implements IBasicPokemon {
     /**
      * Creates a new fighting pokemon.
      *
@@ -17,22 +16,9 @@ public class BasicFightingPokemon extends AbstractPokemon {
     public BasicFightingPokemon(String cardName, int id, int hp, AttackContainer attackList) {
         super(cardName, id, hp, attackList);
     }
-
     @Override
-    public void receiveGrassPokemonAttack(Attack anAttack) {
-        super.receiveWeaknessPokemonTypeAttack(anAttack);
+    public void evolveToPhaseOne(IPhaseOnePokemon other) {
     }
-
-    @Override
-    public void receivePsychicPokemonAttack(Attack anAttack) {
-        super.receiveWeaknessPokemonTypeAttack(anAttack);
-    }
-
-    @Override
-    public void attack(IPokemon other) {
-        other.receiveFightingPokemonAttack(super.getActiveAttack());
-    }
-
     /**
      * {@inheritDoc}
      *
@@ -43,12 +29,7 @@ public class BasicFightingPokemon extends AbstractPokemon {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof BasicFightingPokemon)) return false;
-        BasicFightingPokemon that = (BasicFightingPokemon) o;
-        return this.getID() == that.getID() &&
-                this.getHP() == that.getHP() &&
-                getCardName().equals(that.getCardName()) &&
-                this.getAttackList().equals(that.getAttackList()) &&
-                getActiveAttack().equals(that.getActiveAttack()) &&
-                this.getAllEnergyQuantity().equals(that.getAllEnergyQuantity());
+        return super.equals(o);
     }
+
 }

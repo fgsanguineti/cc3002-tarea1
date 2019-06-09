@@ -1,5 +1,4 @@
 package cc3002.pokemonTypes.electric;
-
 import cc3002.Abilities.Attack;
 import cc3002.Abilities.AttackContainer;
 import cc3002.pokemonTypes.AbstractPokemon;
