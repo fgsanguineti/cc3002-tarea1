@@ -1,7 +1,9 @@
 package cc3002.pokemonTypes.grass;
 
+import cc3002.Abilities.Attack;
 import cc3002.Abilities.AttackContainer;
 import cc3002.pokemonTypes.AbstractPokemon;
+import cc3002.pokemonTypes.IPokemon;
 
 public abstract class AbstractGrassPokemon extends AbstractPokemon {
     /**
@@ -12,7 +14,23 @@ public abstract class AbstractGrassPokemon extends AbstractPokemon {
      * @param hp         The HP of the pokemon
      * @param attackList a list with the attacks of the Pokemon, that can be up to 4.
      */
-    public AbstractGrassPokemon(String cardName, int id, int hp, AttackContainer attackList) {
+    AbstractGrassPokemon(String cardName, int id, int hp, AttackContainer attackList) {
         super(cardName, id, hp, attackList);
     }
+
+    @Override
+    public void receiveFirePokemonAttack(Attack anAttack) {
+        super.receiveWeaknessPokemonTypeAttack(anAttack);
+    }
+
+    @Override
+    public void receiveWaterPokemonAttack(Attack anAttack) {
+        super.receiveResistantPokemonTypeAttack(anAttack);
+    }
+
+    @Override
+    public void attack(IPokemon other) {
+        other.receiveGrassPokemonAttack(super.getActiveAttack());
+    }
+
 }

@@ -31,5 +31,4 @@ public class BasicFightingPokemon extends AbstractFightingPokemon implements IBa
         if (!(o instanceof BasicFightingPokemon)) return false;
         return super.equals(o);
     }
-
 }

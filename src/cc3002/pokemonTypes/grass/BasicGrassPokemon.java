@@ -1,11 +1,10 @@
 package cc3002.pokemonTypes.grass;
 
-import cc3002.pokemonTypes.AbstractPokemon;
-import cc3002.Abilities.Attack;
 import cc3002.Abilities.AttackContainer;
-import cc3002.pokemonTypes.IPokemon;
+import cc3002.pokemonTypes.IBasicPokemon;
+import cc3002.pokemonTypes.IPhaseOnePokemon;
 
-public class BasicGrassPokemon extends AbstractPokemon {
+public class BasicGrassPokemon extends AbstractGrassPokemon implements IBasicPokemon {
     /**
      * Creates a new grass pokemon.
      *
@@ -17,27 +16,9 @@ public class BasicGrassPokemon extends AbstractPokemon {
     public BasicGrassPokemon(String cardName, int id, int hp, AttackContainer attackList) {
         super(cardName, id, hp, attackList);
     }
-
     @Override
-    public String getCardName() {
-        return super.getCardName();
+    public void evolveToPhaseOne(IPhaseOnePokemon other) {
     }
-
-    @Override
-    public void receiveFirePokemonAttack(Attack anAttack) {
-        super.receiveWeaknessPokemonTypeAttack(anAttack);
-    }
-
-    @Override
-    public void receiveWaterPokemonAttack(Attack anAttack) {
-        super.receiveResistantPokemonTypeAttack(anAttack);
-    }
-
-    @Override
-    public void attack(IPokemon other) {
-        other.receiveGrassPokemonAttack(super.getActiveAttack());
-    }
-
     /**
      * {@inheritDoc}
      *
@@ -48,12 +29,7 @@ public class BasicGrassPokemon extends AbstractPokemon {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof BasicGrassPokemon)) return false;
-        BasicGrassPokemon that = (BasicGrassPokemon) o;
-        return this.getID() == that.getID() &&
-                this.getHP() == that.getHP() &&
-                getCardName().equals(that.getCardName()) &&
-                this.getAttackList().equals(that.getAttackList()) &&
-                getActiveAttack().equals(that.getActiveAttack()) &&
-                this.getAllEnergyQuantity().equals(that.getAllEnergyQuantity());
+        return super.equals(o);
     }
+
 }
