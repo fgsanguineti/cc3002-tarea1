@@ -3,13 +3,13 @@ package cc3002;
 import cc3002.Abilities.Attack;
 import cc3002.Abilities.AttackContainer;
 import cc3002.energyTypes.*;
-import cc3002.pokemonTypes.IPokemon;
-import cc3002.pokemonTypes.electric.BasicElectricPokemon;
-import cc3002.pokemonTypes.fighting.BasicFightingPokemon;
-import cc3002.pokemonTypes.fire.BasicFirePokemon;
-import cc3002.pokemonTypes.grass.BasicGrassPokemon;
-import cc3002.pokemonTypes.psychic.BasicPsychicPokemon;
-import cc3002.pokemonTypes.water.BasicWaterPokemon;
+import cc3002.pokemontypes.IPokemon;
+import cc3002.pokemontypes.electric.BasicElectricPokemon;
+import cc3002.pokemontypes.fighting.BasicFightingPokemon;
+import cc3002.pokemontypes.fire.BasicFirePokemon;
+import cc3002.pokemontypes.grass.BasicGrassPokemon;
+import cc3002.pokemontypes.psychic.BasicPsychicPokemon;
+import cc3002.pokemontypes.water.BasicWaterPokemon;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -91,8 +91,8 @@ public class TrainerTest {
     public void getActivePokemon() {
         Franco.addCardToHand(pikachu);
         Giovanni.addCardToHand(squirtle);
-        Franco.Play(Franco.getHand().get(Franco.getHand().indexOf(pikachu)));
-        Giovanni.Play(Giovanni.getHand().get(Giovanni.getHand().indexOf(squirtle)));
+        Franco.play(Franco.getHand().get(Franco.getHand().indexOf(pikachu)));
+        Giovanni.play(Giovanni.getHand().get(Giovanni.getHand().indexOf(squirtle)));
         assertEquals(Franco.getActivePokemon(), pikachu);
         assertEquals(Giovanni.getActivePokemon(), squirtle);
     }
@@ -172,18 +172,18 @@ public class TrainerTest {
         Franco.addCardToHand(chikorita);
         Franco.addCardToHand(mewto);
 
-        Franco.Play(Franco.getHand().get(Franco.getHand().indexOf(pikachu)));
-        Franco.Play(Franco.getHand().get(Franco.getHand().indexOf(lucario)));
+        Franco.play(Franco.getHand().get(Franco.getHand().indexOf(pikachu)));
+        Franco.play(Franco.getHand().get(Franco.getHand().indexOf(lucario)));
 
         ArrayList<IPokemon> bench = new ArrayList<>();
         bench.add(lucario);
 
         assertEquals(bench, Franco.getBench());
 
-        Franco.Play(Franco.getHand().get(Franco.getHand().indexOf(tepig)));
-        Franco.Play(Franco.getHand().get(Franco.getHand().indexOf(bulbasaur)));
-        Franco.Play(Franco.getHand().get(Franco.getHand().indexOf(espeon)));
-        Franco.Play(Franco.getHand().get(Franco.getHand().indexOf(gyarados)));
+        Franco.play(Franco.getHand().get(Franco.getHand().indexOf(tepig)));
+        Franco.play(Franco.getHand().get(Franco.getHand().indexOf(bulbasaur)));
+        Franco.play(Franco.getHand().get(Franco.getHand().indexOf(espeon)));
+        Franco.play(Franco.getHand().get(Franco.getHand().indexOf(gyarados)));
 
         bench.add(tepig);
         bench.add(bulbasaur);
@@ -192,7 +192,7 @@ public class TrainerTest {
 
         assertEquals(bench, Franco.getBench());
 
-        Franco.Play(Franco.getHand().get(Franco.getHand().indexOf(mewto)));
+        Franco.play(Franco.getHand().get(Franco.getHand().indexOf(mewto)));
         bench.add(mewto);
         assertNotEquals(bench, Franco.getBench());
     }
@@ -211,23 +211,23 @@ public class TrainerTest {
         ArrayList<ICard> bench = new ArrayList<>();
 
         assertEquals(Giovanni.getHand().size(), 7);
-        Giovanni.Play(Giovanni.getHand().get(Giovanni.getHand().indexOf(jolteon)));
+        Giovanni.play(Giovanni.getHand().get(Giovanni.getHand().indexOf(jolteon)));
         assertEquals(Giovanni.getHand().size(), 6);
         assertEquals(Giovanni.getActivePokemon(), jolteon);
-        Giovanni.Play(Giovanni.getHand().get(Giovanni.getHand().indexOf(grass1)));
+        Giovanni.play(Giovanni.getHand().get(Giovanni.getHand().indexOf(grass1)));
         assertEquals(Giovanni.getHand().size(), 5);
         jolteon.receiveGrassEnergy(grass1);
         assertEquals(Giovanni.getActivePokemon(), jolteon);
-        Giovanni.Play(Giovanni.getHand().get(Giovanni.getHand().indexOf(flareon)));
+        Giovanni.play(Giovanni.getHand().get(Giovanni.getHand().indexOf(flareon)));
         assertEquals(Giovanni.getHand().size(), 4);
-        Giovanni.Play(Giovanni.getHand().get(Giovanni.getHand().indexOf(riolu)));
+        Giovanni.play(Giovanni.getHand().get(Giovanni.getHand().indexOf(riolu)));
         assertEquals(Giovanni.getHand().size(), 3);
         bench.add(flareon);
         bench.add(riolu);
         assertEquals(Giovanni.getBench(), bench);
-        Giovanni.Play(Giovanni.getHand().get(Giovanni.getHand().indexOf(fire1)));
-        Giovanni.Play(Giovanni.getHand().get(Giovanni.getHand().indexOf(electric1)));
-        Giovanni.Play(Giovanni.getHand().get(Giovanni.getHand().indexOf(fighting1)));
+        Giovanni.play(Giovanni.getHand().get(Giovanni.getHand().indexOf(fire1)));
+        Giovanni.play(Giovanni.getHand().get(Giovanni.getHand().indexOf(electric1)));
+        Giovanni.play(Giovanni.getHand().get(Giovanni.getHand().indexOf(fighting1)));
         assertEquals(Giovanni.getHand().size(), 0);
         jolteon.receiveFireEnergy(fire1);
         jolteon.receiveElectricEnergy(electric1);
@@ -239,8 +239,8 @@ public class TrainerTest {
     public void makeAnAttack() {
         Franco.addCardToHand(flareon);
         Franco.addCardToHand(pikachu);
-        Franco.Play(Franco.getHand().get(0));
-        Franco.Play(Franco.getHand().get(0));
+        Franco.play(Franco.getHand().get(0));
+        Franco.play(Franco.getHand().get(0));
 
         Giovanni.addCardToHand(jolteon);
         Giovanni.addCardToHand(fighting1);
@@ -248,11 +248,11 @@ public class TrainerTest {
         Giovanni.addCardToHand(water1);
         Giovanni.addCardToHand(psychic1);
 
-        Giovanni.Play(Giovanni.getHand().get(0));
-        Giovanni.Play(Giovanni.getHand().get(0));
-        Giovanni.Play(Giovanni.getHand().get(0));
-        Giovanni.Play(Giovanni.getHand().get(0));
-        Giovanni.Play(Giovanni.getHand().get(0));
+        Giovanni.play(Giovanni.getHand().get(0));
+        Giovanni.play(Giovanni.getHand().get(0));
+        Giovanni.play(Giovanni.getHand().get(0));
+        Giovanni.play(Giovanni.getHand().get(0));
+        Giovanni.play(Giovanni.getHand().get(0));
         Giovanni.makeAnAttack(4, Franco);
         assertEquals(Franco.getActivePokemon().getHP(), 50);
         Giovanni.makeAnAttack(2, Franco);
@@ -264,14 +264,14 @@ public class TrainerTest {
         assertNotEquals(Franco, Giovanni);
         assertEquals(Franco, new Trainer("Franco"));
         Giovanni.addCardToHand(pikachu);
-        Giovanni.Play(Giovanni.getHand().get(Giovanni.getHand().indexOf(pikachu)));
-        Trainer Giova = new Trainer("Giovanni");
-        Giova.addCardToHand(pikachu);
-        Giova.Play(Giova.getHand().get(Giova.getHand().indexOf(pikachu)));
-        assertEquals(Giova, Giovanni);
+        Giovanni.play(Giovanni.getHand().get(Giovanni.getHand().indexOf(pikachu)));
+        Trainer giova = new Trainer("Giovanni");
+        giova.addCardToHand(pikachu);
+        giova.play(giova.getHand().get(giova.getHand().indexOf(pikachu)));
+        assertEquals(giova, Giovanni);
 
         Giovanni.addCardToHand(pikachu);
-        Giova.Play(Giovanni.getHand().get(Giovanni.getHand().indexOf(pikachu)));
+        giova.play(Giovanni.getHand().get(Giovanni.getHand().indexOf(pikachu)));
 
 
     }

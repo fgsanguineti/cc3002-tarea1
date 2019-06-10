@@ -1,7 +1,7 @@
 package cc3002.Abilities;
 
 import cc3002.energyTypes.EnergyContainer;
-import cc3002.pokemonTypes.IPokemon;
+import cc3002.pokemontypes.IPokemon;
 
 /**
  * This class contents implements the IAbility interface

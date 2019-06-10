@@ -1,6 +1,6 @@
 package cc3002.energyTypes;
 
-import cc3002.pokemonTypes.IPokemon;
+import cc3002.pokemontypes.IPokemon;
 
 
 /**
