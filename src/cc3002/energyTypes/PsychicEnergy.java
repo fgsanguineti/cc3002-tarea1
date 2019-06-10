@@ -23,7 +23,7 @@ public class PsychicEnergy extends AbstractEnergy {
      */
     @Override
     public void addEnergyToPokemon(IPokemon other) {
-        other.receivePsychicEnergy(this);
+        if (other != null) other.receivePsychicEnergy(this);
     }
 
 

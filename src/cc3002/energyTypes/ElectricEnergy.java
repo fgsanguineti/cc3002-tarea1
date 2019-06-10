@@ -24,7 +24,7 @@ public class ElectricEnergy extends AbstractEnergy {
      */
     @Override
     public void addEnergyToPokemon(IPokemon other) {
-        other.receiveElectricEnergy(this);
+        if (other != null) other.receiveElectricEnergy(this);
     }
 
     /**

@@ -46,15 +46,6 @@ public abstract class AbstractPokemon implements IPokemon {
         return this.cardName;
     }
 
-    /** Let a trainer plays the card.
-     * @param aTrainer the Trainer that plays the card.
-     */
-    @Override
-    public void playCard(Trainer aTrainer) {
-        this.trainer = aTrainer;
-        aTrainer.playPokemon(this);
-    }
-
     @Override
     public void accept(ICardVisitor v) {
     }
@@ -79,7 +70,6 @@ public abstract class AbstractPokemon implements IPokemon {
 
     /**
      * Returns the trainer that plays the Pokemon.
-     *
      * @return a Trainer that played the Pokemon HP.
      */
     @Override

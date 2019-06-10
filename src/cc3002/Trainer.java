@@ -64,7 +64,7 @@ public class Trainer {
     /** Gives the trainer's hand
      * @return the trainer's hand object.
      */
-    public ArrayList<ICard> getHand() {
+    ArrayList<ICard> getHand() {
         return hand;
     }
 
@@ -95,16 +95,6 @@ public class Trainer {
         PlayCardVisitor v = new PlayCardVisitor();
         aCard.accept(v);
     }
-
-    /**
-     * Lets the trainer plays a Pokemon.
-     * @param aPokemon the Pokemon that wants to be played.
-     */
-    public void playPokemon(IPokemon aPokemon) {
-        if (activePokemon == null) activePokemon = aPokemon;
-        else if (bench.size() < 5) bench.add(aPokemon);
-    }
-
     /**
      * Lets a trainer performs an attack to the active enemy Pokemon
      * @param attackNumber number of the Pokemon attack (1-4).

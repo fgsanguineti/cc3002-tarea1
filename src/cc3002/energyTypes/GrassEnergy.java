@@ -23,7 +23,7 @@ public class GrassEnergy extends AbstractEnergy {
      */
     @Override
     public void addEnergyToPokemon(IPokemon other) {
-        other.receiveGrassEnergy(this);
+        if (other != null) other.receiveGrassEnergy(this);
     }
 
     /**

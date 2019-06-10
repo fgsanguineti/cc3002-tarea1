@@ -23,7 +23,7 @@ public class FightingEnergy extends AbstractEnergy {
      */
     @Override
     public void addEnergyToPokemon(IPokemon other) {
-        other.receiveFightingEnergy(this);
+        if (other != null) other.receiveFightingEnergy(this);
     }
 
     /**

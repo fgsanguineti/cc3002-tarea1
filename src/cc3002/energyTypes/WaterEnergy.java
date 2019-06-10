@@ -22,7 +22,7 @@ public class WaterEnergy extends AbstractEnergy {
      */
     @Override
     public void addEnergyToPokemon(IPokemon other) {
-        other.receiveWaterEnergy(this);
+        if (other != null) other.receiveWaterEnergy(this);
     }
 
 

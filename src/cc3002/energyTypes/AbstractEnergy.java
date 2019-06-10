@@ -27,15 +27,6 @@ public abstract class AbstractEnergy implements IEnergy {
         this.cardName = cardName;
     }
 
-    /** Let's a trainer plays a card.
-     * @param aTrainer The trainer that plays the card.
-     */
-    @Override
-    public void playCard(Trainer aTrainer) {
-        if (aTrainer.getHand() != null)
-            this.addEnergyToPokemon(aTrainer.getActivePokemon());
-    }
-
     @Override
     public void accept(ICardVisitor v) {
         v.visitEnergyCard(this);
@@ -47,7 +38,6 @@ public abstract class AbstractEnergy implements IEnergy {
      */
     @Override
     public abstract void addEnergyToPokemon(IPokemon other);
-
 
     @Override
     public Trainer getTrainer() {

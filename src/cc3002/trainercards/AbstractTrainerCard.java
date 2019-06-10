@@ -18,9 +18,6 @@ public class AbstractTrainerCard implements ITrainerCard {
         return this.cardName;
     }
 
-    @Override
-    public void playCard(Trainer aTrainer) {
-    }
 
     @Override
     public void accept(ICardVisitor v) {

@@ -9,11 +9,7 @@ import cc3002.cardvisitors.ICardVisitor;
  */
 public interface ICard {
     String getCardName();
-    void playCard(Trainer aTrainer);
-
     void accept(ICardVisitor v);
-
     Trainer getTrainer();
-
     void setTrainer(Trainer aTrainer);
 }
