@@ -1,37 +1,19 @@
 package cc3002.trainercards;
 
-import cc3002.Trainer;
+import cc3002.AbstractCard;
 import cc3002.cardvisitors.ICardVisitor;
 
 
-public class AbstractTrainerCard implements ITrainerCard {
-    private String cardName;
+public abstract class AbstractTrainerCard extends AbstractCard implements ITrainerCard {
     private String description;
-    private Trainer trainer;
 
     AbstractTrainerCard(String cardName, String description) {
-        this.cardName = cardName;
+        super(cardName);
         this.description = description;
     }
-    @Override
-    public String getCardName() {
-        return this.cardName;
-    }
-
 
     @Override
     public void accept(ICardVisitor v) {
-
-    }
-
-    @Override
-    public Trainer getTrainer() {
-        return this.trainer;
-    }
-
-    @Override
-    public void setTrainer(Trainer aTrainer) {
-        this.trainer = aTrainer;
     }
 
     @Override

@@ -14,7 +14,8 @@ public class FireEnergy extends AbstractEnergy {
      * Creates a new fire energy card.
      * @author F. Giovanni Sanguineti.
      */
-    public FireEnergy() { super.setCardName("Fire Energy");
+    public FireEnergy() {
+        super("Fire Energy");
     }
 
     /**

@@ -1,6 +1,5 @@
 package cc3002.energyTypes;
 
-import cc3002.ICard;
 import cc3002.pokemontypes.IPokemon;
 
 /**
@@ -9,6 +8,6 @@ import cc3002.pokemontypes.IPokemon;
  *
  * @author F. Giovanni Sanguineti
  */
-public interface IEnergy extends ICard {
+public interface IEnergy {
     void addEnergyToPokemon(IPokemon other);
 }

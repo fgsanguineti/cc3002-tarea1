@@ -14,7 +14,7 @@ public class ElectricEnergy extends AbstractEnergy {
      * @author F. Giovanni Sanguineti.
      */
     public ElectricEnergy() {
-        super.setCardName("Electric Energy");
+        super("Electric Energy");
     }
 
 

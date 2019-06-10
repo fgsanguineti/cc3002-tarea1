@@ -6,7 +6,7 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 public class FightingEnergyTest {
-    private IEnergy  firstFightingEnergy, secondFightingEnergy, thirdFightingEnergy;
+    private FightingEnergy firstFightingEnergy, secondFightingEnergy, thirdFightingEnergy;
 
     @Before
     public void setUp() {

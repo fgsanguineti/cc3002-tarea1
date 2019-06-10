@@ -1,6 +1,6 @@
 package cc3002.cardvisitors;
 
-import cc3002.energyTypes.IEnergy;
+import cc3002.energyTypes.AbstractEnergy;
 import cc3002.pokemontypes.IBasicPokemon;
 import cc3002.pokemontypes.IPhaseOnePokemon;
 import cc3002.pokemontypes.IPhaseTwoPokemon;
@@ -15,7 +15,7 @@ public interface ICardVisitor {
 
     void visitPhaseTwoPokemon(IPhaseTwoPokemon phaseTwoPokemon);
 
-    void visitEnergyCard(IEnergy aEnergy);
+    void visitEnergyCard(AbstractEnergy aEnergy);
 
     void visitObjectCard(ObjectCard aObject);
 

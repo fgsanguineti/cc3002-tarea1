@@ -1,7 +1,7 @@
 package cc3002.energyTypes;
 
 
-import cc3002.Trainer;
+import cc3002.AbstractCard;
 import cc3002.cardvisitors.ICardVisitor;
 import cc3002.pokemontypes.IPokemon;
 
@@ -10,21 +10,10 @@ import cc3002.pokemontypes.IPokemon;
  *
  * @author F. Giovanni Sanguineti
  */
-public abstract class AbstractEnergy implements IEnergy {
-    private String cardName;
-    private Trainer trainer;
+public abstract class AbstractEnergy extends AbstractCard implements IEnergy {
 
-    /**
-     * Returns the card name.
-     * @return String with the card name.
-     */
-    @Override
-    public String getCardName() {
-        return this.cardName;
-    }
-
-    protected void setCardName(String cardName) {
-        this.cardName = cardName;
+    AbstractEnergy(String cardName) {
+        super(cardName);
     }
 
     @Override
@@ -39,22 +28,12 @@ public abstract class AbstractEnergy implements IEnergy {
     @Override
     public abstract void addEnergyToPokemon(IPokemon other);
 
-    @Override
-    public Trainer getTrainer() {
-        return this.trainer;
-    }
-
-    @Override
-    public void setTrainer(Trainer aTrainer) {
-        this.trainer = aTrainer;
-    }
     /**
      * Check if the energy object are the same that the target energy object.
      *
      * @param o The target energy object.
      * @return True if both are equals, false otherwise.
      */
-
 
     @Override
 

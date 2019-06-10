@@ -13,7 +13,8 @@ public class GrassEnergy extends AbstractEnergy {
     /**
      * Creates a new grass energy card.
      */
-    public GrassEnergy() { super.setCardName("Grass Energy");
+    public GrassEnergy() {
+        super("Grass Energy");
     }
 
 

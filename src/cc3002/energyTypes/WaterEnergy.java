@@ -13,7 +13,7 @@ public class WaterEnergy extends AbstractEnergy {
      * Creates a new water energy card.
      */
     public WaterEnergy() {
-        super.setCardName("Water Energy");
+        super("Water Energy");
     }
 
     /**

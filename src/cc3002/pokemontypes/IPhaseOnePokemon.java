@@ -1,3 +1,4 @@
 package cc3002.pokemontypes;
-public interface IPhaseOnePokemon {
+
+public interface IPhaseOnePokemon extends IPokemon {
 }

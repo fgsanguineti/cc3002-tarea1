@@ -1,7 +1,7 @@
 package cc3002.cardvisitors;
 
 import cc3002.Trainer;
-import cc3002.energyTypes.IEnergy;
+import cc3002.energyTypes.AbstractEnergy;
 import cc3002.pokemontypes.IBasicPokemon;
 import cc3002.pokemontypes.IPhaseOnePokemon;
 import cc3002.pokemontypes.IPhaseTwoPokemon;
@@ -19,7 +19,7 @@ public class PlayCardVisitor implements ICardVisitor {
 
     @Override
     public void visitPhaseOnePokemon(IPhaseOnePokemon phaseOnePokemon) {
-
+        Trainer theTrainer = phaseOnePokemon.getTrainer();
     }
 
     @Override
@@ -28,7 +28,7 @@ public class PlayCardVisitor implements ICardVisitor {
     }
 
     @Override
-    public void visitEnergyCard(IEnergy aEnergy) {
+    public void visitEnergyCard(AbstractEnergy aEnergy) {
         aEnergy.addEnergyToPokemon(aEnergy.getTrainer().getActivePokemon());
     }
 

@@ -14,7 +14,7 @@ public class PsychicEnergy extends AbstractEnergy {
      * Creates a new psychic energy card.
      */
     public PsychicEnergy() {
-        super.setCardName("Psychic Energy");
+        super("Psychic Energy");
     }
 
     /**

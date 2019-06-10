@@ -12,4 +12,6 @@ public interface ICard {
     void accept(ICardVisitor v);
     Trainer getTrainer();
     void setTrainer(Trainer aTrainer);
+
+    void discard(Trainer aTrainer);
 }

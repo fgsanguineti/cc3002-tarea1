@@ -6,7 +6,7 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 public class WaterEnergyTest {
-    private IEnergy firstWaterEnergy, secondWaterEnergy, thirdWaterEnergy;
+    private WaterEnergy firstWaterEnergy, secondWaterEnergy, thirdWaterEnergy;
 
     @Before
     public void setUp() {

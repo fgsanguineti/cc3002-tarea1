@@ -14,7 +14,7 @@ public class FightingEnergy extends AbstractEnergy {
      * @author F. Giovanni Sanguineti.
      */
     public FightingEnergy() {
-        super.setCardName("Fighting Energy");
+        super("Fighting Energy");
     }
 
     /**

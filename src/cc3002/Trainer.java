@@ -108,10 +108,15 @@ public class Trainer {
     private void receiveAnAttack(Trainer other) {
         other.getActivePokemon().attack(activePokemon);
         if (!this.activePokemon.isAlive()) {
+            activePokemon.discard(this);
             activePokemon = bench.get(0);
             bench.remove(0);
 
         }
+    }
+
+    ArrayList<ICard> getDiscardHeap() {
+        return this.discardHeap;
     }
 
     /**

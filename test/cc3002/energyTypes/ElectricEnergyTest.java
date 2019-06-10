@@ -6,30 +6,30 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 public class ElectricEnergyTest {
-    private IEnergy  firstElecricEnergy, secondElecricEnergy, thirdElecricEnergy;
+    private ElectricEnergy firstElectricEnergy, secondElectricEnergy, thirdElectricEnergy;
 
     @Before
     public void setUp() {
-        firstElecricEnergy = new ElectricEnergy();
-        secondElecricEnergy = new ElectricEnergy();
-        thirdElecricEnergy = new ElectricEnergy();
+        firstElectricEnergy = new ElectricEnergy();
+        secondElectricEnergy = new ElectricEnergy();
+        thirdElectricEnergy = new ElectricEnergy();
 
     }
 
     @Test
     public void getCardName() {
-        assertEquals("Electric Energy", firstElecricEnergy.getCardName());
-        assertEquals("Electric Energy", secondElecricEnergy.getCardName());
-        assertEquals("Electric Energy", thirdElecricEnergy.getCardName());
+        assertEquals("Electric Energy", firstElectricEnergy.getCardName());
+        assertEquals("Electric Energy", secondElectricEnergy.getCardName());
+        assertEquals("Electric Energy", thirdElectricEnergy.getCardName());
     }
 
     @Test
     public void equalsTest() {
-        assertEquals(firstElecricEnergy, new ElectricEnergy());
-        assertEquals(secondElecricEnergy, new ElectricEnergy());
-        assertEquals(thirdElecricEnergy, new ElectricEnergy());
-        assertEquals(firstElecricEnergy, secondElecricEnergy);
-        assertEquals(thirdElecricEnergy, secondElecricEnergy);
-        assertEquals(firstElecricEnergy, thirdElecricEnergy);
+        assertEquals(firstElectricEnergy, new ElectricEnergy());
+        assertEquals(secondElectricEnergy, new ElectricEnergy());
+        assertEquals(thirdElectricEnergy, new ElectricEnergy());
+        assertEquals(firstElectricEnergy, secondElectricEnergy);
+        assertEquals(thirdElectricEnergy, secondElectricEnergy);
+        assertEquals(firstElectricEnergy, thirdElectricEnergy);
     }
 }

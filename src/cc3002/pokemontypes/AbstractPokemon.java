@@ -2,7 +2,7 @@ package cc3002.pokemontypes;
 
 import cc3002.Abilities.Attack;
 import cc3002.Abilities.AttackContainer;
-import cc3002.Trainer;
+import cc3002.AbstractCard;
 import cc3002.cardvisitors.ICardVisitor;
 import cc3002.energyTypes.*;
 
@@ -11,15 +11,12 @@ import cc3002.energyTypes.*;
  *
  * @author F. Giovanni Sanguineti
  */
-public abstract class AbstractPokemon implements IPokemon {
-
-    private String cardName;
+public abstract class AbstractPokemon extends AbstractCard implements IPokemon {
     private int id;
     private int hp;
     private AttackContainer attackList;
     private Attack activeAttack;
     private EnergyContainer pokemonEnergy;
-    private Trainer trainer;
     /**
      * Creates a new pokemon.
      * @param cardName The name of the card.
@@ -28,23 +25,14 @@ public abstract class AbstractPokemon implements IPokemon {
      * @param attackList a list with the attacks of the Pokemon, that can be up to 4.
      */
     public AbstractPokemon(String cardName, int id, int hp, AttackContainer attackList) {
-        this.cardName = cardName;
+        super(cardName);
         this.id = id;
         this.hp = hp;
         this.attackList = attackList;
         this.activeAttack = attackList.getAttack(1);
         this.pokemonEnergy = new EnergyContainer(0, 0, 0, 0, 0, 0);
-        this.trainer = null;
     }
 
-    /**
-     * Returns the name of the card.
-     * @return a String with the card name.
-     */
-    @Override
-    public String getCardName() {
-        return this.cardName;
-    }
 
     @Override
     public void accept(ICardVisitor v) {
@@ -68,19 +56,6 @@ public abstract class AbstractPokemon implements IPokemon {
         return this.hp;
     }
 
-    /**
-     * Returns the trainer that plays the Pokemon.
-     * @return a Trainer that played the Pokemon HP.
-     */
-    @Override
-    public Trainer getTrainer() {
-        return this.trainer;
-    }
-
-    @Override
-    public void setTrainer(Trainer aTrainer) {
-        this.trainer = aTrainer;
-    }
     /**
      * Returns the list of the Pokemon attacks.
      *
