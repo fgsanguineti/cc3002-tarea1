@@ -1,6 +1,7 @@
 package cc3002.pokemontypes.grass;
 
 import cc3002.Abilities.AttackContainer;
+import cc3002.cardvisitors.ICardVisitor;
 import cc3002.pokemontypes.IPhaseTwoPokemon;
 
 
@@ -19,6 +20,10 @@ public class PhaseTwoGrassPokemon extends AbstractGrassPokemon implements IPhase
         this.phaseOnePokemonToEvolveID = phaseOnePokemonToEvolveID;
     }
 
+    @Override
+    public void accept(ICardVisitor v) {
+        v.visitPhaseTwoPokemon(this);
+    }
     @Override
     public int getPhaseOnePokemonToEvolveID() {
         return this.phaseOnePokemonToEvolveID;

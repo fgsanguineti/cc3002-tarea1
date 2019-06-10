@@ -12,7 +12,6 @@ import static org.junit.Assert.assertEquals;
 public class BasicElectricPokemonTest {
     private BasicElectricPokemon pikachu, jolteon;
 
-
     private Attack firstAttack, secondAttack, thirdAttack, fourthAttack;
 
     private ElectricEnergy electric1, electric2, electric3;

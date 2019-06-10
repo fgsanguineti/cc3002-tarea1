@@ -1,6 +1,7 @@
 package cc3002.pokemontypes.electric;
 
 import cc3002.Abilities.AttackContainer;
+import cc3002.cardvisitors.ICardVisitor;
 import cc3002.pokemontypes.IPhaseTwoPokemon;
 
 
@@ -14,11 +15,15 @@ public class PhaseTwoElectricPokemon extends AbstractElectricPokemon implements 
      * @param hp         The HP of the pokemon
      * @param attackList a list with the attacks of the Pokemon, that can be up to 4.
      */
-    PhaseTwoElectricPokemon(String cardName, int id, int hp, AttackContainer attackList, int phaseOnePokemonToEvolveID) {
+    public PhaseTwoElectricPokemon(String cardName, int id, int hp, AttackContainer attackList, int phaseOnePokemonToEvolveID) {
         super(cardName, id, hp, attackList);
         this.phaseOnePokemonToEvolveID = phaseOnePokemonToEvolveID;
     }
 
+    @Override
+    public void accept(ICardVisitor v) {
+        v.visitPhaseTwoPokemon(this);
+    }
     @Override
     public int getPhaseOnePokemonToEvolveID() {
         return this.phaseOnePokemonToEvolveID;

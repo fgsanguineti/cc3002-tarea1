@@ -1,6 +1,7 @@
 package cc3002.pokemontypes.fighting;
 
 import cc3002.Abilities.AttackContainer;
+import cc3002.cardvisitors.ICardVisitor;
 import cc3002.pokemontypes.IPhaseTwoPokemon;
 
 public class PhaseTwoFightingPokemon extends AbstractFightingPokemon implements IPhaseTwoPokemon {
@@ -18,6 +19,10 @@ public class PhaseTwoFightingPokemon extends AbstractFightingPokemon implements 
         this.phaseOnePokemonToEvolveID = phaseOnePokemonToEvolveID;
     }
 
+    @Override
+    public void accept(ICardVisitor v) {
+        v.visitPhaseTwoPokemon(this);
+    }
     @Override
     public int getPhaseOnePokemonToEvolveID() {
         return this.phaseOnePokemonToEvolveID;

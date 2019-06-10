@@ -1,6 +1,7 @@
 package cc3002.pokemontypes.fire;
 
 import cc3002.Abilities.AttackContainer;
+import cc3002.cardvisitors.ICardVisitor;
 import cc3002.pokemontypes.IPhaseOnePokemon;
 
 public class PhaseOneFirePokemon extends AbstractFirePokemon implements IPhaseOnePokemon {
@@ -21,6 +22,11 @@ public class PhaseOneFirePokemon extends AbstractFirePokemon implements IPhaseOn
     @Override
     public int getBasicPokemonToEvolveID() {
         return this.basicPokemonToEvolveID;
+    }
+
+    @Override
+    public void accept(ICardVisitor v) {
+        v.visitPhaseOnePokemon(this);
     }
 
     /**

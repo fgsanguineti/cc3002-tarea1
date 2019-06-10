@@ -2,6 +2,7 @@ package cc3002.pokemontypes.psychic;
 
 
 import cc3002.Abilities.AttackContainer;
+import cc3002.cardvisitors.ICardVisitor;
 import cc3002.pokemontypes.IPhaseOnePokemon;
 
 public class PhaseOnePsychicPokemon extends AbstractPsychicPokemon implements IPhaseOnePokemon {
@@ -23,6 +24,12 @@ public class PhaseOnePsychicPokemon extends AbstractPsychicPokemon implements IP
     public int getBasicPokemonToEvolveID() {
         return this.basicPokemonToEvolveID;
     }
+
+    @Override
+    public void accept(ICardVisitor v) {
+        v.visitPhaseOnePokemon(this);
+    }
+
 
     /**
      * {@inheritDoc}

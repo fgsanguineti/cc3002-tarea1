@@ -25,7 +25,7 @@ public class Trainer {
      * Constructor that creates the Trainer.
      * @param playerName String with the player's name.
      */
-    Trainer(String playerName) {
+    public Trainer(String playerName) {
         this.activePokemon = null;
         this.bench = new ArrayList<>();
         this.hand = new ArrayList<>();
@@ -63,7 +63,7 @@ public class Trainer {
     /** Gives the trainer's hand
      * @return the trainer's hand object.
      */
-    ArrayList<ICard> getHand() {
+    public ArrayList<ICard> getHand() {
         return hand;
     }
 
@@ -71,7 +71,7 @@ public class Trainer {
      * Add a card to the trainer's hand.
      * @param aCard the card to add in the hand.
      */
-    void addCardToHand(ICard aCard) {
+    public void addCardToHand(ICard aCard) {
         hand.add(aCard);
     }
 
@@ -87,10 +87,9 @@ public class Trainer {
      * Lets the trainer to play a card.
      * @param aCard the ICard that wants to play.
      */
-    void play(ICard aCard) {
+    public void play(ICard aCard) {
         hand.remove(aCard);
         aCard.setTrainer(this);
-        //aCard.playCard(this);
         PlayCardVisitor v = new PlayCardVisitor();
         aCard.accept(v);
     }
@@ -114,7 +113,7 @@ public class Trainer {
         }
     }
 
-    ArrayList<ICard> getDiscardHeap() {
+    public ArrayList<ICard> getDiscardHeap() {
         return this.discardHeap;
     }
 
