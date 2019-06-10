@@ -5,6 +5,7 @@ import cc3002.pokemontypes.IPhaseTwoPokemon;
 
 
 public class PhaseTwoElectricPokemon extends AbstractElectricPokemon implements IPhaseTwoPokemon {
+    private int phaseOnePokemonToEvolveID;
     /**
      * Creates a new pokemon.
      *
@@ -13,10 +14,15 @@ public class PhaseTwoElectricPokemon extends AbstractElectricPokemon implements 
      * @param hp         The HP of the pokemon
      * @param attackList a list with the attacks of the Pokemon, that can be up to 4.
      */
-    PhaseTwoElectricPokemon(String cardName, int id, int hp, AttackContainer attackList) {
+    PhaseTwoElectricPokemon(String cardName, int id, int hp, AttackContainer attackList, int phaseOnePokemonToEvolveID) {
         super(cardName, id, hp, attackList);
+        this.phaseOnePokemonToEvolveID = phaseOnePokemonToEvolveID;
     }
 
+    @Override
+    public int getPhaseOnePokemonToEvolveID() {
+        return this.phaseOnePokemonToEvolveID;
+    }
     /**
      * {@inheritDoc}
      *

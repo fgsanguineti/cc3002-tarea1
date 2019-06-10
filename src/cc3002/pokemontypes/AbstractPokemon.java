@@ -158,6 +158,11 @@ public abstract class AbstractPokemon extends AbstractCard implements IPokemon {
         return this.pokemonEnergy;
     }
 
+    @Override
+    public void setEnergyContainer(EnergyContainer aEnergyContainer) {
+        this.pokemonEnergy = aEnergyContainer;
+    }
+
     /**
      * Return the number of electric energies that has the Pokemon.
      * @return a int with the number of electric energies of the Pokemon.

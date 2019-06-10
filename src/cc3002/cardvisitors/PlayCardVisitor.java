@@ -5,6 +5,7 @@ import cc3002.energyTypes.AbstractEnergy;
 import cc3002.pokemontypes.IBasicPokemon;
 import cc3002.pokemontypes.IPhaseOnePokemon;
 import cc3002.pokemontypes.IPhaseTwoPokemon;
+import cc3002.pokemontypes.IPokemon;
 import cc3002.trainercards.ObjectCard;
 import cc3002.trainercards.StadiumCard;
 import cc3002.trainercards.SupportCard;
@@ -19,12 +20,14 @@ public class PlayCardVisitor implements ICardVisitor {
 
     @Override
     public void visitPhaseOnePokemon(IPhaseOnePokemon phaseOnePokemon) {
-        Trainer theTrainer = phaseOnePokemon.getTrainer();
+        int lookedID = phaseOnePokemon.getBasicPokemonToEvolveID();
+        changePreEvolution(phaseOnePokemon, lookedID);
     }
 
     @Override
     public void visitPhaseTwoPokemon(IPhaseTwoPokemon phaseTwoPokemon) {
-
+        int lookedID = phaseTwoPokemon.getPhaseOnePokemonToEvolveID();
+        changePreEvolution(phaseTwoPokemon, lookedID);
     }
 
     @Override
@@ -43,6 +46,27 @@ public class PlayCardVisitor implements ICardVisitor {
 
     @Override
     public void visitSupportCard(SupportCard aSupport) {
+    }
 
+    private void changePokemon(IPokemon oldPokemon, IPokemon newPokemon, boolean active) {
+        newPokemon.setEnergyContainer(oldPokemon.getTrainer().getActivePokemon().getAllEnergyQuantity()); // change energies
+        oldPokemon.discard(oldPokemon.getTrainer());
+        if (active) {
+            oldPokemon.getTrainer().setActivePokemon(newPokemon);
+        } else {
+            oldPokemon.getTrainer().getBench().add(newPokemon);
+            oldPokemon.getTrainer().getBench().remove(oldPokemon);
+        }
+    }
+
+    private void changePreEvolution(IPokemon newPokemon, int lookedID) {
+        Trainer theTrainer = newPokemon.getTrainer();
+        if (lookedID == theTrainer.getActivePokemon().getID())
+            this.changePokemon(theTrainer.getActivePokemon(), newPokemon, true);
+        else {
+            for (IPokemon p : theTrainer.getBench()) {
+                if (p.getID() == lookedID) this.changePokemon(p, newPokemon, false);
+            }
+        }
     }
 }

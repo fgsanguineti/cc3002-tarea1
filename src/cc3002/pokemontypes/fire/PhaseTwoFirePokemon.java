@@ -4,6 +4,7 @@ import cc3002.Abilities.AttackContainer;
 import cc3002.pokemontypes.IPhaseTwoPokemon;
 
 public class PhaseTwoFirePokemon extends AbstractFirePokemon implements IPhaseTwoPokemon {
+    private int phaseOnePokemonToEvolveID;
     /**
      * Creates a new pokemon.
      *
@@ -12,10 +13,15 @@ public class PhaseTwoFirePokemon extends AbstractFirePokemon implements IPhaseTw
      * @param hp         The HP of the pokemon
      * @param attackList a list with the attacks of the Pokemon, that can be up to 4.
      */
-    PhaseTwoFirePokemon(String cardName, int id, int hp, AttackContainer attackList) {
+    PhaseTwoFirePokemon(String cardName, int id, int hp, AttackContainer attackList, int phaseOnePokemonToEvolveID) {
         super(cardName, id, hp, attackList);
+        this.phaseOnePokemonToEvolveID = phaseOnePokemonToEvolveID;
     }
 
+    @Override
+    public int getPhaseOnePokemonToEvolveID() {
+        return this.phaseOnePokemonToEvolveID;
+    }
     /**
      * {@inheritDoc}
      *

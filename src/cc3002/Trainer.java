@@ -51,7 +51,6 @@ public class Trainer {
     public IPokemon getActivePokemon() {
         return activePokemon;
     }
-
     /**
      * Set the trainer's active Pokemon.
      *

@@ -5,6 +5,7 @@ import cc3002.pokemontypes.IPhaseTwoPokemon;
 
 
 public class PhaseTwoPsychicPokemon extends AbstractPsychicPokemon implements IPhaseTwoPokemon {
+    private int phaseOnePokemonToEvolveID;
     /**
      * Creates a new pokemon.
      *
@@ -13,10 +14,15 @@ public class PhaseTwoPsychicPokemon extends AbstractPsychicPokemon implements IP
      * @param hp         The HP of the pokemon
      * @param attackList a list with the attacks of the Pokemon, that can be up to 4.
      */
-    PhaseTwoPsychicPokemon(String cardName, int id, int hp, AttackContainer attackList) {
+    PhaseTwoPsychicPokemon(String cardName, int id, int hp, AttackContainer attackList, int phaseOnePokemonToEvolveID) {
         super(cardName, id, hp, attackList);
+        this.phaseOnePokemonToEvolveID = phaseOnePokemonToEvolveID;
     }
 
+    @Override
+    public int getPhaseOnePokemonToEvolveID() {
+        return this.phaseOnePokemonToEvolveID;
+    }
     /**
      * {@inheritDoc}
      *

@@ -19,7 +19,6 @@ public interface IPokemon extends ICard {
 
     int getHP();
 
-
     boolean isAlive();
 
     Attack getActiveAttack();
@@ -27,6 +26,8 @@ public interface IPokemon extends ICard {
     AttackContainer getAttackList();
 
     EnergyContainer getAllEnergyQuantity();
+
+    void setEnergyContainer(EnergyContainer aEnergyContainer);
 
     int getElectricEnergyQuantity();
 
