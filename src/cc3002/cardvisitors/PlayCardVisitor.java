@@ -32,7 +32,7 @@ public class PlayCardVisitor implements ICardVisitor {
 
     @Override
     public void visitEnergyCard(AbstractEnergy aEnergy) {
-        aEnergy.addEnergyToPokemon(aEnergy.getTrainer().getActivePokemon());
+        aEnergy.addEnergyToPokemon(aEnergy.getTrainer().getSelectedPokemon());
     }
 
     @Override

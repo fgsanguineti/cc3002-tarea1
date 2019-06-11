@@ -248,11 +248,14 @@ public class TrainerTest {
         Giovanni.addCardToHand(water1);
         Giovanni.addCardToHand(psychic1);
 
+
+        Giovanni.play(Giovanni.getHand().get(0));
+        Giovanni.setSelectedPokemon(Giovanni.getActivePokemon());
         Giovanni.play(Giovanni.getHand().get(0));
         Giovanni.play(Giovanni.getHand().get(0));
         Giovanni.play(Giovanni.getHand().get(0));
         Giovanni.play(Giovanni.getHand().get(0));
-        Giovanni.play(Giovanni.getHand().get(0));
+        Giovanni.unselectPokemon();
         Giovanni.makeAnAttack(4, Franco);
         assertEquals(Franco.getActivePokemon().getHP(), 50);
         Giovanni.makeAnAttack(2, Franco);
