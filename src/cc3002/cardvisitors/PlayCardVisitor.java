@@ -61,11 +61,12 @@ public class PlayCardVisitor implements ICardVisitor {
 
     private void changePreEvolution(IPokemon newPokemon, int lookedID) {
         Trainer theTrainer = newPokemon.getTrainer();
-        if (lookedID == theTrainer.getActivePokemon().getID())
+        IPokemon selected = theTrainer.getSelectedPokemon();
+        if (lookedID == theTrainer.getActivePokemon().getID() && selected.equals(theTrainer.getActivePokemon()))
             this.changePokemon(theTrainer.getActivePokemon(), newPokemon, true);
         else {
             for (IPokemon p : theTrainer.getBench()) {
-                if (p.getID() == lookedID) this.changePokemon(p, newPokemon, false);
+                if (p.getID() == lookedID && selected.equals(p)) this.changePokemon(p, newPokemon, false);
             }
         }
     }

@@ -14,7 +14,7 @@ public class PhaseOneFirePokemon extends AbstractFirePokemon implements IPhaseOn
      * @param hp         The HP of the pokemon
      * @param attackList a list with the attacks of the Pokemon, that can be up to 4.
      */
-    PhaseOneFirePokemon(String cardName, int id, int hp, AttackContainer attackList, int basicPokemonToEvolveID) {
+    public PhaseOneFirePokemon(String cardName, int id, int hp, AttackContainer attackList, int basicPokemonToEvolveID) {
         super(cardName, id, hp, attackList);
         this.basicPokemonToEvolveID = basicPokemonToEvolveID;
     }

@@ -15,7 +15,7 @@ public class PhaseOneGrassPokemon extends AbstractGrassPokemon implements IPhase
      * @param hp         The HP of the pokemon
      * @param attackList a list with the attacks of the Pokemon, that can be up to 4.
      */
-    PhaseOneGrassPokemon(String cardName, int id, int hp, AttackContainer attackList, int basicPokemonToEvolveID) {
+    public PhaseOneGrassPokemon(String cardName, int id, int hp, AttackContainer attackList, int basicPokemonToEvolveID) {
         super(cardName, id, hp, attackList);
         this.basicPokemonToEvolveID = basicPokemonToEvolveID;
     }

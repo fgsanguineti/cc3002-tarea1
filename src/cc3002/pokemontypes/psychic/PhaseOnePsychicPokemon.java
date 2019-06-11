@@ -15,7 +15,7 @@ public class PhaseOnePsychicPokemon extends AbstractPsychicPokemon implements IP
      * @param hp         The HP of the pokemon
      * @param attackList a list with the attacks of the Pokemon, that can be up to 4.
      */
-    PhaseOnePsychicPokemon(String cardName, int id, int hp, AttackContainer attackList, int basicPokemonToEvolveID) {
+    public PhaseOnePsychicPokemon(String cardName, int id, int hp, AttackContainer attackList, int basicPokemonToEvolveID) {
         super(cardName, id, hp, attackList);
         this.basicPokemonToEvolveID = basicPokemonToEvolveID;
     }

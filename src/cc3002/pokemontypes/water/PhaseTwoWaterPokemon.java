@@ -14,7 +14,7 @@ public class PhaseTwoWaterPokemon extends AbstractWaterPokemon implements IPhase
      * @param hp         The HP of the pokemon
      * @param attackList a list with the attacks of the Pokemon, that can be up to 4.
      */
-    PhaseTwoWaterPokemon(String cardName, int id, int hp, AttackContainer attackList, int phaseOnePokemonToEvolveID) {
+    public PhaseTwoWaterPokemon(String cardName, int id, int hp, AttackContainer attackList, int phaseOnePokemonToEvolveID) {
         super(cardName, id, hp, attackList);
         this.phaseOnePokemonToEvolveID = phaseOnePokemonToEvolveID;
     }

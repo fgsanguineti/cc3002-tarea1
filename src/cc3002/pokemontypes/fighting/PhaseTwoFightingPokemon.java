@@ -14,7 +14,7 @@ public class PhaseTwoFightingPokemon extends AbstractFightingPokemon implements 
      * @param hp         The HP of the pokemon
      * @param attackList a list with the attacks of the Pokemon, that can be up to 4.
      */
-    PhaseTwoFightingPokemon(String cardName, int id, int hp, AttackContainer attackList, int phaseOnePokemonToEvolveID) {
+    public PhaseTwoFightingPokemon(String cardName, int id, int hp, AttackContainer attackList, int phaseOnePokemonToEvolveID) {
         super(cardName, id, hp, attackList);
         this.phaseOnePokemonToEvolveID = phaseOnePokemonToEvolveID;
     }

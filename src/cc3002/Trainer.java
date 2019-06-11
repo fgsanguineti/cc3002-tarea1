@@ -20,6 +20,8 @@ public class Trainer {
     private ArrayList<ICard> discardHeap;
     private ICard[] prizeCards;
     private String playerName;
+    private IPokemon selectedPokemon;
+
 
     /**
      * Constructor that creates the Trainer.
@@ -117,6 +119,17 @@ public class Trainer {
         return this.discardHeap;
     }
 
+    public IPokemon getSelectedPokemon() {
+        return selectedPokemon;
+    }
+
+    public void setSelectedPokemon(IPokemon selectedPokemon) {
+        this.selectedPokemon = selectedPokemon;
+    }
+
+    public void unselectPokemon() {
+        this.selectedPokemon = null;
+    }
     /**
      * Compares the Trainer with another Trainer.
      *
