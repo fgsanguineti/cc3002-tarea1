@@ -1,4 +1,4 @@
-package cc3002.energyTypes;
+package cc3002.energytypes;
 
 import java.util.HashMap;
 

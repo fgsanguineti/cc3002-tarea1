@@ -1,4 +1,4 @@
-package cc3002.energyTypes;
+package cc3002.energytypes;
 
 import cc3002.pokemontypes.IPokemon;
 
@@ -7,14 +7,16 @@ import cc3002.pokemontypes.IPokemon;
  *
  * @author F. Giovanni Sanguineti
  */
-public class WaterEnergy extends AbstractEnergy {
+public class ElectricEnergy extends AbstractEnergy {
 
     /**
-     * Creates a new water energy card.
+     * Creates a new electric energy card.
+     * @author F. Giovanni Sanguineti.
      */
-    public WaterEnergy() {
-        super("Water Energy");
+    public ElectricEnergy() {
+        super("Electric Energy");
     }
+
 
     /**
      * {@inheritDoc}
@@ -22,9 +24,8 @@ public class WaterEnergy extends AbstractEnergy {
      */
     @Override
     public void addEnergyToPokemon(IPokemon other) {
-        if (other != null) other.receiveWaterEnergy(this);
+        if (other != null) other.receiveElectricEnergy(this);
     }
-
 
     /**
      * {@inheritDoc}
@@ -35,8 +36,8 @@ public class WaterEnergy extends AbstractEnergy {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof WaterEnergy)) return false;
-        WaterEnergy that = (WaterEnergy) o;
+        if (!(o instanceof ElectricEnergy)) return false;
+        ElectricEnergy that = (ElectricEnergy) o;
         return getCardName().equals(that.getCardName());
     }
 }

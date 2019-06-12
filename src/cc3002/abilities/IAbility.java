@@ -1,10 +1,10 @@
-package cc3002.Abilities;
+package cc3002.abilities;
 
-import cc3002.energyTypes.EnergyContainer;
+import cc3002.energytypes.EnergyContainer;
 import cc3002.pokemontypes.IPokemon;
 
 /**
- * Common interface for all the abilities. Abilities had a name, a description and a energy cost.
+ * Common interface for all the abilities. abilities had a name, a description and a energy cost.
  *
  * @author F. Giovanni Sanguineti
  */

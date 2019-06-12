@@ -1,10 +1,10 @@
 package cc3002.pokemontypes;
 
-import cc3002.Abilities.Attack;
-import cc3002.Abilities.AttackContainer;
 import cc3002.AbstractCard;
+import cc3002.abilities.Attack;
+import cc3002.abilities.AttackContainer;
 import cc3002.cardvisitors.ICardVisitor;
-import cc3002.energyTypes.*;
+import cc3002.energytypes.*;
 
 /**
  * This class implements the IPokemon interface

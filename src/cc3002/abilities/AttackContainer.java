@@ -1,4 +1,4 @@
-package cc3002.Abilities;
+package cc3002.abilities;
 
 import java.util.Arrays;
 

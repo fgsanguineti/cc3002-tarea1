@@ -1,6 +1,6 @@
 package cc3002.pokemontypes.psychic;
 
-import cc3002.Abilities.AttackContainer;
+import cc3002.abilities.AttackContainer;
 import cc3002.cardvisitors.ICardVisitor;
 import cc3002.pokemontypes.IBasicPokemon;
 

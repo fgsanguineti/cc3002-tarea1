@@ -1,6 +1,4 @@
-package cc3002.Abilities;
-
-import cc3002.Abilities.IAbility;
+package cc3002.abilities;
 
 /**
  * Common interface for all the attacks, that also are a ability.

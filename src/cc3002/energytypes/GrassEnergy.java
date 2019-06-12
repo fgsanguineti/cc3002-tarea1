@@ -1,21 +1,22 @@
-package cc3002.energyTypes;
+package cc3002.energytypes;
 
 import cc3002.pokemontypes.IPokemon;
 
 
 /**
- * This class defines the logic of a psychic type energy.
+ * This class defines the logic of a grass type energy.
  *
  * @author F. Giovanni Sanguineti.
  */
-public class PsychicEnergy extends AbstractEnergy {
+public class GrassEnergy extends AbstractEnergy {
 
     /**
-     * Creates a new psychic energy card.
+     * Creates a new grass energy card.
      */
-    public PsychicEnergy() {
-        super("Psychic Energy");
+    public GrassEnergy() {
+        super("Grass Energy");
     }
+
 
     /**
      * {@inheritDoc}
@@ -23,9 +24,8 @@ public class PsychicEnergy extends AbstractEnergy {
      */
     @Override
     public void addEnergyToPokemon(IPokemon other) {
-        if (other != null) other.receivePsychicEnergy(this);
+        if (other != null) other.receiveGrassEnergy(this);
     }
-
 
     /**
      * {@inheritDoc}
@@ -33,11 +33,12 @@ public class PsychicEnergy extends AbstractEnergy {
      * @param o The target energy object.
      * @return True if both are equals, false otherwise.
      */
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof PsychicEnergy)) return false;
-        PsychicEnergy that = (PsychicEnergy) o;
+        if (!(o instanceof GrassEnergy)) return false;
+        GrassEnergy that = (GrassEnergy) o;
         return getCardName().equals(that.getCardName());
     }
 }

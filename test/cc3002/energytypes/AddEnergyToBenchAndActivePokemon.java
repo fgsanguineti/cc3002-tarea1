@@ -1,8 +1,8 @@
-package cc3002.energyTypes;
+package cc3002.energytypes;
 
-import cc3002.Abilities.Attack;
-import cc3002.Abilities.AttackContainer;
 import cc3002.Trainer;
+import cc3002.abilities.Attack;
+import cc3002.abilities.AttackContainer;
 import cc3002.pokemontypes.IBasicPokemon;
 import cc3002.pokemontypes.fire.BasicFirePokemon;
 import cc3002.pokemontypes.psychic.BasicPsychicPokemon;

@@ -1,9 +1,9 @@
 package cc3002.pokemontypes.pokemonevolvingtest;
 
-import cc3002.Abilities.Attack;
-import cc3002.Abilities.AttackContainer;
 import cc3002.Trainer;
-import cc3002.energyTypes.EnergyContainer;
+import cc3002.abilities.Attack;
+import cc3002.abilities.AttackContainer;
+import cc3002.energytypes.EnergyContainer;
 import cc3002.pokemontypes.fighting.BasicFightingPokemon;
 import cc3002.pokemontypes.fighting.PhaseOneFightingPokemon;
 import cc3002.pokemontypes.fighting.PhaseTwoFightingPokemon;

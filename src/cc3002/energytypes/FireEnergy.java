@@ -1,22 +1,22 @@
-package cc3002.energyTypes;
+package cc3002.energytypes;
 
 import cc3002.pokemontypes.IPokemon;
 
 
 /**
- * This class defines the logic of a grass type energy.
+ * This class defines the logic of a fire type energy.
  *
  * @author F. Giovanni Sanguineti.
  */
-public class GrassEnergy extends AbstractEnergy {
+public class FireEnergy extends AbstractEnergy {
 
     /**
-     * Creates a new grass energy card.
+     * Creates a new fire energy card.
+     * @author F. Giovanni Sanguineti.
      */
-    public GrassEnergy() {
-        super("Grass Energy");
+    public FireEnergy() {
+        super("Fire Energy");
     }
-
 
     /**
      * {@inheritDoc}
@@ -24,8 +24,9 @@ public class GrassEnergy extends AbstractEnergy {
      */
     @Override
     public void addEnergyToPokemon(IPokemon other) {
-        if (other != null) other.receiveGrassEnergy(this);
+        if (other != null) other.receiveFireEnergy(this);
     }
+
 
     /**
      * {@inheritDoc}
@@ -33,12 +34,11 @@ public class GrassEnergy extends AbstractEnergy {
      * @param o The target energy object.
      * @return True if both are equals, false otherwise.
      */
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof GrassEnergy)) return false;
-        GrassEnergy that = (GrassEnergy) o;
+        if (!(o instanceof FireEnergy)) return false;
+        FireEnergy that = (FireEnergy) o;
         return getCardName().equals(that.getCardName());
     }
 }

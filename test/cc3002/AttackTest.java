@@ -1,7 +1,7 @@
 package cc3002;
 
-import cc3002.Abilities.Attack;
-import cc3002.energyTypes.EnergyContainer;
+import cc3002.abilities.Attack;
+import cc3002.energytypes.EnergyContainer;
 import org.junit.Before;
 import org.junit.Test;
 
