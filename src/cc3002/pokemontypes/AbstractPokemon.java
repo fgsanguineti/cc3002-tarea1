@@ -1,8 +1,8 @@
 package cc3002.pokemontypes;
 
 import cc3002.AbstractCard;
+import cc3002.abilities.AbilityContainer;
 import cc3002.abilities.Attack;
-import cc3002.abilities.AttackContainer;
 import cc3002.cardvisitors.ICardVisitor;
 import cc3002.energytypes.*;
 
@@ -14,7 +14,7 @@ import cc3002.energytypes.*;
 public abstract class AbstractPokemon extends AbstractCard implements IPokemon {
     private int id;
     private int hp;
-    private AttackContainer attackList;
+    private AbilityContainer attackList;
     private Attack activeAttack;
     private EnergyContainer pokemonEnergy;
     /**
@@ -24,7 +24,7 @@ public abstract class AbstractPokemon extends AbstractCard implements IPokemon {
      * @param hp The HP of the pokemon
      * @param attackList a list with the attacks of the Pokemon, that can be up to 4.
      */
-    public AbstractPokemon(String cardName, int id, int hp, AttackContainer attackList) {
+    public AbstractPokemon(String cardName, int id, int hp, AbilityContainer attackList) {
         super(cardName);
         this.id = id;
         this.hp = hp;
@@ -59,10 +59,10 @@ public abstract class AbstractPokemon extends AbstractCard implements IPokemon {
     /**
      * Returns the list of the Pokemon attacks.
      *
-     * @return a AttackContainer with the Pokemon attacks.
+     * @return a AbilityContainer with the Pokemon attacks.
      */
     @Override
-    public AttackContainer getAttackList() {
+    public AbilityContainer getAttackList() {
         return this.attackList;
     }
     /**

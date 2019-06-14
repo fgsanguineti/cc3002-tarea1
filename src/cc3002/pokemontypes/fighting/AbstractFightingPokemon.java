@@ -1,7 +1,7 @@
 package cc3002.pokemontypes.fighting;
 
+import cc3002.abilities.AbilityContainer;
 import cc3002.abilities.Attack;
-import cc3002.abilities.AttackContainer;
 import cc3002.pokemontypes.AbstractPokemon;
 import cc3002.pokemontypes.IPokemon;
 
@@ -14,7 +14,7 @@ public abstract class AbstractFightingPokemon extends AbstractPokemon {
      * @param hp         The HP of the pokemon
      * @param attackList a list with the attacks of the Pokemon, that can be up to 4.
      */
-    AbstractFightingPokemon(String cardName, int id, int hp, AttackContainer attackList) {
+    AbstractFightingPokemon(String cardName, int id, int hp, AbilityContainer attackList) {
         super(cardName, id, hp, attackList);
     }
 

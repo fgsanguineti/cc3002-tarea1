@@ -1,6 +1,6 @@
 package cc3002.pokemontypes.fire;
 
-import cc3002.abilities.AttackContainer;
+import cc3002.abilities.AbilityContainer;
 import cc3002.cardvisitors.ICardVisitor;
 import cc3002.pokemontypes.IPhaseOnePokemon;
 
@@ -14,7 +14,7 @@ public class PhaseOneFirePokemon extends AbstractFirePokemon implements IPhaseOn
      * @param hp         The HP of the pokemon
      * @param attackList a list with the attacks of the Pokemon, that can be up to 4.
      */
-    public PhaseOneFirePokemon(String cardName, int id, int hp, AttackContainer attackList, int basicPokemonToEvolveID) {
+    public PhaseOneFirePokemon(String cardName, int id, int hp, AbilityContainer attackList, int basicPokemonToEvolveID) {
         super(cardName, id, hp, attackList);
         this.basicPokemonToEvolveID = basicPokemonToEvolveID;
     }

@@ -1,6 +1,6 @@
 package cc3002.pokemontypes.fire;
 
-import cc3002.abilities.AttackContainer;
+import cc3002.abilities.AbilityContainer;
 import cc3002.cardvisitors.ICardVisitor;
 import cc3002.pokemontypes.IBasicPokemon;
 
@@ -13,7 +13,7 @@ public class BasicFirePokemon extends AbstractFirePokemon implements IBasicPokem
      * @param hp         The HP of the pokemon
      * @param attackList a list with the attacks of the Pokemon, that can be up to 4.
      */
-    public BasicFirePokemon(String cardName, int id, int hp, AttackContainer attackList) {
+    public BasicFirePokemon(String cardName, int id, int hp, AbilityContainer attackList) {
         super(cardName, id, hp, attackList);
     }
 

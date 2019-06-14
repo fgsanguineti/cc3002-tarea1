@@ -1,6 +1,6 @@
 package cc3002.pokemontypes.grass;
 
-import cc3002.abilities.AttackContainer;
+import cc3002.abilities.AbilityContainer;
 import cc3002.cardvisitors.ICardVisitor;
 import cc3002.pokemontypes.IPhaseOnePokemon;
 
@@ -15,7 +15,7 @@ public class PhaseOneGrassPokemon extends AbstractGrassPokemon implements IPhase
      * @param hp         The HP of the pokemon
      * @param attackList a list with the attacks of the Pokemon, that can be up to 4.
      */
-    public PhaseOneGrassPokemon(String cardName, int id, int hp, AttackContainer attackList, int basicPokemonToEvolveID) {
+    public PhaseOneGrassPokemon(String cardName, int id, int hp, AbilityContainer attackList, int basicPokemonToEvolveID) {
         super(cardName, id, hp, attackList);
         this.basicPokemonToEvolveID = basicPokemonToEvolveID;
     }

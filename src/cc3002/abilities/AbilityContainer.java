@@ -1,5 +1,4 @@
 package cc3002.abilities;
-
 import java.util.Arrays;
 
 /**
@@ -7,17 +6,17 @@ import java.util.Arrays;
  *
  * @author F. Giovanni Sanguineti
  */
-public class AttackContainer {
+public class AbilityContainer {
     private Attack[] attackContainer;
 
     /**
-     * Build the AttackContainer.
+     * Build the AbilityContainer.
      * @param a Stores the first attack. If no first attack, the input must be null.
      * @param b Stores the second attack. If no first attack, the input must be null.
      * @param c Stores the third attack. If no first attack, the input must be null.
      * @param d Stores the fourth attack. If no first attack, the input must be null.
      */
-    public AttackContainer(Attack a, Attack b, Attack c, Attack d) {
+    public AbilityContainer(Attack a, Attack b, Attack c, Attack d) {
         attackContainer = new Attack[4];
         this.attackContainer[0] = a;
         this.attackContainer[1] = b;
@@ -35,15 +34,15 @@ public class AttackContainer {
     }
 
     /**
-     * Compares the AttackContainer with another AttackContainer.
-     * @param o  Another AttackContainer .
+     * Compares the AbilityContainer with another AbilityContainer.
+     * @param o  Another AbilityContainer .
      * @return true if are equals. False otherwise.
      */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof AttackContainer)) return false;
-        AttackContainer that = (AttackContainer) o;
+        if (!(o instanceof AbilityContainer)) return false;
+        AbilityContainer that = (AbilityContainer) o;
         return Arrays.equals(attackContainer, that.attackContainer);
     }
 }

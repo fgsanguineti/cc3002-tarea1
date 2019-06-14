@@ -1,7 +1,7 @@
 package cc3002.pokemontypes;
 
+import cc3002.abilities.AbilityContainer;
 import cc3002.abilities.Attack;
-import cc3002.abilities.AttackContainer;
 import cc3002.energytypes.*;
 import cc3002.pokemontypes.electric.BasicElectricPokemon;
 import org.junit.Before;
@@ -21,7 +21,7 @@ public class BasicElectricPokemonTest {
     private PsychicEnergy psychic1, psychic2, psychic3;
     private WaterEnergy water1, water2, water3;
 
-    private AttackContainer firstContainer, secondContainer, thirdContainer, fourthContainer;
+    private AbilityContainer firstContainer, secondContainer, thirdContainer, fourthContainer;
 
     @Before
     public void setUp() {
@@ -38,10 +38,10 @@ public class BasicElectricPokemonTest {
         thirdAttack = new Attack("Vuelo", "Vuela y le pega al oponente", 50, third);
         fourthAttack = new Attack("Golpe Karate", "Le pega un golpe de karate", 20, fourth);
 
-        firstContainer = new AttackContainer(firstAttack, secondAttack, null, null);
-        secondContainer = new AttackContainer(thirdAttack, null, null, null);
-        thirdContainer = new AttackContainer(firstAttack, secondAttack, thirdAttack, null);
-        fourthContainer = new AttackContainer(fourthAttack, thirdAttack, secondAttack, firstAttack);
+        firstContainer = new AbilityContainer(firstAttack, secondAttack, null, null);
+        secondContainer = new AbilityContainer(thirdAttack, null, null, null);
+        thirdContainer = new AbilityContainer(firstAttack, secondAttack, thirdAttack, null);
+        fourthContainer = new AbilityContainer(fourthAttack, thirdAttack, secondAttack, firstAttack);
 
         pikachu = new BasicElectricPokemon("Pikachu", 54, 60, firstContainer);
         jolteon = new BasicElectricPokemon("Jolteon", 28, 160, fourthContainer);

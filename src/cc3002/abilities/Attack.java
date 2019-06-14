@@ -7,7 +7,7 @@ import cc3002.energytypes.EnergyContainer;
  *
  * @author F. Giovanni Sanguineti
  */
-public class Attack extends Ability {
+public class Attack extends AbstractAbility {
     private int baseDamage;
     /**
      * Creates a new attack.

@@ -1,7 +1,7 @@
 package cc3002;
 
+import cc3002.abilities.AbilityContainer;
 import cc3002.abilities.Attack;
-import cc3002.abilities.AttackContainer;
 import cc3002.energytypes.*;
 import cc3002.pokemontypes.IPokemon;
 import cc3002.pokemontypes.electric.BasicElectricPokemon;
@@ -58,10 +58,10 @@ public class TrainerTest {
         Attack thirdAttack = new Attack("Vuelo", "Vuela y le pega al oponente", 50, third);
         Attack fourthAttack = new Attack("Golpe Karate", "Le pega un golpe de karate", 20, fourth);
 
-        AttackContainer firstContainer = new AttackContainer(firstAttack, secondAttack, null, null);
-        AttackContainer secondContainer = new AttackContainer(thirdAttack, null, null, null);
-        AttackContainer thirdContainer = new AttackContainer(firstAttack, secondAttack, thirdAttack, null);
-        AttackContainer fourthContainer = new AttackContainer(fourthAttack, thirdAttack, secondAttack, firstAttack);
+        AbilityContainer firstContainer = new AbilityContainer(firstAttack, secondAttack, null, null);
+        AbilityContainer secondContainer = new AbilityContainer(thirdAttack, null, null, null);
+        AbilityContainer thirdContainer = new AbilityContainer(firstAttack, secondAttack, thirdAttack, null);
+        AbilityContainer fourthContainer = new AbilityContainer(fourthAttack, thirdAttack, secondAttack, firstAttack);
 
         // Franco
         pikachu = new BasicElectricPokemon("Pikachu", 54, 60, firstContainer);

@@ -1,7 +1,7 @@
 package cc3002;
 
+import cc3002.abilities.AbilityContainer;
 import cc3002.abilities.Attack;
-import cc3002.abilities.AttackContainer;
 import cc3002.energytypes.EnergyContainer;
 import org.junit.Before;
 import org.junit.Test;
@@ -10,7 +10,7 @@ import static junit.framework.TestCase.assertNotNull;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 
-public class AttackContainerTest {
+public class AbilityContainerTest {
     private EnergyContainer first = new EnergyContainer(0, 1, 5, 0, 0, 0);
     private EnergyContainer second = new EnergyContainer(4, 0, 2, 0, 0, 0);
     private EnergyContainer third = new EnergyContainer(0, 1, 2, 1, 2, 1);
@@ -25,19 +25,19 @@ public class AttackContainerTest {
     private Attack fourthAttack = new Attack("Golpe Karate", "Le pega un golpe de karate",
             20, fourth);
 
-    private AttackContainer aFirst;
-    private AttackContainer aSecond;
-    private AttackContainer aThird;
-    private AttackContainer aFourth;
-    private AttackContainer aFifth;
+    private AbilityContainer aFirst;
+    private AbilityContainer aSecond;
+    private AbilityContainer aThird;
+    private AbilityContainer aFourth;
+    private AbilityContainer aFifth;
 
     @Before
     public void setUp() {
-        aFirst = new AttackContainer(null, null, null, null);
-        aSecond = new AttackContainer(firstAttack, null, null, null);
-        aThird = new AttackContainer(secondAttack, firstAttack, null, null);
-        aFourth = new AttackContainer(thirdAttack, firstAttack, secondAttack, null);
-        aFifth = new AttackContainer(firstAttack, secondAttack, thirdAttack, fourthAttack);
+        aFirst = new AbilityContainer(null, null, null, null);
+        aSecond = new AbilityContainer(firstAttack, null, null, null);
+        aThird = new AbilityContainer(secondAttack, firstAttack, null, null);
+        aFourth = new AbilityContainer(thirdAttack, firstAttack, secondAttack, null);
+        aFifth = new AbilityContainer(firstAttack, secondAttack, thirdAttack, fourthAttack);
     }
 
     @Test
@@ -63,9 +63,9 @@ public class AttackContainerTest {
         assertEquals(aFifth.getAttack(3), thirdAttack);
         assertEquals(aFifth.getAttack(4), fourthAttack);
 
-        assertEquals(aSecond, new AttackContainer(firstAttack, null, null, null));
-        assertEquals(aThird, new AttackContainer(secondAttack, firstAttack, null, null));
-        assertEquals(aFourth, new AttackContainer(thirdAttack, firstAttack, secondAttack, null));
-        assertEquals(aFifth, new AttackContainer(firstAttack, secondAttack, thirdAttack, fourthAttack));
+        assertEquals(aSecond, new AbilityContainer(firstAttack, null, null, null));
+        assertEquals(aThird, new AbilityContainer(secondAttack, firstAttack, null, null));
+        assertEquals(aFourth, new AbilityContainer(thirdAttack, firstAttack, secondAttack, null));
+        assertEquals(aFifth, new AbilityContainer(firstAttack, secondAttack, thirdAttack, fourthAttack));
     }
 }
