@@ -7,6 +7,7 @@ import cc3002.visitor.card.PlayCardVisitor;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Objects;
+import java.util.Random;
 
 /**
  * This class creates a new Trainer object.
@@ -161,6 +162,13 @@ public class Trainer {
 
     public void addACardToTheBottomOfDeck(ICard aCard) {
         this.deck.add(aCard);
+    }
+
+    public String flipACoin() {
+        Random coin = new Random();
+        int result = coin.nextInt(2);
+        if (result == 0) return "Head";
+        return "Tails";
     }
     /**
      * Compares the Trainer with another Trainer.
