@@ -142,6 +142,26 @@ public class Trainer {
     public void unselectPokemon() {
         this.selectedPokemon = null;
     }
+
+    private void setDeck(ArrayList<ICard> deck) {
+        this.deck = deck;
+    }
+
+    public void drawACard() {
+        this.getHand().add(this.deck.get(0));
+        this.deck.remove(0);
+    }
+
+    public void addACardToTheTopOfDeck(ICard aCard) {
+        ArrayList<ICard> newDeck = new ArrayList<>();
+        newDeck.add(aCard);
+        newDeck.addAll(this.deck);
+        this.setDeck(newDeck);
+    }
+
+    public void addACardToTheBottomOfDeck(ICard aCard) {
+        this.deck.add(aCard);
+    }
     /**
      * Compares the Trainer with another Trainer.
      *
