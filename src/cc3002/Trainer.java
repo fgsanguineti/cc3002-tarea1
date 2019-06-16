@@ -24,7 +24,6 @@ public class Trainer {
     private IPokemon selectedPokemon;
     private Trainer opponent;
 
-
     /**
      * Constructor that creates the Trainer.
      * @param playerName String with the player's name.
