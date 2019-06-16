@@ -1,4 +1,4 @@
-package cc3002.abilities.concrete;
+package cc3002.abilities.effects.concrete;
 
 import cc3002.abilities.effects.AbstractEffect;
 import cc3002.pokemontypes.IPokemon;
