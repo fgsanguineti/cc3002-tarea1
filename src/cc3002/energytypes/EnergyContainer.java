@@ -90,7 +90,8 @@ public class EnergyContainer {
     }
 
     public int getTotalEnergyQuantity() {
-        return this.container.size();
+        return this.getFighting() + this.getElectric() + this.getFire() + this.getGrass()
+                + this.getPsychic() + this.getWater();
     }
 
     /**

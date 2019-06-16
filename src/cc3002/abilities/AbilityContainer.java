@@ -1,5 +1,6 @@
 package cc3002.abilities;
 
+import cc3002.abilities.effects.NullEffect;
 import cc3002.pokemontypes.IPokemon;
 
 import java.util.Arrays;
@@ -38,7 +39,10 @@ public class AbilityContainer {
 
     public void setAssociatedPokemonToAllAbilities(IPokemon aPokemon) {
         for (IAbility a : this.abilityContainer) {
-            if (!a.equals(new NullAbility())) a.setAssociatedPokemon(aPokemon);
+            if (!a.equals(new NullAbility())) {
+                a.setAssociatedPokemon(aPokemon);
+                if (!a.getEffect().equals(new NullEffect())) a.getEffect().setAssociatedAbility(a);
+            }
         }
     }
     /**

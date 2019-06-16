@@ -25,7 +25,7 @@ public class Ability extends AbstractAbility {
         v.visitAbility(this);
     }
     /**
-     * Compares the Ability with another Attack.
+     * Compares the ability with another Attack.
      *
      * @param o Another Attack .
      * @return true if are equals. False otherwise.

@@ -1,5 +1,6 @@
-package cc3002.abilities.effects;
+package cc3002.abilities.concrete;
 
+import cc3002.abilities.effects.AbstractEffect;
 import cc3002.pokemontypes.IPokemon;
 import cc3002.visitor.type.pokemon.EnergyBurnVisitor;
 
