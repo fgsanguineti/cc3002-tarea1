@@ -1,8 +1,8 @@
 package cc3002.pokemontypes.water;
 
 import cc3002.abilities.AbilityContainer;
-import cc3002.cardvisitors.ICardVisitor;
 import cc3002.pokemontypes.IPhaseOnePokemon;
+import cc3002.visitor.card.ICardVisitor;
 
 public class PhaseOneWaterPokemon extends AbstractWaterPokemon implements IPhaseOnePokemon {
     private int basicPokemonToEvolveID;

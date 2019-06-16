@@ -1,7 +1,8 @@
 package cc3002.abilities;
 
-import cc3002.abilityvisitors.IAbilityVisitor;
+import cc3002.abilities.effects.NullEffect;
 import cc3002.energytypes.EnergyContainer;
+import cc3002.visitor.ability.IAbilityVisitor;
 
 public class NullAbility extends AbstractAbility implements IAttack {
     private int baseDamage;
@@ -10,7 +11,7 @@ public class NullAbility extends AbstractAbility implements IAttack {
      * Creates a new NullAbility.
      */
     public NullAbility() {
-        super("", "", new EnergyContainer(0, 0, 0, 0, 0, 0));
+        super("", "", new EnergyContainer(0, 0, 0, 0, 0, 0), new NullEffect());
         this.baseDamage = 0;
     }
 

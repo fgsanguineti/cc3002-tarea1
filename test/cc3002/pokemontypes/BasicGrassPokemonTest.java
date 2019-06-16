@@ -4,6 +4,7 @@ import cc3002.Trainer;
 import cc3002.abilities.AbilityContainer;
 import cc3002.abilities.Attack;
 import cc3002.abilities.NullAbility;
+import cc3002.abilities.effects.NullEffect;
 import cc3002.energytypes.*;
 import cc3002.pokemontypes.grass.BasicGrassPokemon;
 import org.junit.Before;
@@ -32,11 +33,11 @@ public class BasicGrassPokemonTest {
         EnergyContainer fourth = new EnergyContainer(0, 1, 1, 0, 2, 1);
 
         firstAttack = new Attack("Látigo Cepa", "Le pega con un látigo cepa al pókemon oponente",
-                40, first);
+                40, first, new NullEffect());
         secondAttack = new Attack("Placaje", "Le pega un buen colpe al oponente con su cuerpo",
-                30, second);
-        thirdAttack = new Attack("Vuelo", "Vuela y le pega al oponente", 50, third);
-        fourthAttack = new Attack("Golpe Karate", "Le pega un golpe de karate", 20, fourth);
+                30, second, new NullEffect());
+        thirdAttack = new Attack("Vuelo", "Vuela y le pega al oponente", 50, third, new NullEffect());
+        fourthAttack = new Attack("Golpe Karate", "Le pega un golpe de karate", 20, fourth, new NullEffect());
 
         firstContainer = new AbilityContainer(firstAttack, secondAttack, new NullAbility(), new NullAbility());
         secondContainer = new AbilityContainer(thirdAttack, new NullAbility(), new NullAbility(), new NullAbility());

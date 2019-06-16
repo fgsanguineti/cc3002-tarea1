@@ -3,6 +3,7 @@ package cc3002;
 import cc3002.abilities.AbilityContainer;
 import cc3002.abilities.Attack;
 import cc3002.abilities.NullAbility;
+import cc3002.abilities.effects.NullEffect;
 import cc3002.energytypes.EnergyContainer;
 import org.junit.Before;
 import org.junit.Test;
@@ -17,13 +18,13 @@ public class AbilityContainerTest {
     private EnergyContainer fourth = new EnergyContainer(0, 1, 1, 0, 2, 1);
 
     private Attack firstAttack = new Attack("Látigo Cepa", "Le pega con un látigo cepa al pókemon oponente",
-            40, first);
+            40, first, new NullEffect());
     private Attack secondAttack = new Attack("Placaje", "Le pega un buen colpe al oponente con su cuerpo",
-            30, second);
+            30, second, new NullEffect());
     private Attack thirdAttack = new Attack("Vuelo", "Vuela y le pega al oponente",
-            50, third);
+            50, third, new NullEffect());
     private Attack fourthAttack = new Attack("Golpe Karate", "Le pega un golpe de karate",
-            20, fourth);
+            20, fourth, new NullEffect());
 
     private AbilityContainer aFirst;
     private AbilityContainer aSecond;

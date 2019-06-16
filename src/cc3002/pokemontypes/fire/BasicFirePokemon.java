@@ -1,8 +1,8 @@
 package cc3002.pokemontypes.fire;
 
 import cc3002.abilities.AbilityContainer;
-import cc3002.cardvisitors.ICardVisitor;
 import cc3002.pokemontypes.IBasicPokemon;
+import cc3002.visitor.card.ICardVisitor;
 
 public class BasicFirePokemon extends AbstractFirePokemon implements IBasicPokemon {
     /**

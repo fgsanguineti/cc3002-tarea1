@@ -4,6 +4,7 @@ import cc3002.Trainer;
 import cc3002.abilities.AbilityContainer;
 import cc3002.abilities.Attack;
 import cc3002.abilities.NullAbility;
+import cc3002.abilities.effects.NullEffect;
 import cc3002.energytypes.EnergyContainer;
 import cc3002.pokemontypes.electric.BasicElectricPokemon;
 import cc3002.pokemontypes.electric.PhaseOneElectricPokemon;
@@ -32,7 +33,7 @@ public class ElectricEvolvingTest {
         two = new EnergyContainer(0, 1, 1, 0, 2, 1);
 
         firstAttack = new Attack("Látigo Cepa", "Le pega con un látigo cepa al pókemon oponente",
-                40, first);
+                40, first, new NullEffect());
         firstContainer = new AbilityContainer(firstAttack, new NullAbility(), new NullAbility(), new NullAbility());
 
         electricBasic = new BasicElectricPokemon("Pichu", 32, 40, firstContainer);

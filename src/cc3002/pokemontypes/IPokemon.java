@@ -5,6 +5,7 @@ import cc3002.abilities.AbilityContainer;
 import cc3002.abilities.IAbility;
 import cc3002.abilities.IAttack;
 import cc3002.energytypes.*;
+import cc3002.visitor.type.pokemon.IPokemonTypeVisitor;
 
 /**
  * Common interface for all the Pokemon, that also is a card. Besides the cards attributes, a Pokemon also has a ID,
@@ -81,5 +82,7 @@ public interface IPokemon extends ICard {
     void receiveResistantPokemonTypeAttack(IAttack anAttack);
 
     void attack(IPokemon other);
+
+    void accept(IPokemonTypeVisitor v);
 
 }

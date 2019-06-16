@@ -4,6 +4,7 @@ import cc3002.abilities.AbilityContainer;
 import cc3002.abilities.IAttack;
 import cc3002.pokemontypes.AbstractPokemon;
 import cc3002.pokemontypes.IPokemon;
+import cc3002.visitor.type.pokemon.IPokemonTypeVisitor;
 
 public abstract class AbstractElectricPokemon extends AbstractPokemon {
     /**
@@ -25,5 +26,10 @@ public abstract class AbstractElectricPokemon extends AbstractPokemon {
     @Override
     public void attack(IPokemon other) {
         other.receiveElectricPokemonAttack(super.getActiveAttack());
+    }
+
+    @Override
+    public void accept(IPokemonTypeVisitor v) {
+        v.visitElectricPokemon(this);
     }
 }

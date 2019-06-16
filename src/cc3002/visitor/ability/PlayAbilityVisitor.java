@@ -1,4 +1,4 @@
-package cc3002.abilityvisitors;
+package cc3002.visitor.ability;
 
 import cc3002.Trainer;
 import cc3002.abilities.Ability;

@@ -3,6 +3,7 @@ package cc3002;
 import cc3002.abilities.AbilityContainer;
 import cc3002.abilities.Attack;
 import cc3002.abilities.NullAbility;
+import cc3002.abilities.effects.NullEffect;
 import cc3002.energytypes.*;
 import cc3002.pokemontypes.IPokemon;
 import cc3002.pokemontypes.electric.BasicElectricPokemon;
@@ -50,18 +51,18 @@ public class TrainerTest {
 
 
         AbilityContainer firstContainer = new AbilityContainer(new Attack("Látigo Cepa", "",
-                40, first), new Attack("Placaje", "",
-                30, second), new NullAbility(), new NullAbility());
+                40, first, new NullEffect()), new Attack("Placaje", "",
+                30, second, new NullEffect()), new NullAbility(), new NullAbility());
         AbilityContainer secondContainer = new AbilityContainer(
-                new Attack("Vuelo", "", 50, third), new NullAbility(), new NullAbility(), new NullAbility());
+                new Attack("Vuelo", "", 50, third, new NullEffect()), new NullAbility(), new NullAbility(), new NullAbility());
         AbilityContainer thirdContainer = new AbilityContainer(new Attack("Látigo Cepa", "",
-                40, first), new Attack("Placaje", "",
-                30, second), new Attack("Vuelo", "", 50, third), new NullAbility());
+                40, first, new NullEffect()), new Attack("Placaje", "",
+                30, second, new NullEffect()), new Attack("Vuelo", "", 50, third, new NullEffect()), new NullAbility());
         AbilityContainer fourthContainer = new AbilityContainer(
-                new Attack("Golpe Karate", "", 20, fourth),
-                new Attack("Vuelo", "", 50, third),
-                new Attack("Placaje", "", 30, second),
-                new Attack("Látigo Cepa", "", 40, first));
+                new Attack("Golpe Karate", "", 20, fourth, new NullEffect()),
+                new Attack("Vuelo", "", 50, third, new NullEffect()),
+                new Attack("Placaje", "", 30, second, new NullEffect()),
+                new Attack("Látigo Cepa", "", 40, first, new NullEffect()));
 
 
         // Franco

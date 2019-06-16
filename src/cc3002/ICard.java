@@ -1,6 +1,6 @@
 package cc3002;
 
-import cc3002.cardvisitors.ICardVisitor;
+import cc3002.visitor.card.ICardVisitor;
 
 /**
  * Common interface for all the cards. Every card have a card name and should be able to be played by a Trainer

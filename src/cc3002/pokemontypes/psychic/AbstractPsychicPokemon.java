@@ -4,6 +4,7 @@ import cc3002.abilities.AbilityContainer;
 import cc3002.abilities.IAttack;
 import cc3002.pokemontypes.AbstractPokemon;
 import cc3002.pokemontypes.IPokemon;
+import cc3002.visitor.type.pokemon.IPokemonTypeVisitor;
 
 public abstract class AbstractPsychicPokemon extends AbstractPokemon {
     /**
@@ -33,4 +34,8 @@ public abstract class AbstractPsychicPokemon extends AbstractPokemon {
         other.receivePsychicPokemonAttack(super.getActiveAttack());
     }
 
+    @Override
+    public void accept(IPokemonTypeVisitor v) {
+        v.visitPsychicPokemon(this);
+    }
 }

@@ -2,8 +2,8 @@ package cc3002.pokemontypes.psychic;
 
 
 import cc3002.abilities.AbilityContainer;
-import cc3002.cardvisitors.ICardVisitor;
 import cc3002.pokemontypes.IPhaseOnePokemon;
+import cc3002.visitor.card.ICardVisitor;
 
 public class PhaseOnePsychicPokemon extends AbstractPsychicPokemon implements IPhaseOnePokemon {
     private int basicPokemonToEvolveID;

@@ -1,6 +1,6 @@
 package cc3002;
 
-import cc3002.cardvisitors.ICardVisitor;
+import cc3002.visitor.card.ICardVisitor;
 
 public abstract class AbstractCard implements ICard {
     private String cardName;

@@ -1,8 +1,8 @@
 package cc3002;
 
-import cc3002.abilityvisitors.PlayAbilityVisitor;
-import cc3002.cardvisitors.PlayCardVisitor;
 import cc3002.pokemontypes.IPokemon;
+import cc3002.visitor.ability.PlayAbilityVisitor;
+import cc3002.visitor.card.PlayCardVisitor;
 
 import java.util.ArrayList;
 import java.util.Arrays;

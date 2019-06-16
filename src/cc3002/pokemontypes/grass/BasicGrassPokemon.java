@@ -1,8 +1,8 @@
 package cc3002.pokemontypes.grass;
 
 import cc3002.abilities.AbilityContainer;
-import cc3002.cardvisitors.ICardVisitor;
 import cc3002.pokemontypes.IBasicPokemon;
+import cc3002.visitor.card.ICardVisitor;
 
 public class BasicGrassPokemon extends AbstractGrassPokemon implements IBasicPokemon {
     /**

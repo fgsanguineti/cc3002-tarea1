@@ -1,6 +1,7 @@
 package cc3002;
 
 import cc3002.abilities.Attack;
+import cc3002.abilities.effects.NullEffect;
 import cc3002.energytypes.EnergyContainer;
 import org.junit.Before;
 import org.junit.Test;
@@ -19,11 +20,11 @@ public class AttackTest {
         EnergyContainer fourth = new EnergyContainer(0, 1, 1, 0, 2, 1);
 
         firstAttack = new Attack("Látigo Cepa", "Le pega con un látigo cepa al pókemon oponente",
-                40, first);
+                40, first, new NullEffect());
         secondAttack = new Attack("Placaje", "Le pega un buen colpe al oponente con su cuerpo",
-                30, second);
-        thirdAttack = new Attack("Vuelo", "Vuela y le pega al oponente", 50, third);
-        fourthAttack = new Attack("Golpe Karate", "Le pega un golpe de karate", 20, fourth);
+                30, second, new NullEffect());
+        thirdAttack = new Attack("Vuelo", "Vuela y le pega al oponente", 50, third, new NullEffect());
+        fourthAttack = new Attack("Golpe Karate", "Le pega un golpe de karate", 20, fourth, new NullEffect());
 
     }
 
@@ -67,9 +68,9 @@ public class AttackTest {
         assertNotEquals(firstAttack, secondAttack);
         assertNotEquals(thirdAttack, fourthAttack);
         Attack test = new Attack("Látigo Cepa", "Le pega con un látigo cepa al pókemon oponente",
-                40, first);
+                40, first, new NullEffect());
         Attack test2 = new Attack("Látigo Cepa", "Le pega con un látigo cepa al pókemon oponente",
-                41, first);
+                41, first, new NullEffect());
         assertEquals(firstAttack, test);
         assertEquals(secondAttack, secondAttack);
         assertNotEquals(firstAttack, test2);

@@ -1,7 +1,8 @@
 package cc3002.abilities;
 
-import cc3002.abilityvisitors.IAbilityVisitor;
+import cc3002.abilities.effects.IEffect;
 import cc3002.energytypes.EnergyContainer;
+import cc3002.visitor.ability.IAbilityVisitor;
 
 /**
  * This class contents implements the IAbility interface
@@ -9,15 +10,14 @@ import cc3002.energytypes.EnergyContainer;
  * @author F. Giovanni Sanguineti
  */
 public class Ability extends AbstractAbility {
-
     /**
      * Creates a new ability.
      * @param name a String with the ability name.
      * @param description a short description of the ability.
      * @param costs a EnergyContainer with the cost of the ability.
      */
-    Ability(String name, String description, EnergyContainer costs) {
-        super(name, description, costs);
+    Ability(String name, String description, EnergyContainer costs, IEffect effect) {
+        super(name, description, costs, effect);
     }
 
     @Override

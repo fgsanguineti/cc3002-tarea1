@@ -1,8 +1,9 @@
 package cc3002.abilities;
 
-import cc3002.abilityvisitors.IAbilityVisitor;
+import cc3002.abilities.effects.IEffect;
 import cc3002.energytypes.EnergyContainer;
 import cc3002.pokemontypes.IPokemon;
+import cc3002.visitor.ability.IAbilityVisitor;
 
 import java.util.Objects;
 
@@ -11,6 +12,7 @@ public abstract class AbstractAbility implements IAbility {
     private String description;
     private EnergyContainer costs;
     private IPokemon associatedPokemon;
+    private IEffect effect;
 
     /**
      * Creates a new ability.
@@ -20,10 +22,12 @@ public abstract class AbstractAbility implements IAbility {
      * @param costs       a EnergyContainer with the cost of the ability.
      */
 
-    AbstractAbility(String name, String description, EnergyContainer costs) {
+    AbstractAbility(String name, String description, EnergyContainer costs, IEffect effect) {
         this.name = name;
         this.description = description;
         this.costs = costs;
+        this.effect = effect;
+
     }
 
     /**
@@ -82,6 +86,11 @@ public abstract class AbstractAbility implements IAbility {
     @Override
     public void setAssociatedPokemon(IPokemon aPokemon) {
         this.associatedPokemon = aPokemon;
+    }
+
+    @Override
+    public IEffect getEffect() {
+        return this.effect;
     }
 
     @Override

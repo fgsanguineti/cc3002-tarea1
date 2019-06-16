@@ -12,7 +12,7 @@ public class EnergyContainer {
     private HashMap<String, Integer> container = new HashMap<>();
 
     /**
-     * Constructor for the EergyContainer.
+     * Constructor for the EnergyContainer.
      * @param el quantity of electric energies to store.
      * @param fig quantity of fighting energies to store.
      * @param fir quantity of fire energies to store.
@@ -89,6 +89,9 @@ public class EnergyContainer {
         return container.get("Water");
     }
 
+    public int getTotalEnergyQuantity() {
+        return this.container.size();
+    }
 
     /**
      * Compares the EnergyContainer with another EnergyContainer.

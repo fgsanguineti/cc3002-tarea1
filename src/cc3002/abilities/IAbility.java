@@ -1,8 +1,9 @@
 package cc3002.abilities;
 
-import cc3002.abilityvisitors.IAbilityVisitor;
+import cc3002.abilities.effects.IEffect;
 import cc3002.energytypes.EnergyContainer;
 import cc3002.pokemontypes.IPokemon;
+import cc3002.visitor.ability.IAbilityVisitor;
 
 /**
  * Common interface for all the abilities. abilities had a name, a description and a energy cost.
@@ -15,6 +16,7 @@ public interface IAbility {
     EnergyContainer getCost();
     boolean isEnoughEnergyToUseTheAbility(IPokemon aPokemon);
 
+    IEffect getEffect();
     void accept(IAbilityVisitor v);
 
     IPokemon getAssociatedPokemon();

@@ -4,6 +4,7 @@ import cc3002.Trainer;
 import cc3002.abilities.AbilityContainer;
 import cc3002.abilities.Attack;
 import cc3002.abilities.NullAbility;
+import cc3002.abilities.effects.NullEffect;
 import cc3002.energytypes.*;
 import cc3002.pokemontypes.psychic.BasicPsychicPokemon;
 import org.junit.Before;
@@ -13,7 +14,8 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 
 public class BasicPsychicPokemonTest {
-    private Attack firstAttack, secondAttack, thirdAttack, fourthAttack;
+    private Attack firstAttack;
+    private Attack secondAttack;
     private BasicPsychicPokemon espeon, mewto;
 
     private ElectricEnergy electric1, electric2, electric3;
@@ -23,7 +25,7 @@ public class BasicPsychicPokemonTest {
     private PsychicEnergy psychic1, psychic2, psychic3;
     private WaterEnergy water1, water2, water3;
 
-    private AbilityContainer firstContainer, secondContainer, thirdContainer, fourthContainer;
+    private AbilityContainer firstContainer;
 
     @Before
     public void setUp() {
@@ -33,16 +35,14 @@ public class BasicPsychicPokemonTest {
         EnergyContainer fourth = new EnergyContainer(0, 1, 1, 0, 2, 1);
 
         firstAttack = new Attack("Látigo Cepa", "Le pega con un látigo cepa al pókemon oponente",
-                40, first);
+                40, first, new NullEffect());
         secondAttack = new Attack("Placaje", "Le pega un buen colpe al oponente con su cuerpo",
-                30, second);
-        thirdAttack = new Attack("Vuelo", "Vuela y le pega al oponente", 50, third);
-        fourthAttack = new Attack("Golpe Karate", "Le pega un golpe de karate", 20, fourth);
+                30, second, new NullEffect());
+        Attack thirdAttack = new Attack("Vuelo", "Vuela y le pega al oponente", 50, third, new NullEffect());
+        Attack fourthAttack = new Attack("Golpe Karate", "Le pega un golpe de karate", 20, fourth, new NullEffect());
 
         firstContainer = new AbilityContainer(firstAttack, secondAttack, new NullAbility(), new NullAbility());
-        secondContainer = new AbilityContainer(thirdAttack, new NullAbility(), new NullAbility(), new NullAbility());
-        thirdContainer = new AbilityContainer(firstAttack, secondAttack, thirdAttack, new NullAbility());
-        fourthContainer = new AbilityContainer(fourthAttack, thirdAttack, secondAttack, firstAttack);
+        AbilityContainer fourthContainer = new AbilityContainer(fourthAttack, thirdAttack, secondAttack, firstAttack);
 
         espeon = new BasicPsychicPokemon("Espeon", 33, 60, fourthContainer);
         mewto = new BasicPsychicPokemon("Mewto", 85, 100, firstContainer);

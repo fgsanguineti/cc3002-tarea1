@@ -1,7 +1,7 @@
 package cc3002.trainercards;
 
 import cc3002.AbstractCard;
-import cc3002.cardvisitors.ICardVisitor;
+import cc3002.visitor.card.ICardVisitor;
 
 
 public abstract class AbstractTrainerCard extends AbstractCard implements ITrainerCard {

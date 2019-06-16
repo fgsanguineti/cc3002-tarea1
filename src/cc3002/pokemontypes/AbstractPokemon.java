@@ -5,8 +5,9 @@ import cc3002.abilities.AbilityContainer;
 import cc3002.abilities.IAbility;
 import cc3002.abilities.IAttack;
 import cc3002.abilities.NullAbility;
-import cc3002.cardvisitors.ICardVisitor;
 import cc3002.energytypes.*;
+import cc3002.visitor.card.ICardVisitor;
+import cc3002.visitor.type.pokemon.IPokemonTypeVisitor;
 
 /**
  * This class implements the IPokemon interface
@@ -40,8 +41,7 @@ public abstract class AbstractPokemon extends AbstractCard implements IPokemon {
 
 
     @Override
-    public void accept(ICardVisitor v) {
-    }
+    public abstract void accept(ICardVisitor v);
 
     /**
      * Returns the ID of the Pokemon.
@@ -325,6 +325,9 @@ public abstract class AbstractPokemon extends AbstractCard implements IPokemon {
     public void setActiveAttack(IAttack activeAttack) {
         this.activeAttack = activeAttack;
     }
+
+    @Override
+    public abstract void accept(IPokemonTypeVisitor v);
 
     /**
      * {@inheritDoc}

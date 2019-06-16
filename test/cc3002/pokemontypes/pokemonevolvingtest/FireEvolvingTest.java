@@ -4,6 +4,7 @@ import cc3002.Trainer;
 import cc3002.abilities.AbilityContainer;
 import cc3002.abilities.Attack;
 import cc3002.abilities.NullAbility;
+import cc3002.abilities.effects.NullEffect;
 import cc3002.energytypes.EnergyContainer;
 import cc3002.pokemontypes.fire.BasicFirePokemon;
 import cc3002.pokemontypes.fire.PhaseOneFirePokemon;
@@ -32,7 +33,7 @@ public class FireEvolvingTest {
         two = new EnergyContainer(0, 1, 1, 0, 2, 1);
 
         firstAttack = new Attack("Látigo Cepa", "Le pega con un látigo cepa al pókemon oponente",
-                40, first);
+                40, first, new NullEffect());
         firstContainer = new AbilityContainer(firstAttack, new NullAbility(), new NullAbility(), new NullAbility());
 
         basic = new BasicFirePokemon("Pichu", 32, 40, firstContainer);

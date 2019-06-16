@@ -1,7 +1,8 @@
 package cc3002.abilities;
 
-import cc3002.abilityvisitors.IAbilityVisitor;
+import cc3002.abilities.effects.IEffect;
 import cc3002.energytypes.EnergyContainer;
+import cc3002.visitor.ability.IAbilityVisitor;
 
 /**
  * This class implements the IAttack interface.
@@ -17,8 +18,8 @@ public class Attack extends AbstractAbility implements IAttack {
      * @param baseDamage a int value that represent the damage that the attack performs.
      * @param costs a EnergyContainer with the cost of the attack.
      */
-    public Attack(String name, String description, int baseDamage, EnergyContainer costs) {
-        super(name,description,costs);
+    public Attack(String name, String description, int baseDamage, EnergyContainer costs, IEffect effect) {
+        super(name, description, costs, effect);
         this.baseDamage = baseDamage;
     }
     /**
