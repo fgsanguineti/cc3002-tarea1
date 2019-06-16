@@ -2,6 +2,7 @@ package cc3002;
 
 import cc3002.abilities.AbilityContainer;
 import cc3002.abilities.Attack;
+import cc3002.abilities.NullAbility;
 import cc3002.energytypes.*;
 import cc3002.pokemontypes.IPokemon;
 import cc3002.pokemontypes.electric.BasicElectricPokemon;
@@ -40,9 +41,6 @@ public class TrainerTest {
 
     @Before
     public void setUp() {
-        Franco = new Trainer("Franco");
-        Giovanni = new Trainer("Giovanni");
-
         electric1 = new ElectricEnergy();
         fighting1 = new FightingEnergy();
         fire1 = new FireEnergy();
@@ -51,17 +49,20 @@ public class TrainerTest {
         water1 = new WaterEnergy();
 
 
-        Attack firstAttack = new Attack("Látigo Cepa", "Le pega con un látigo cepa al pókemon oponente",
-                40, first);
-        Attack secondAttack = new Attack("Placaje", "Le pega un buen colpe al oponente con su cuerpo",
-                30, second);
-        Attack thirdAttack = new Attack("Vuelo", "Vuela y le pega al oponente", 50, third);
-        Attack fourthAttack = new Attack("Golpe Karate", "Le pega un golpe de karate", 20, fourth);
+        AbilityContainer firstContainer = new AbilityContainer(new Attack("Látigo Cepa", "",
+                40, first), new Attack("Placaje", "",
+                30, second), new NullAbility(), new NullAbility());
+        AbilityContainer secondContainer = new AbilityContainer(
+                new Attack("Vuelo", "", 50, third), new NullAbility(), new NullAbility(), new NullAbility());
+        AbilityContainer thirdContainer = new AbilityContainer(new Attack("Látigo Cepa", "",
+                40, first), new Attack("Placaje", "",
+                30, second), new Attack("Vuelo", "", 50, third), new NullAbility());
+        AbilityContainer fourthContainer = new AbilityContainer(
+                new Attack("Golpe Karate", "", 20, fourth),
+                new Attack("Vuelo", "", 50, third),
+                new Attack("Placaje", "", 30, second),
+                new Attack("Látigo Cepa", "", 40, first));
 
-        AbilityContainer firstContainer = new AbilityContainer(firstAttack, secondAttack, null, null);
-        AbilityContainer secondContainer = new AbilityContainer(thirdAttack, null, null, null);
-        AbilityContainer thirdContainer = new AbilityContainer(firstAttack, secondAttack, thirdAttack, null);
-        AbilityContainer fourthContainer = new AbilityContainer(fourthAttack, thirdAttack, secondAttack, firstAttack);
 
         // Franco
         pikachu = new BasicElectricPokemon("Pikachu", 54, 60, firstContainer);
@@ -74,7 +75,7 @@ public class TrainerTest {
         //Giovanni
         jolteon = new BasicElectricPokemon("Jolteon", 28, 160, fourthContainer);
         riolu = new BasicFightingPokemon("Riolu", 33, 60, firstContainer);
-        flareon = new BasicFirePokemon("Flareon", 88, 90, fourthContainer);
+        flareon = new BasicFirePokemon("Flareon", 88, 90, firstContainer);
         chikorita = new BasicGrassPokemon("Chikorita", 33, 60, secondContainer);
         mewto = new BasicPsychicPokemon("Mewto", 85, 100, firstContainer);
         squirtle = new BasicWaterPokemon("Squirtle", 33, 60, secondContainer);
@@ -83,12 +84,20 @@ public class TrainerTest {
 
     @Test
     public void getPlayerName() {
+        Franco = new Trainer("Franco");
+        Giovanni = new Trainer("Giovanni");
+        Giovanni.setOpponent(Franco);
+        Franco.setOpponent(Giovanni);
         assertEquals(Franco.getPlayerName(), "Franco");
         assertEquals(Giovanni.getPlayerName(), "Giovanni");
     }
 
     @Test
     public void getActivePokemon() {
+        Franco = new Trainer("Franco");
+        Giovanni = new Trainer("Giovanni");
+        Giovanni.setOpponent(Franco);
+        Franco.setOpponent(Giovanni);
         Franco.addCardToHand(pikachu);
         Giovanni.addCardToHand(squirtle);
         Franco.play(Franco.getHand().get(Franco.getHand().indexOf(pikachu)));
@@ -99,6 +108,10 @@ public class TrainerTest {
 
     @Test
     public void getHand() {
+        Franco = new Trainer("Franco");
+        Giovanni = new Trainer("Giovanni");
+        Giovanni.setOpponent(Franco);
+        Franco.setOpponent(Giovanni);
         Franco.addCardToHand(pikachu);
         Franco.addCardToHand(lucario);
         Franco.addCardToHand(tepig);
@@ -160,6 +173,10 @@ public class TrainerTest {
 
     @Test
     public void getBench() {
+        Franco = new Trainer("Franco");
+        Giovanni = new Trainer("Giovanni");
+        Giovanni.setOpponent(Franco);
+        Franco.setOpponent(Giovanni);
         Franco.addCardToHand(pikachu);
         Franco.addCardToHand(lucario);
         Franco.addCardToHand(tepig);
@@ -199,6 +216,10 @@ public class TrainerTest {
 
     @Test
     public void Play() {
+        Franco = new Trainer("Franco");
+        Giovanni = new Trainer("Giovanni");
+        Giovanni.setOpponent(Franco);
+        Franco.setOpponent(Giovanni);
 
         Giovanni.addCardToHand(jolteon);
         Giovanni.addCardToHand(riolu);
@@ -209,7 +230,6 @@ public class TrainerTest {
         Giovanni.addCardToHand(grass1);
 
         ArrayList<ICard> bench = new ArrayList<>();
-
         assertEquals(Giovanni.getHand().size(), 7);
         Giovanni.play(Giovanni.getHand().get(Giovanni.getHand().indexOf(jolteon)));
         assertEquals(Giovanni.getHand().size(), 6);
@@ -237,33 +257,44 @@ public class TrainerTest {
 
     @Test
     public void makeAnAttack() {
-        Franco.addCardToHand(flareon);
-        Franco.addCardToHand(pikachu);
-        Franco.play(Franco.getHand().get(0));
-        Franco.play(Franco.getHand().get(0));
+        Trainer t1 = new Trainer("Franco");
+        Trainer t2 = new Trainer("Giovanni");
 
-        Giovanni.addCardToHand(jolteon);
-        Giovanni.addCardToHand(fighting1);
-        Giovanni.addCardToHand(fire1);
-        Giovanni.addCardToHand(water1);
-        Giovanni.addCardToHand(psychic1);
+        t1.setOpponent(t2);
+        t2.setOpponent(t1);
 
+        t1.addCardToHand(flareon);
+        t1.addCardToHand(pikachu);
 
-        Giovanni.play(Giovanni.getHand().get(0));
-        Giovanni.setSelectedPokemon(Giovanni.getActivePokemon());
-        Giovanni.play(Giovanni.getHand().get(0));
-        Giovanni.play(Giovanni.getHand().get(0));
-        Giovanni.play(Giovanni.getHand().get(0));
-        Giovanni.play(Giovanni.getHand().get(0));
-        Giovanni.unselectPokemon();
-        Giovanni.makeAnAttack(4, Franco);
-        assertEquals(Franco.getActivePokemon().getHP(), 50);
-        Giovanni.makeAnAttack(2, Franco);
-        assertEquals(pikachu, Franco.getActivePokemon());
+        t2.addCardToHand(jolteon);
+        t2.addCardToHand(fighting1);
+        t2.addCardToHand(fire1);
+        t2.addCardToHand(water1);
+        t2.addCardToHand(psychic1);
+
+        t1.play(flareon);
+        t1.play(pikachu);
+
+        t2.play(jolteon);
+        t2.setSelectedPokemon(jolteon);
+        t2.play(fighting1);
+        t2.play(fire1);
+        t2.play(water1);
+        t2.play(psychic1);
+        t2.unselectPokemon();
+
+        t2.makeAnAbility(4);
+        assertEquals(t1.getActivePokemon().getHP(), 50);
+        t2.makeAnAbility(2);
+        assertEquals(pikachu, t1.getActivePokemon());
     }
 
     @Test
     public void equals() {
+        Franco = new Trainer("Franco");
+        Giovanni = new Trainer("Giovanni");
+        Giovanni.setOpponent(Franco);
+        Franco.setOpponent(Giovanni);
         assertNotEquals(Franco, Giovanni);
         assertEquals(Franco, new Trainer("Franco"));
         Giovanni.addCardToHand(pikachu);

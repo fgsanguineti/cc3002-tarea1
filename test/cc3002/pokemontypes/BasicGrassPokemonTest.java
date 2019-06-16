@@ -1,7 +1,9 @@
 package cc3002.pokemontypes;
 
+import cc3002.Trainer;
 import cc3002.abilities.AbilityContainer;
 import cc3002.abilities.Attack;
+import cc3002.abilities.NullAbility;
 import cc3002.energytypes.*;
 import cc3002.pokemontypes.grass.BasicGrassPokemon;
 import org.junit.Before;
@@ -36,36 +38,29 @@ public class BasicGrassPokemonTest {
         thirdAttack = new Attack("Vuelo", "Vuela y le pega al oponente", 50, third);
         fourthAttack = new Attack("Golpe Karate", "Le pega un golpe de karate", 20, fourth);
 
-        firstContainer = new AbilityContainer(firstAttack, secondAttack, null, null);
-        secondContainer = new AbilityContainer(thirdAttack, null, null, null);
-        thirdContainer = new AbilityContainer(firstAttack, secondAttack, thirdAttack, null);
-        fourthContainer = new AbilityContainer(fourthAttack, thirdAttack, secondAttack, firstAttack);
+        firstContainer = new AbilityContainer(firstAttack, secondAttack, new NullAbility(), new NullAbility());
+        secondContainer = new AbilityContainer(thirdAttack, new NullAbility(), new NullAbility(), new NullAbility());
 
         chikorita = new BasicGrassPokemon("Chikorita", 33, 60, secondContainer);
         bulbasaur = new BasicGrassPokemon("Bulbasaur", 85, 100, firstContainer);
+
         electric1 = new ElectricEnergy();
         electric2 = new ElectricEnergy();
-        electric3 = new ElectricEnergy();
 
         fighting1 = new FightingEnergy();
         fighting2 = new FightingEnergy();
-        fighting3 = new FightingEnergy();
 
         fire1 = new FireEnergy();
         fire2 = new FireEnergy();
-        fire3 = new FireEnergy();
 
         grass1 = new GrassEnergy();
         grass2 = new GrassEnergy();
-        grass3 = new GrassEnergy();
 
         psychic1 = new PsychicEnergy();
         psychic2 = new PsychicEnergy();
-        psychic3 = new PsychicEnergy();
 
         water1 = new WaterEnergy();
         water2 = new WaterEnergy();
-        water3 = new WaterEnergy();
 
     }
 
@@ -160,9 +155,48 @@ public class BasicGrassPokemonTest {
 
     @Test
     public void attack() {
-        chikorita.setActiveAttack(1);
-        chikorita.attack(bulbasaur);
+        Trainer t1 = new Trainer("Trainer 1");
+        Trainer t2 = new Trainer("Trainer 2");
+
+        t1.setOpponent(t2);
+        t2.setOpponent(t1);
+
+        t1.addCardToHand(chikorita);
+        t1.play(t1.getHand().get(0));
+
+        t1.setSelectedPokemon(chikorita);
+        t1.addCardToHand(electric1);
+        t1.play(t1.getHand().get(0));
+        t1.addCardToHand(electric2);
+        t1.play(t1.getHand().get(0));
+        t1.addCardToHand(fighting1);
+        t1.play(t1.getHand().get(0));
+        t1.addCardToHand(fighting2);
+        t1.play(t1.getHand().get(0));
+        t1.addCardToHand(fire1);
+        t1.play(t1.getHand().get(0));
+        t1.addCardToHand(fire2);
+        t1.play(t1.getHand().get(0));
+        t1.addCardToHand(water1);
+        t1.play(t1.getHand().get(0));
+        t1.addCardToHand(water2);
+        t1.play(t1.getHand().get(0));
+        t1.addCardToHand(psychic1);
+        t1.play(t1.getHand().get(0));
+        t1.addCardToHand(psychic2);
+        t1.play(t1.getHand().get(0));
+        t1.addCardToHand(grass1);
+        t1.play(t1.getHand().get(0));
+        t1.addCardToHand(grass2);
+        t1.play(t1.getHand().get(0));
+        t1.unselectPokemon();
+
+        t2.addCardToHand(bulbasaur);
+        t2.play(bulbasaur);
+
+        t1.makeAnAbility(1);
         assertEquals(bulbasaur.getHP(), 50);
+
     }
 
     @Test

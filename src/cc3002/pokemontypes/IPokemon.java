@@ -2,7 +2,8 @@ package cc3002.pokemontypes;
 
 import cc3002.ICard;
 import cc3002.abilities.AbilityContainer;
-import cc3002.abilities.Attack;
+import cc3002.abilities.IAbility;
+import cc3002.abilities.IAttack;
 import cc3002.energytypes.*;
 
 /**
@@ -21,9 +22,15 @@ public interface IPokemon extends ICard {
 
     boolean isAlive();
 
-    Attack getActiveAttack();
+    IAbility getActiveAbility();
 
-    AbilityContainer getAttackList();
+    void setActiveAbility(int index);
+
+    IAttack getActiveAttack();
+
+    void setActiveAttack(IAttack activeAttack);
+
+    AbilityContainer getAbilityList();
 
     EnergyContainer getAllEnergyQuantity();
 
@@ -41,7 +48,7 @@ public interface IPokemon extends ICard {
 
     int getWaterEnergyQuantity();
 
-    void setActiveAttack(int index);
+
 
     void receiveElectricEnergy(ElectricEnergy energy);
 
@@ -55,23 +62,23 @@ public interface IPokemon extends ICard {
 
     void receiveWaterEnergy(WaterEnergy energy);
 
-    void receiveAttack(Attack anAttack);
+    void receiveAttack(IAttack anAttack);
 
-    void receiveElectricPokemonAttack(Attack anAttack);
+    void receiveElectricPokemonAttack(IAttack anAttack);
 
-    void receiveFightingPokemonAttack(Attack anAttack);
+    void receiveFightingPokemonAttack(IAttack anAttack);
 
-    void receiveFirePokemonAttack(Attack anAttack);
+    void receiveFirePokemonAttack(IAttack anAttack);
 
-    void receiveGrassPokemonAttack(Attack anAttack);
+    void receiveGrassPokemonAttack(IAttack anAttack);
 
-    void receivePsychicPokemonAttack(Attack anAttack);
+    void receivePsychicPokemonAttack(IAttack anAttack);
 
-    void receiveWaterPokemonAttack(Attack anAttack);
+    void receiveWaterPokemonAttack(IAttack anAttack);
 
-    void receiveWeaknessPokemonTypeAttack(Attack anAttack);
+    void receiveWeaknessPokemonTypeAttack(IAttack anAttack);
 
-    void receiveResistantPokemonTypeAttack(Attack anAttack);
+    void receiveResistantPokemonTypeAttack(IAttack anAttack);
 
     void attack(IPokemon other);
 

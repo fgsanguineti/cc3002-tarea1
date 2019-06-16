@@ -1,7 +1,7 @@
 package cc3002.pokemontypes.fighting;
 
 import cc3002.abilities.AbilityContainer;
-import cc3002.abilities.Attack;
+import cc3002.abilities.IAttack;
 import cc3002.pokemontypes.AbstractPokemon;
 import cc3002.pokemontypes.IPokemon;
 
@@ -19,12 +19,12 @@ public abstract class AbstractFightingPokemon extends AbstractPokemon {
     }
 
     @Override
-    public void receiveGrassPokemonAttack(Attack anAttack) {
+    public void receiveGrassPokemonAttack(IAttack anAttack) {
         super.receiveWeaknessPokemonTypeAttack(anAttack);
     }
 
     @Override
-    public void receivePsychicPokemonAttack(Attack anAttack) {
+    public void receivePsychicPokemonAttack(IAttack anAttack) {
         super.receiveWeaknessPokemonTypeAttack(anAttack);
     }
 

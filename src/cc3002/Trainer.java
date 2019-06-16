@@ -1,5 +1,6 @@
 package cc3002;
 
+import cc3002.abilityvisitors.PlayAbilityVisitor;
 import cc3002.cardvisitors.PlayCardVisitor;
 import cc3002.pokemontypes.IPokemon;
 
@@ -21,6 +22,7 @@ public class Trainer {
     private ICard[] prizeCards;
     private String playerName;
     private IPokemon selectedPokemon;
+    private Trainer opponent;
 
 
     /**
@@ -35,7 +37,7 @@ public class Trainer {
         this.discardHeap = new ArrayList<>();
         this.prizeCards = new ICard[6];
         this.playerName = playerName;
-
+        this.opponent = null;
     }
 
     /**
@@ -85,6 +87,15 @@ public class Trainer {
         return bench;
     }
 
+
+    public Trainer getOpponent() {
+        return opponent;
+    }
+
+    public void setOpponent(Trainer opponent) {
+        this.opponent = opponent;
+    }
+
     /**
      * Lets the trainer to play a card.
      * @param aCard the ICard that wants to play.
@@ -97,15 +108,16 @@ public class Trainer {
     }
     /**
      * Lets a trainer performs an attack to the active enemy Pokemon
-     * @param attackNumber number of the Pokemon attack (1-4).
-     * @param other The target trainer to attack.
+     * @param abilityNumber number of the Pokemon attack (1-4).
      */
-    void makeAnAttack(int attackNumber, Trainer other) {
-        this.activePokemon.setActiveAttack(attackNumber);
-        other.receiveAnAttack(this);
+
+    public void makeAnAbility(int abilityNumber) {
+        this.activePokemon.setActiveAbility(abilityNumber);
+        PlayAbilityVisitor v = new PlayAbilityVisitor();
+        activePokemon.getActiveAbility().accept(v);
     }
 
-    private void receiveAnAttack(Trainer other) {
+    public void receiveAnAttack(Trainer other) {
         other.getActivePokemon().attack(activePokemon);
         if (!this.activePokemon.isAlive()) {
             activePokemon.discard(this);

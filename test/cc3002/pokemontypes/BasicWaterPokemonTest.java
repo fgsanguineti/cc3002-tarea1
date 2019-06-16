@@ -1,7 +1,9 @@
 package cc3002.pokemontypes;
 
+import cc3002.Trainer;
 import cc3002.abilities.AbilityContainer;
 import cc3002.abilities.Attack;
+import cc3002.abilities.NullAbility;
 import cc3002.energytypes.*;
 import cc3002.pokemontypes.water.BasicWaterPokemon;
 import org.junit.Before;
@@ -37,13 +39,13 @@ public class BasicWaterPokemonTest {
         thirdAttack = new Attack("Vuelo", "Vuela y le pega al oponente", 50, third);
         fourthAttack = new Attack("Golpe Karate", "Le pega un golpe de karate", 20, fourth);
 
-        firstContainer = new AbilityContainer(firstAttack, secondAttack, null, null);
-        secondContainer = new AbilityContainer(thirdAttack, null, null, null);
-        thirdContainer = new AbilityContainer(firstAttack, secondAttack, thirdAttack, null);
+        firstContainer = new AbilityContainer(firstAttack, secondAttack, new NullAbility(), new NullAbility());
+        secondContainer = new AbilityContainer(thirdAttack, new NullAbility(), new NullAbility(), new NullAbility());
+        thirdContainer = new AbilityContainer(firstAttack, secondAttack, thirdAttack, new NullAbility());
         fourthContainer = new AbilityContainer(fourthAttack, thirdAttack, secondAttack, firstAttack);
 
         squirtle = new BasicWaterPokemon("Squirtle", 33, 60, secondContainer);
-        gyarados = new BasicWaterPokemon("Gyarados", 85, 100, thirdContainer);
+        gyarados = new BasicWaterPokemon("Gyarados", 85, 100, firstContainer);
         electric1 = new ElectricEnergy();
         electric2 = new ElectricEnergy();
         electric3 = new ElectricEnergy();
@@ -164,13 +166,52 @@ public class BasicWaterPokemonTest {
 
     @Test
     public void attack() {
-        squirtle.setActiveAttack(1);
-        squirtle.attack(gyarados);
+
+        Trainer t1 = new Trainer("Trainer 1");
+        Trainer t2 = new Trainer("Trainer 2");
+
+        t1.setOpponent(t2);
+        t2.setOpponent(t1);
+
+        t1.addCardToHand(squirtle);
+        t1.play(t1.getHand().get(0));
+
+        t1.setSelectedPokemon(squirtle);
+        t1.addCardToHand(electric1);
+        t1.play(t1.getHand().get(0));
+        t1.addCardToHand(electric2);
+        t1.play(t1.getHand().get(0));
+        t1.addCardToHand(fighting1);
+        t1.play(t1.getHand().get(0));
+        t1.addCardToHand(fighting2);
+        t1.play(t1.getHand().get(0));
+        t1.addCardToHand(fire1);
+        t1.play(t1.getHand().get(0));
+        t1.addCardToHand(fire2);
+        t1.play(t1.getHand().get(0));
+        t1.addCardToHand(water1);
+        t1.play(t1.getHand().get(0));
+        t1.addCardToHand(water2);
+        t1.play(t1.getHand().get(0));
+        t1.addCardToHand(psychic1);
+        t1.play(t1.getHand().get(0));
+        t1.addCardToHand(psychic2);
+        t1.play(t1.getHand().get(0));
+        t1.addCardToHand(grass1);
+        t1.play(t1.getHand().get(0));
+        t1.addCardToHand(grass2);
+        t1.play(t1.getHand().get(0));
+        t1.unselectPokemon();
+
+        t2.addCardToHand(gyarados);
+        t2.play(gyarados);
+        t1.makeAnAbility(1);
+
         assertEquals(gyarados.getHP(), 50);
     }
 
     @Test
     public void equals() {
-        assertEquals(gyarados, new BasicWaterPokemon("Gyarados", 85, 100, thirdContainer));
+        assertEquals(gyarados, new BasicWaterPokemon("Gyarados", 85, 100, firstContainer));
     }
 }

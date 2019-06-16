@@ -3,6 +3,7 @@ package cc3002.pokemontypes.pokemonevolvingtest;
 import cc3002.Trainer;
 import cc3002.abilities.AbilityContainer;
 import cc3002.abilities.Attack;
+import cc3002.abilities.NullAbility;
 import cc3002.energytypes.EnergyContainer;
 import cc3002.pokemontypes.fighting.BasicFightingPokemon;
 import cc3002.pokemontypes.fighting.PhaseOneFightingPokemon;
@@ -32,7 +33,7 @@ public class FightingEvolvingTest {
 
         firstAttack = new Attack("Látigo Cepa", "Le pega con un látigo cepa al pókemon oponente",
                 40, first);
-        firstContainer = new AbilityContainer(firstAttack, null, null, null);
+        firstContainer = new AbilityContainer(firstAttack, new NullAbility(), new NullAbility(), new NullAbility());
 
         basic = new BasicFightingPokemon("Pichu", 32, 40, firstContainer);
         phaseOne = new PhaseOneFightingPokemon("Pikachu", 132, 60, firstContainer, 32);
@@ -47,7 +48,7 @@ public class FightingEvolvingTest {
     }
 
     @Test
-    public void electricEvolve() {
+    public void fightingEvolve() {
 
         basic.setEnergyContainer(first);
         phaseOne.setEnergyContainer(first);

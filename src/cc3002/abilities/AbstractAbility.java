@@ -1,5 +1,6 @@
 package cc3002.abilities;
 
+import cc3002.abilityvisitors.IAbilityVisitor;
 import cc3002.energytypes.EnergyContainer;
 import cc3002.pokemontypes.IPokemon;
 
@@ -9,6 +10,7 @@ public abstract class AbstractAbility implements IAbility {
     private String name;
     private String description;
     private EnergyContainer costs;
+    private IPokemon associatedPokemon;
 
     /**
      * Creates a new ability.
@@ -68,6 +70,18 @@ public abstract class AbstractAbility implements IAbility {
         return aux.getFighting() <= pokemonEnergies.getFighting() && aux.getElectric() <= pokemonEnergies.getElectric()
                 && aux.getFire() <= pokemonEnergies.getFire() && aux.getGrass() <= pokemonEnergies.getGrass() &&
                 aux.getPsychic() <= pokemonEnergies.getPsychic() && aux.getWater() <= pokemonEnergies.getWater();
+    }
+
+    public abstract void accept(IAbilityVisitor v);
+
+    @Override
+    public IPokemon getAssociatedPokemon() {
+        return this.associatedPokemon;
+    }
+
+    @Override
+    public void setAssociatedPokemon(IPokemon aPokemon) {
+        this.associatedPokemon = aPokemon;
     }
 
     @Override

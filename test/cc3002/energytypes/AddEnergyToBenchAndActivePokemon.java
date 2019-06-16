@@ -3,6 +3,7 @@ package cc3002.energytypes;
 import cc3002.Trainer;
 import cc3002.abilities.AbilityContainer;
 import cc3002.abilities.Attack;
+import cc3002.abilities.NullAbility;
 import cc3002.pokemontypes.IBasicPokemon;
 import cc3002.pokemontypes.fire.BasicFirePokemon;
 import cc3002.pokemontypes.psychic.BasicPsychicPokemon;
@@ -18,7 +19,7 @@ public class AddEnergyToBenchAndActivePokemon {
     private EnergyContainer first = new EnergyContainer(0, 1, 2, 1, 2, 1);
     private Attack firstAttack = new Attack("Látigo Cepa", "Le pega con un látigo cepa al pókemon oponente",
             40, first);
-    private AbilityContainer firstContainer = new AbilityContainer(firstAttack, null, null, null);
+    private AbilityContainer firstContainer = new AbilityContainer(firstAttack, new NullAbility(), new NullAbility(), new NullAbility());
 
     private Trainer franco;
 

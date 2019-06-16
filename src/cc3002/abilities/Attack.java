@@ -1,5 +1,6 @@
 package cc3002.abilities;
 
+import cc3002.abilityvisitors.IAbilityVisitor;
 import cc3002.energytypes.EnergyContainer;
 
 /**
@@ -7,7 +8,7 @@ import cc3002.energytypes.EnergyContainer;
  *
  * @author F. Giovanni Sanguineti
  */
-public class Attack extends AbstractAbility {
+public class Attack extends AbstractAbility implements IAttack {
     private int baseDamage;
     /**
      * Creates a new attack.
@@ -25,8 +26,14 @@ public class Attack extends AbstractAbility {
      *
      * @return A int with the base damage of the attack.
      */
+    @Override
     public int getBaseDamage() {
         return this.baseDamage;
+    }
+
+    @Override
+    public void accept(IAbilityVisitor v) {
+        v.visitAttack(this);
     }
 
     /**
@@ -43,6 +50,4 @@ public class Attack extends AbstractAbility {
         Attack attack = (Attack) o;
         return getBaseDamage() == attack.getBaseDamage();
     }
-
-
 }

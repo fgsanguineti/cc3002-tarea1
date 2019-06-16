@@ -1,38 +1,46 @@
 package cc3002.abilities;
+
+import cc3002.pokemontypes.IPokemon;
+
 import java.util.Arrays;
 
 /**
- * This class allows to store up to four attacks.
+ * This class allows to store up to four abilities.
  *
  * @author F. Giovanni Sanguineti
  */
 public class AbilityContainer {
-    private Attack[] attackContainer;
+    private IAbility[] abilityContainer;
 
     /**
      * Build the AbilityContainer.
-     * @param a Stores the first attack. If no first attack, the input must be null.
-     * @param b Stores the second attack. If no first attack, the input must be null.
-     * @param c Stores the third attack. If no first attack, the input must be null.
-     * @param d Stores the fourth attack. If no first attack, the input must be null.
+     * @param a Stores the first ability.
+     * @param b Stores the second ability.
+     * @param c Stores the third ability.
+     * @param d Stores the fourth ability.
      */
-    public AbilityContainer(Attack a, Attack b, Attack c, Attack d) {
-        attackContainer = new Attack[4];
-        this.attackContainer[0] = a;
-        this.attackContainer[1] = b;
-        this.attackContainer[2] = c;
-        this.attackContainer[3] = d;
+    public AbilityContainer(IAbility a, IAbility b, IAbility c, IAbility d) {
+        abilityContainer = new IAbility[4];
+        this.abilityContainer[0] = a;
+        this.abilityContainer[1] = b;
+        this.abilityContainer[2] = c;
+        this.abilityContainer[3] = d;
     }
 
     /**
-     * Returns the attack specified object.
-     * @param n The number of the attack. Values must be a integer between 1 and 4.
-     * @return The specified attack. If a null was returned is because there are not attack in his slot.
+     * Returns the ability specified object.
+     * @param n The number of the ability. Values must be a integer between 1 and 4.
+     * @return The specified ability.
      */
-    public Attack getAttack(int n){
-        return this.attackContainer[n-1];
+    public IAbility getAbility(int n) {
+        return this.abilityContainer[n - 1];
     }
 
+    public void setAssociatedPokemonToAllAbilities(IPokemon aPokemon) {
+        for (IAbility a : this.abilityContainer) {
+            if (!a.equals(new NullAbility())) a.setAssociatedPokemon(aPokemon);
+        }
+    }
     /**
      * Compares the AbilityContainer with another AbilityContainer.
      * @param o  Another AbilityContainer .
@@ -43,7 +51,7 @@ public class AbilityContainer {
         if (this == o) return true;
         if (!(o instanceof AbilityContainer)) return false;
         AbilityContainer that = (AbilityContainer) o;
-        return Arrays.equals(attackContainer, that.attackContainer);
+        return Arrays.equals(abilityContainer, that.abilityContainer);
     }
 }
 

@@ -1,7 +1,7 @@
 package cc3002.pokemontypes.fire;
 
 import cc3002.abilities.AbilityContainer;
-import cc3002.abilities.Attack;
+import cc3002.abilities.IAttack;
 import cc3002.pokemontypes.AbstractPokemon;
 import cc3002.pokemontypes.IPokemon;
 
@@ -19,7 +19,7 @@ public abstract class AbstractFirePokemon extends AbstractPokemon {
     }
 
     @Override
-    public void receiveWaterPokemonAttack(Attack anAttack) {
+    public void receiveWaterPokemonAttack(IAttack anAttack) {
         super.receiveWeaknessPokemonTypeAttack(anAttack);
     }
 

@@ -1,7 +1,7 @@
 package cc3002.pokemontypes.psychic;
 
 import cc3002.abilities.AbilityContainer;
-import cc3002.abilities.Attack;
+import cc3002.abilities.IAttack;
 import cc3002.pokemontypes.AbstractPokemon;
 import cc3002.pokemontypes.IPokemon;
 
@@ -19,12 +19,12 @@ public abstract class AbstractPsychicPokemon extends AbstractPokemon {
     }
 
     @Override
-    public void receiveFightingPokemonAttack(Attack anAttack) {
+    public void receiveFightingPokemonAttack(IAttack anAttack) {
         super.receiveResistantPokemonTypeAttack(anAttack);
     }
 
     @Override
-    public void receivePsychicPokemonAttack(Attack anAttack) {
+    public void receivePsychicPokemonAttack(IAttack anAttack) {
         super.receiveWeaknessPokemonTypeAttack(anAttack);
     }
 

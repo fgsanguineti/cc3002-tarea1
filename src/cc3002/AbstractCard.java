@@ -20,7 +20,6 @@ public abstract class AbstractCard implements ICard {
     public String getCardName() {
         return this.cardName;
     }
-
     /**
      * Returns the trainer that plays the Pokemon.
      *
@@ -40,6 +39,7 @@ public abstract class AbstractCard implements ICard {
     public void discard(Trainer aTrainer) {
         aTrainer.getDiscardHeap().add(this);
     }
+
 
     @Override
     public abstract void accept(ICardVisitor v);

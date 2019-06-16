@@ -3,6 +3,7 @@ package cc3002.pokemontypes.pokemonevolvingtest;
 import cc3002.Trainer;
 import cc3002.abilities.AbilityContainer;
 import cc3002.abilities.Attack;
+import cc3002.abilities.NullAbility;
 import cc3002.energytypes.EnergyContainer;
 import cc3002.pokemontypes.water.BasicWaterPokemon;
 import cc3002.pokemontypes.water.PhaseOneWaterPokemon;
@@ -28,7 +29,7 @@ public class WaterEvolvingTest {
 
         Attack firstAttack = new Attack("Látigo Cepa", "Le pega con un látigo cepa al pókemon oponente",
                 40, first);
-        AbilityContainer firstContainer = new AbilityContainer(firstAttack, null, null, null);
+        AbilityContainer firstContainer = new AbilityContainer(firstAttack, new NullAbility(), new NullAbility(), new NullAbility());
 
         basic = new BasicWaterPokemon("Pichu", 32, 40, firstContainer);
         phaseOne = new PhaseOneWaterPokemon("Pikachu", 132, 60, firstContainer, 32);
@@ -43,7 +44,7 @@ public class WaterEvolvingTest {
     }
 
     @Test
-    public void electricEvolve() {
+    public void waterEvolve() {
 
         basic.setEnergyContainer(first);
         phaseOne.setEnergyContainer(first);

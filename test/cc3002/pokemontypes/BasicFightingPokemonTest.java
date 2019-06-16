@@ -1,7 +1,9 @@
 package cc3002.pokemontypes;
 
+import cc3002.Trainer;
 import cc3002.abilities.AbilityContainer;
 import cc3002.abilities.Attack;
+import cc3002.abilities.NullAbility;
 import cc3002.energytypes.*;
 import cc3002.pokemontypes.fighting.BasicFightingPokemon;
 import org.junit.Before;
@@ -15,7 +17,7 @@ public class BasicFightingPokemonTest {
 
     private ElectricEnergy electric1, electric2, electric3;
     private FightingEnergy fighting1, fighting2, fighting3;
-    private FireEnergy fire1, fire2, fire3;
+    private FireEnergy fire1, fire2, fire3, fire4, fire5;
     private GrassEnergy grass1, grass2, grass3;
     private PsychicEnergy psychic1, psychic2, psychic3;
     private WaterEnergy water1, water2, water3;
@@ -36,9 +38,9 @@ public class BasicFightingPokemonTest {
         thirdAttack = new Attack("Vuelo", "Vuela y le pega al oponente", 50, third);
         fourthAttack = new Attack("Golpe Karate", "Le pega un golpe de karate", 20, fourth);
 
-        firstContainer = new AbilityContainer(firstAttack, secondAttack, null, null);
-        secondContainer = new AbilityContainer(thirdAttack, null, null, null);
-        thirdContainer = new AbilityContainer(firstAttack, secondAttack, thirdAttack, null);
+        firstContainer = new AbilityContainer(firstAttack, secondAttack, new NullAbility(), new NullAbility());
+        secondContainer = new AbilityContainer(thirdAttack, new NullAbility(), new NullAbility(), new NullAbility());
+        thirdContainer = new AbilityContainer(firstAttack, secondAttack, thirdAttack, new NullAbility());
         fourthContainer = new AbilityContainer(fourthAttack, thirdAttack, secondAttack, firstAttack);
 
 
@@ -56,6 +58,8 @@ public class BasicFightingPokemonTest {
         fire1 = new FireEnergy();
         fire2 = new FireEnergy();
         fire3 = new FireEnergy();
+        fire4 = new FireEnergy();
+        fire5 = new FireEnergy();
 
         grass1 = new GrassEnergy();
         grass2 = new GrassEnergy();
@@ -160,8 +164,34 @@ public class BasicFightingPokemonTest {
 
     @Test
     public void attack() {
-        riolu.setActiveAttack(1);
-        riolu.attack(lucario);
+        Trainer t1 = new Trainer("Trainer 1");
+        Trainer t2 = new Trainer("Trainer 2");
+
+        t1.setOpponent(t2);
+        t2.setOpponent(t1);
+
+        t1.addCardToHand(riolu);
+        t1.addCardToHand(fire1);
+        t1.addCardToHand(fire2);
+        t1.addCardToHand(fire3);
+        t1.addCardToHand(fire4);
+        t1.addCardToHand(fire5);
+        t1.addCardToHand(fighting1);
+
+        t2.addCardToHand(lucario);
+        t1.play(riolu);
+
+        t1.setSelectedPokemon(riolu);
+        t1.play(fighting1);
+        t1.play(fire1);
+        t1.play(fire2);
+        t1.play(fire3);
+        t1.play(fire4);
+        t1.play(fire5);
+        t1.unselectPokemon();
+
+        t2.play(lucario);
+        t1.makeAnAbility(1);
         assertEquals(lucario.getHP(), 60);
     }
 

@@ -2,13 +2,13 @@ package cc3002;
 
 import cc3002.abilities.AbilityContainer;
 import cc3002.abilities.Attack;
+import cc3002.abilities.NullAbility;
 import cc3002.energytypes.EnergyContainer;
 import org.junit.Before;
 import org.junit.Test;
 
 import static junit.framework.TestCase.assertNotNull;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
 
 public class AbilityContainerTest {
     private EnergyContainer first = new EnergyContainer(0, 1, 5, 0, 0, 0);
@@ -33,39 +33,39 @@ public class AbilityContainerTest {
 
     @Before
     public void setUp() {
-        aFirst = new AbilityContainer(null, null, null, null);
-        aSecond = new AbilityContainer(firstAttack, null, null, null);
-        aThird = new AbilityContainer(secondAttack, firstAttack, null, null);
-        aFourth = new AbilityContainer(thirdAttack, firstAttack, secondAttack, null);
+        aFirst = new AbilityContainer(new NullAbility(), new NullAbility(), new NullAbility(), new NullAbility());
+        aSecond = new AbilityContainer(firstAttack, new NullAbility(), new NullAbility(), new NullAbility());
+        aThird = new AbilityContainer(secondAttack, firstAttack, new NullAbility(), new NullAbility());
+        aFourth = new AbilityContainer(thirdAttack, firstAttack, secondAttack, new NullAbility());
         aFifth = new AbilityContainer(firstAttack, secondAttack, thirdAttack, fourthAttack);
     }
 
     @Test
     public void getAttack() {
-        assertNull(aFirst.getAttack(1));
-        assertNull(aFirst.getAttack(2));
-        assertNull(aFirst.getAttack(3));
-        assertNull(aFirst.getAttack(4));
+        assertEquals(aFirst.getAbility(1), new NullAbility());
+        assertEquals(aFirst.getAbility(2), new NullAbility());
+        assertEquals(aFirst.getAbility(3), new NullAbility());
+        assertEquals(aFirst.getAbility(4), new NullAbility());
         assertNotNull(aFirst);
         assertNotNull(aSecond);
         assertNotNull(aThird);
         assertNotNull(aFourth);
         assertNotNull(aFifth);
-        assertEquals(aSecond.getAttack(1), firstAttack);
-        assertEquals(aThird.getAttack(1), secondAttack);
-        assertEquals(aThird.getAttack(2), firstAttack);
-        assertEquals(aFourth.getAttack(1), thirdAttack);
-        assertEquals(aFourth.getAttack(2), firstAttack);
-        assertEquals(aFourth.getAttack(3), secondAttack);
+        assertEquals(aSecond.getAbility(1), firstAttack);
+        assertEquals(aThird.getAbility(1), secondAttack);
+        assertEquals(aThird.getAbility(2), firstAttack);
+        assertEquals(aFourth.getAbility(1), thirdAttack);
+        assertEquals(aFourth.getAbility(2), firstAttack);
+        assertEquals(aFourth.getAbility(3), secondAttack);
 
-        assertEquals(aFifth.getAttack(1), firstAttack);
-        assertEquals(aFifth.getAttack(2), secondAttack);
-        assertEquals(aFifth.getAttack(3), thirdAttack);
-        assertEquals(aFifth.getAttack(4), fourthAttack);
+        assertEquals(aFifth.getAbility(1), firstAttack);
+        assertEquals(aFifth.getAbility(2), secondAttack);
+        assertEquals(aFifth.getAbility(3), thirdAttack);
+        assertEquals(aFifth.getAbility(4), fourthAttack);
 
-        assertEquals(aSecond, new AbilityContainer(firstAttack, null, null, null));
-        assertEquals(aThird, new AbilityContainer(secondAttack, firstAttack, null, null));
-        assertEquals(aFourth, new AbilityContainer(thirdAttack, firstAttack, secondAttack, null));
+        assertEquals(aSecond, new AbilityContainer(firstAttack, new NullAbility(), new NullAbility(), new NullAbility()));
+        assertEquals(aThird, new AbilityContainer(secondAttack, firstAttack, new NullAbility(), new NullAbility()));
+        assertEquals(aFourth, new AbilityContainer(thirdAttack, firstAttack, secondAttack, new NullAbility()));
         assertEquals(aFifth, new AbilityContainer(firstAttack, secondAttack, thirdAttack, fourthAttack));
     }
 }

@@ -1,7 +1,7 @@
 package cc3002.pokemontypes.grass;
 
 import cc3002.abilities.AbilityContainer;
-import cc3002.abilities.Attack;
+import cc3002.abilities.IAttack;
 import cc3002.pokemontypes.AbstractPokemon;
 import cc3002.pokemontypes.IPokemon;
 
@@ -19,12 +19,12 @@ public abstract class AbstractGrassPokemon extends AbstractPokemon {
     }
 
     @Override
-    public void receiveFirePokemonAttack(Attack anAttack) {
+    public void receiveFirePokemonAttack(IAttack anAttack) {
         super.receiveWeaknessPokemonTypeAttack(anAttack);
     }
 
     @Override
-    public void receiveWaterPokemonAttack(Attack anAttack) {
+    public void receiveWaterPokemonAttack(IAttack anAttack) {
         super.receiveResistantPokemonTypeAttack(anAttack);
     }
 

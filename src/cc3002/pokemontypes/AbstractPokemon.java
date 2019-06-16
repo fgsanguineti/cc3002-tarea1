@@ -2,7 +2,9 @@ package cc3002.pokemontypes;
 
 import cc3002.AbstractCard;
 import cc3002.abilities.AbilityContainer;
-import cc3002.abilities.Attack;
+import cc3002.abilities.IAbility;
+import cc3002.abilities.IAttack;
+import cc3002.abilities.NullAbility;
 import cc3002.cardvisitors.ICardVisitor;
 import cc3002.energytypes.*;
 
@@ -14,23 +16,26 @@ import cc3002.energytypes.*;
 public abstract class AbstractPokemon extends AbstractCard implements IPokemon {
     private int id;
     private int hp;
-    private AbilityContainer attackList;
-    private Attack activeAttack;
+    private AbilityContainer abilityList;
+    private IAbility activeAbility;
+    private IAttack activeAttack;
     private EnergyContainer pokemonEnergy;
     /**
      * Creates a new pokemon.
      * @param cardName The name of the card.
      * @param id The card ID.
      * @param hp The HP of the pokemon
-     * @param attackList a list with the attacks of the Pokemon, that can be up to 4.
+     * @param abilityList a list with the abilities of the Pokemon, that can be up to 4.
      */
-    public AbstractPokemon(String cardName, int id, int hp, AbilityContainer attackList) {
+    public AbstractPokemon(String cardName, int id, int hp, AbilityContainer abilityList) {
         super(cardName);
         this.id = id;
         this.hp = hp;
-        this.attackList = attackList;
-        this.activeAttack = attackList.getAttack(1);
+        this.abilityList = abilityList;
+        this.activeAbility = new NullAbility();
+        this.activeAttack = new NullAbility();
         this.pokemonEnergy = new EnergyContainer(0, 0, 0, 0, 0, 0);
+        this.abilityList.setAssociatedPokemonToAllAbilities(this);
     }
 
 
@@ -57,31 +62,34 @@ public abstract class AbstractPokemon extends AbstractCard implements IPokemon {
     }
 
     /**
-     * Returns the list of the Pokemon attacks.
+     * Returns the list of the Pokemon abilities.
      *
-     * @return a AbilityContainer with the Pokemon attacks.
+     * @return a AbilityContainer with the Pokemon abilities.
      */
     @Override
-    public AbilityContainer getAttackList() {
-        return this.attackList;
+    public AbilityContainer getAbilityList() {
+        return this.abilityList;
     }
     /**
-     * Returns the Pokemon active attack
-     * @return the active attack.
+     * Returns the Pokemon active ability
+     * @return the active ability.
      */
     @Override
-    public Attack getActiveAttack() {
-        return activeAttack;
+    public IAbility getActiveAbility() {
+        return this.activeAbility;
     }
 
     /**
-     * Select an active attack from a list of attacks.
-     * @param index the number of the attack that wants to select, from 1 to 4.
+     * Select an active ability from a list of abilities.
+     * @param index the number of the ability that wants to select, from 1 to 4.
      */
     @Override
-    public void setActiveAttack(int index) {
-        Attack aux = this.attackList.getAttack(index);
-        if (aux.isEnoughEnergyToUseTheAbility(this) && isAlive()) activeAttack = aux;
+    public void setActiveAbility(int index) {
+        IAbility aux = this.abilityList.getAbility(index);
+        boolean condition = aux.isEnoughEnergyToUseTheAbility(this);
+        if (condition && isAlive()) {
+            activeAbility = aux;
+        }
     }
 
     /**
@@ -222,7 +230,7 @@ public abstract class AbstractPokemon extends AbstractCard implements IPokemon {
      * @param anAttack the attack that the electric Pokemon performs to this Pokemon
      */
     @Override
-    public void receiveElectricPokemonAttack(Attack anAttack) {
+    public void receiveElectricPokemonAttack(IAttack anAttack) {
         receiveAttack(anAttack);
     }
 
@@ -231,7 +239,7 @@ public abstract class AbstractPokemon extends AbstractCard implements IPokemon {
      * @param anAttack the attack that the fighting Pokemon performs to this Pokemon
      */
     @Override
-    public void receiveFightingPokemonAttack(Attack anAttack) {
+    public void receiveFightingPokemonAttack(IAttack anAttack) {
         receiveAttack(anAttack);
     }
 
@@ -240,7 +248,7 @@ public abstract class AbstractPokemon extends AbstractCard implements IPokemon {
      * @param anAttack the attack that the fire Pokemon performs to this Pokemon
      */
     @Override
-    public void receiveFirePokemonAttack(Attack anAttack) {
+    public void receiveFirePokemonAttack(IAttack anAttack) {
         receiveAttack(anAttack);
     }
 
@@ -249,7 +257,7 @@ public abstract class AbstractPokemon extends AbstractCard implements IPokemon {
      * @param anAttack the attack that the grass Pokemon performs to this Pokemon
      */
     @Override
-    public void receiveGrassPokemonAttack(Attack anAttack) {
+    public void receiveGrassPokemonAttack(IAttack anAttack) {
         receiveAttack(anAttack);
     }
 
@@ -258,7 +266,7 @@ public abstract class AbstractPokemon extends AbstractCard implements IPokemon {
      * @param anAttack the attack that the psychic Pokemon performs to this Pokemon
      */
     @Override
-    public void receivePsychicPokemonAttack(Attack anAttack) {
+    public void receivePsychicPokemonAttack(IAttack anAttack) {
         receiveAttack(anAttack);
     }
 
@@ -267,7 +275,7 @@ public abstract class AbstractPokemon extends AbstractCard implements IPokemon {
      * @param anAttack the attack that the water Pokemon performs to this Pokemon
      */
     @Override
-    public void receiveWaterPokemonAttack(Attack anAttack) {
+    public void receiveWaterPokemonAttack(IAttack anAttack) {
         receiveAttack(anAttack);
     }
 
@@ -276,7 +284,7 @@ public abstract class AbstractPokemon extends AbstractCard implements IPokemon {
      * @param anAttack the type-weakness attack that the Pokemon receives
      */
     @Override
-    public void receiveWeaknessPokemonTypeAttack(Attack anAttack) {
+    public void receiveWeaknessPokemonTypeAttack(IAttack anAttack) {
         this.hp -= 2 * anAttack.getBaseDamage();
     }
 
@@ -286,7 +294,7 @@ public abstract class AbstractPokemon extends AbstractCard implements IPokemon {
      * @param anAttack the type-resistant attack that the Pokemon receives.
      */
     @Override
-    public void receiveResistantPokemonTypeAttack(Attack anAttack) {
+    public void receiveResistantPokemonTypeAttack(IAttack anAttack) {
         int aux = anAttack.getBaseDamage() - 30;
         if (aux > 0) this.hp -= (anAttack.getBaseDamage() - 30);
     }
@@ -297,7 +305,7 @@ public abstract class AbstractPokemon extends AbstractCard implements IPokemon {
      * @param anAttack the attack that the Pokemon receives.
      */
     @Override
-    public void receiveAttack(Attack anAttack) {
+    public void receiveAttack(IAttack anAttack) {
         this.hp -= anAttack.getBaseDamage();
     }
 
@@ -308,6 +316,15 @@ public abstract class AbstractPokemon extends AbstractCard implements IPokemon {
      */
     @Override
     public abstract void attack(IPokemon other);
+
+
+    public IAttack getActiveAttack() {
+        return activeAttack;
+    }
+
+    public void setActiveAttack(IAttack activeAttack) {
+        this.activeAttack = activeAttack;
+    }
 
     /**
      * {@inheritDoc}
@@ -324,8 +341,8 @@ public abstract class AbstractPokemon extends AbstractCard implements IPokemon {
                 this.getTrainer() == that.getTrainer() &&
                 this.getHP() == that.getHP() &&
                 getCardName().equals(that.getCardName()) &&
-                this.getAttackList().equals(that.getAttackList()) &&
-                getActiveAttack().equals(that.getActiveAttack()) &&
+                this.getAbilityList().equals(that.getAbilityList()) &&
+                getActiveAbility().equals(that.getActiveAbility()) &&
                 this.getAllEnergyQuantity().equals(that.getAllEnergyQuantity());
     }
 }

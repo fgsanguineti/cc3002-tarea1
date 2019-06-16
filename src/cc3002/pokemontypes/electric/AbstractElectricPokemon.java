@@ -1,7 +1,7 @@
 package cc3002.pokemontypes.electric;
 
 import cc3002.abilities.AbilityContainer;
-import cc3002.abilities.Attack;
+import cc3002.abilities.IAttack;
 import cc3002.pokemontypes.AbstractPokemon;
 import cc3002.pokemontypes.IPokemon;
 
@@ -18,7 +18,7 @@ public abstract class AbstractElectricPokemon extends AbstractPokemon {
         super(cardName, id, hp, attackList);
     }
     @Override
-    public void receiveFightingPokemonAttack(Attack anAttack) {
+    public void receiveFightingPokemonAttack(IAttack anAttack) {
         super.receiveWeaknessPokemonTypeAttack(anAttack);
     }
 

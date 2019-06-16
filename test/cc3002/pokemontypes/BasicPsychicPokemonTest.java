@@ -1,7 +1,9 @@
 package cc3002.pokemontypes;
 
+import cc3002.Trainer;
 import cc3002.abilities.AbilityContainer;
 import cc3002.abilities.Attack;
+import cc3002.abilities.NullAbility;
 import cc3002.energytypes.*;
 import cc3002.pokemontypes.psychic.BasicPsychicPokemon;
 import org.junit.Before;
@@ -37,9 +39,9 @@ public class BasicPsychicPokemonTest {
         thirdAttack = new Attack("Vuelo", "Vuela y le pega al oponente", 50, third);
         fourthAttack = new Attack("Golpe Karate", "Le pega un golpe de karate", 20, fourth);
 
-        firstContainer = new AbilityContainer(firstAttack, secondAttack, null, null);
-        secondContainer = new AbilityContainer(thirdAttack, null, null, null);
-        thirdContainer = new AbilityContainer(firstAttack, secondAttack, thirdAttack, null);
+        firstContainer = new AbilityContainer(firstAttack, secondAttack, new NullAbility(), new NullAbility());
+        secondContainer = new AbilityContainer(thirdAttack, new NullAbility(), new NullAbility(), new NullAbility());
+        thirdContainer = new AbilityContainer(firstAttack, secondAttack, thirdAttack, new NullAbility());
         fourthContainer = new AbilityContainer(fourthAttack, thirdAttack, secondAttack, firstAttack);
 
         espeon = new BasicPsychicPokemon("Espeon", 33, 60, fourthContainer);
@@ -158,8 +160,46 @@ public class BasicPsychicPokemonTest {
 
     @Test
     public void attack() {
-        espeon.setActiveAttack(1);
-        espeon.attack(mewto);
+        Trainer t1 = new Trainer("Trainer 1");
+        Trainer t2 = new Trainer("Trainer 2");
+
+        t1.setOpponent(t2);
+        t2.setOpponent(t1);
+
+        t1.addCardToHand(espeon);
+        t1.play(t1.getHand().get(0));
+
+        t1.setSelectedPokemon(espeon);
+        t1.addCardToHand(electric1);
+        t1.play(t1.getHand().get(0));
+        t1.addCardToHand(electric2);
+        t1.play(t1.getHand().get(0));
+        t1.addCardToHand(fighting1);
+        t1.play(t1.getHand().get(0));
+        t1.addCardToHand(fighting2);
+        t1.play(t1.getHand().get(0));
+        t1.addCardToHand(fire1);
+        t1.play(t1.getHand().get(0));
+        t1.addCardToHand(fire2);
+        t1.play(t1.getHand().get(0));
+        t1.addCardToHand(water1);
+        t1.play(t1.getHand().get(0));
+        t1.addCardToHand(water2);
+        t1.play(t1.getHand().get(0));
+        t1.addCardToHand(psychic1);
+        t1.play(t1.getHand().get(0));
+        t1.addCardToHand(psychic2);
+        t1.play(t1.getHand().get(0));
+        t1.addCardToHand(grass1);
+        t1.play(t1.getHand().get(0));
+        t1.addCardToHand(grass2);
+        t1.play(t1.getHand().get(0));
+        t1.unselectPokemon();
+
+        t2.addCardToHand(mewto);
+        t2.play(mewto);
+        t1.makeAnAbility(1);
+
         assertEquals(mewto.getHP(), 60);
     }
 
@@ -170,8 +210,4 @@ public class BasicPsychicPokemonTest {
         assertEquals(mewto, new BasicPsychicPokemon("Mewto", 85, 100, firstContainer));
         assertNotEquals(mewto, new BasicPsychicPokemon("Meto", 85, 100, firstContainer));
     }
-
-
-
-
 }

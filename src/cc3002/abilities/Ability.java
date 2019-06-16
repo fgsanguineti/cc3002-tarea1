@@ -1,5 +1,6 @@
 package cc3002.abilities;
 
+import cc3002.abilityvisitors.IAbilityVisitor;
 import cc3002.energytypes.EnergyContainer;
 
 /**
@@ -17,6 +18,11 @@ public class Ability extends AbstractAbility {
      */
     Ability(String name, String description, EnergyContainer costs) {
         super(name, description, costs);
+    }
+
+    @Override
+    public void accept(IAbilityVisitor v) {
+        v.visitAbility(this);
     }
     /**
      * Compares the Ability with another Attack.
