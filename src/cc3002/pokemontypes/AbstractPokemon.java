@@ -79,6 +79,10 @@ public abstract class AbstractPokemon extends AbstractCard implements IPokemon {
         return this.activeAbility;
     }
 
+    @Override
+    public void unSelectActiveAbility() {
+        this.activeAbility = new NullAbility();
+    }
     /**
      * Select an active ability from a list of abilities.
      * @param index the number of the ability that wants to select, from 1 to 4.
@@ -88,7 +92,7 @@ public abstract class AbstractPokemon extends AbstractCard implements IPokemon {
         IAbility aux = this.abilityList.getAbility(index);
         boolean condition = aux.isEnoughEnergyToUseTheAbility(this);
         if (condition && isAlive()) {
-            activeAbility = aux;
+            this.activeAbility = aux;
         }
     }
 

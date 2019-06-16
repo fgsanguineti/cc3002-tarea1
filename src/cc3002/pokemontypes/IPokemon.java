@@ -27,6 +27,8 @@ public interface IPokemon extends ICard {
 
     void setActiveAbility(int index);
 
+    void unSelectActiveAbility();
+
     IAttack getActiveAttack();
 
     void setActiveAttack(IAttack activeAttack);

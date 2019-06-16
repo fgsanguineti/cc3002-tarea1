@@ -114,6 +114,7 @@ public class Trainer {
         this.activePokemon.setActiveAbility(abilityNumber);
         PlayAbilityVisitor v = new PlayAbilityVisitor();
         activePokemon.getActiveAbility().accept(v);
+        this.activePokemon.unSelectActiveAbility();
     }
 
     public void receiveAnAttack(Trainer other) {
