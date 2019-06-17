@@ -53,10 +53,19 @@ public class Trainer {
         return playerName;
     }
 
+    /**
+     * Returns the Controller object of the Game. Return null otherwise.
+     *
+     * @return PokemonGameController object with the current game.
+     */
     public PokemonGameController getPokemonGameController() {
         return this.pokemonGameController;
     }
 
+    /**
+     * Tells the Trainer who control the game behavior.
+     * @param pokemonGameController object with the current game.
+     */
     void setPokemonGameController(PokemonGameController pokemonGameController) {
         this.pokemonGameController = pokemonGameController;
     }
@@ -86,7 +95,6 @@ public class Trainer {
 
     /**
      * Set the trainer's hand
-     *
      * @param hand trainer's ArrayList with cards object.
      */
     void setHand(ArrayList<ICard> hand) {
@@ -109,27 +117,47 @@ public class Trainer {
         return bench;
     }
 
+    /**
+     * Let the player interact with his opponent and his cards.
+     * @return the player's opponent.
+     */
     public Trainer getOpponent() {
         return opponent;
     }
 
+    /**
+     * Set the Trainer's opponent.
+     * @param opponent the player's opponent.
+     */
     public void setOpponent(Trainer opponent) {
         this.opponent = opponent;
     }
 
+    /**
+     * Select a card to performs in-game actions
+     * @param aCard the card that wants to select.
+     */
     void selectCard(ICard aCard) {
         this.selectedCard = aCard;
     }
 
+    /**
+     * Set the selected car as null.
+     */
     void unSelectCard() {
         this.selectedCard = null;
     }
 
+    /**
+     * Let the Trainer and the proper game objects knows the selected card for performing an action.
+     * @return the selected card.
+     */
     ICard getSelectedCard() {
         return this.selectedCard;
     }
+
     /**
-     * Lets the trainer to play a card.
+     * Lets the trainer to play any card in his hand.
      * @param aCard the ICard that wants to play.
      */
     public void play(ICard aCard) {
@@ -138,11 +166,11 @@ public class Trainer {
         PlayCardVisitor v = new PlayCardVisitor();
         aCard.accept(v);
     }
+
     /**
-     * Lets a trainer performs an attack to the active enemy Pokemon
+     * Lets a trainer performs an ability from the active enemy Pokemon
      * @param abilityNumber number of the Pokemon attack (1-4).
      */
-
     public void makeAnAbility(int abilityNumber) {
         this.activePokemon.setActiveAbility(abilityNumber);
         PlayAbilityVisitor v = new PlayAbilityVisitor();
@@ -151,12 +179,18 @@ public class Trainer {
         this.unSelectPokemon();
     }
 
+    /**
+     * Lets a trainer receive an attack from his opponent.
+     * @param other Trainer that performs the attack.
+     */
     public void receiveAnAttack(Trainer other) {
         other.getActivePokemon().attack(activePokemon);
         this.checkAndReplaceActiveDeadPokemon();
-
     }
 
+    /**
+     * This method checks if the active pokemon is alive. If not, replace for the first Pokemon in the bench.
+     */
     public void checkAndReplaceActiveDeadPokemon() {
         if (!this.activePokemon.isAlive()) {
             activePokemon.discard(this);
@@ -164,35 +198,65 @@ public class Trainer {
             bench.remove(0);
         }
     }
+
+    /**
+     * Gets the discard heap.
+     * @return the trainer's discard heap.
+     */
     public ArrayList<ICard> getDiscardHeap() {
         return this.discardHeap;
     }
 
+    /**
+     * This method gets the trainer's selected Pokemon to perform an action.
+     * @return the selected Pokemon.
+     */
     public IPokemon getSelectedPokemon() {
         return selectedPokemon;
     }
 
+    /**
+     * This method set the selected Pokemon to perform an action.
+     * @param selectedPokemon for select.
+     */
     public void setSelectedPokemon(IPokemon selectedPokemon) {
         this.selectedPokemon = selectedPokemon;
     }
 
+    /**
+     * This method null select the selected Pokemon.
+     */
     public void unSelectPokemon() {
         this.selectedPokemon = null;
     }
 
-    void setDeck(ArrayList<ICard> deck) {
-        this.deck = deck;
-    }
-
+    /**
+     * This method returns the trainer's deck.
+     * @return the trainer's deck.
+     */
     public ArrayList<ICard> getDeck() {
         return this.deck;
     }
 
+    /**
+     * This method sets the Trainer's deck.
+     */
+    void setDeck(ArrayList<ICard> deck) {
+        this.deck = deck;
+    }
+
+    /**
+     * This method draw a card from the trainer's deck to the trainer's hand.
+     */
     public void drawACard() {
         this.getHand().add(this.deck.get(0));
         this.deck.remove(0);
     }
 
+    /**
+     * This method flips a coin to performs effects.
+     * @return a String with the result of the coin flipping.
+     */
     public String flipACoin() {
         Random coin = new Random();
         int result = coin.nextInt(2);
@@ -200,10 +264,17 @@ public class Trainer {
         return "Tails";
     }
 
+    /**
+     * This method returns the prizes.
+     * @return an ArrayList with the trainer's prize cards.
+     */
     public ArrayList<ICard> getPrizeCards() {
         return this.prizeCards;
     }
 
+    /**
+     * This method add one card from the deck to the prizes.
+     */
     public void addCardToPrizeCards() {
         if (this.prizeCards.size() < 6) {
             this.prizeCards.add(this.deck.get(0));
@@ -230,5 +301,4 @@ public class Trainer {
                 Objects.equals(prizeCards, trainer.prizeCards) &&
                 Objects.equals(getPlayerName(), trainer.getPlayerName());
     }
-
 }

@@ -6,6 +6,11 @@ import cc3002.trainercards.StadiumCard;
 import java.util.ArrayList;
 import java.util.Collections;
 
+/**
+ * This class controls the behavior and rules of the game and adds the logic of a turn.
+ *
+ * @author F. Giovanni Sanguineti
+ */
 public class PokemonGameController {
     private Trainer firstTrainer;
     private Trainer secondTrainer;
@@ -13,7 +18,17 @@ public class PokemonGameController {
     private Trainer activeTurnPlayer;
     private boolean isAnEnergyPlayedInTurn;
 
-    PokemonGameController(Trainer firstTrainer, ArrayList<ICard> firstDeck, Trainer secondTrainer, ArrayList<ICard> secondDeck) {
+
+    /**
+     * Constructor that creates the Game Controller.
+     *
+     * @param firstTrainer  The first trainer.
+     * @param firstDeck     The first trainer's deck.
+     * @param secondTrainer The another trainer.
+     * @param secondDeck    The another trainer.
+     */
+    PokemonGameController(Trainer firstTrainer, ArrayList<ICard> firstDeck,
+                          Trainer secondTrainer, ArrayList<ICard> secondDeck) {
         this.firstTrainer = firstTrainer;
         this.secondTrainer = secondTrainer;
         firstTrainer.setOpponent(secondTrainer);
@@ -26,6 +41,9 @@ public class PokemonGameController {
         Collections.shuffle(this.secondTrainer.getDeck());
     }
 
+    /**
+     * starts the game
+     */
     void startGame() {
         initializePlayers();
         this.activeTurnPlayer = firstTrainer;
@@ -34,6 +52,9 @@ public class PokemonGameController {
         beginTurn();
     }
 
+    /**
+     * set all the cards owners
+     */
     private void initializePlayers() {
         for (ICard c : firstTrainer.getDeck()) {
             c.setTrainer(firstTrainer);

@@ -1,6 +1,6 @@
 # CC3002 - PokemonTCG Game - Homework 2
 
-This is the Homework 2 project, developed using the Java 1.8 SDK, and continued from the old Tarea 1 project.
+This is the Homework 2 project, developed using the Java 1.8 SDK, and continued from the old Homework 1 project.
 Includes all the files that implements the requested for this work. Here, you can see the UML Java class diagram.
 Please refers to the full file "uml_diagram.png" in the GitHub repo root directory for a better view.
 
