@@ -120,14 +120,17 @@ public class Trainer {
 
     public void receiveAnAttack(Trainer other) {
         other.getActivePokemon().attack(activePokemon);
+        this.checkAndReplaceActiveDeadPokemon();
+
+    }
+
+    public void checkAndReplaceActiveDeadPokemon() {
         if (!this.activePokemon.isAlive()) {
             activePokemon.discard(this);
             activePokemon = bench.get(0);
             bench.remove(0);
-
         }
     }
-
     public ArrayList<ICard> getDiscardHeap() {
         return this.discardHeap;
     }

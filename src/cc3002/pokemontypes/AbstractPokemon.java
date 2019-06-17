@@ -61,6 +61,11 @@ public abstract class AbstractPokemon extends AbstractCard implements IPokemon {
         return this.hp;
     }
 
+    @Override
+    public void modifyHP(int x) {
+        this.hp += x;
+        this.getTrainer().checkAndReplaceActiveDeadPokemon();
+    }
     /**
      * Returns the list of the Pokemon abilities.
      *

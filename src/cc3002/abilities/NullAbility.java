@@ -17,7 +17,6 @@ public class NullAbility extends AbstractAbility implements IAttack {
 
     @Override
     public void accept(IAbilityVisitor v) {
-
     }
 
     @Override

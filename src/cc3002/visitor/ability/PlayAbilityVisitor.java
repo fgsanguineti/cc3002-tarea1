@@ -9,9 +9,12 @@ public class PlayAbilityVisitor implements IAbilityVisitor {
     @Override
     public void visitAttack(Attack anAttack) {
         Trainer opponent = anAttack.getAssociatedPokemon().getTrainer().getOpponent();
-        anAttack.getAssociatedPokemon().getTrainer().getActivePokemon().setActiveAttack(anAttack);
-        opponent.receiveAnAttack(anAttack.getAssociatedPokemon().getTrainer());
-        anAttack.getAssociatedPokemon().getTrainer().getActivePokemon().setActiveAttack(new NullAbility());
+        anAttack.getEffect().doEffect();
+        if (anAttack.getAssociatedPokemon().isAlive()) {
+            anAttack.getAssociatedPokemon().getTrainer().getActivePokemon().setActiveAttack(anAttack);
+            opponent.receiveAnAttack(anAttack.getAssociatedPokemon().getTrainer());
+            anAttack.getAssociatedPokemon().getTrainer().getActivePokemon().setActiveAttack(new NullAbility());
+        }
     }
 
     @Override

@@ -33,6 +33,8 @@ public interface IPokemon extends ICard {
 
     void setActiveAttack(IAttack activeAttack);
 
+    void modifyHP(int x);
+
     AbilityContainer getAbilityList();
 
     EnergyContainer getAllEnergyQuantity();
