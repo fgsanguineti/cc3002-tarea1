@@ -37,9 +37,11 @@ Para no tener problemas en consultar por null o obtener  NullPointerException fu
 
 ## Testing
 
-The testing was made using JUnit 4.18 for the unit tests, reaching 100% of line coverage. 
-To run all the test, import the git project to your machine, open with IntelliJ Ultimate, 
-go to test folder, righ-click and select "Run 'All Test' with Coverage". All the 108 test will pass.
+De la tarea anterior, fueron conservados (y rediseñados) los 108 test. Además se implementaron 
+21 nuevos test, para todas las funcionalidades solicitadas en esta tarea. Para la habilidad, referirse a test.cc3002.abilities.EnergyBurnTest.java.
+y para el ataque, test.cc3002.abilities.ElectricShockTest.java. Los test de evolucionar Pokemon están presentes en test.cc3002.pokemon.pokemonevolvingtest.
+La ObjectCard y la SupportCard se testean en test.cc3002.trainercards. Finalmente, la lógica del controlador, las cartas que se pueden usar una vez por turno
+y el efeccto de la StadiumCard se pueden encontrar testeadas en test.cc3002.PokemonGameControllerTest.java.
 
 ## Authors
 
