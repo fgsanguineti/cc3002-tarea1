@@ -6,7 +6,6 @@ import cc3002.visitor.ability.PlayAbilityVisitor;
 import cc3002.visitor.card.PlayCardVisitor;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Objects;
 import java.util.Random;
 
@@ -21,11 +20,12 @@ public class Trainer {
     private ArrayList<ICard> hand;
     private ArrayList<ICard> deck;
     private ArrayList<ICard> discardHeap;
-    private ICard[] prizeCards;
+    private ArrayList<ICard> prizeCards;
     private String playerName;
     private IPokemon selectedPokemon;
     private Trainer opponent;
     private ObjectCard associatedObject;
+
 
     /**
      * Constructor that creates the Trainer.
@@ -37,7 +37,7 @@ public class Trainer {
         this.hand = new ArrayList<>();
         this.deck = new ArrayList<>();
         this.discardHeap = new ArrayList<>();
-        this.prizeCards = new ICard[6];
+        this.prizeCards = new ArrayList<>();
         this.playerName = playerName;
         this.opponent = null;
     }
@@ -153,28 +153,45 @@ public class Trainer {
         this.deck = deck;
     }
 
+    public ArrayList<ICard> getDeck() {
+        return this.deck;
+    }
+
     public void drawACard() {
         this.getHand().add(this.deck.get(0));
         this.deck.remove(0);
     }
 
-    public void addACardToTheTopOfDeck(ICard aCard) {
-        ArrayList<ICard> newDeck = new ArrayList<>();
-        newDeck.add(aCard);
-        newDeck.addAll(this.deck);
-        this.setDeck(newDeck);
-    }
+    /*
+        public void addACardToTheTopOfDeck(ICard aCard) {
+            ArrayList<ICard> newDeck = new ArrayList<>();
+            newDeck.add(aCard);
+            newDeck.addAll(this.deck);
+            this.setDeck(newDeck);
+        }
 
-    public void addACardToTheBottomOfDeck(ICard aCard) {
-        this.deck.add(aCard);
-    }
-
+        public void addACardToTheBottomOfDeck(ICard aCard) {
+            this.deck.add(aCard);
+        }
+    */
     public String flipACoin() {
         Random coin = new Random();
         int result = coin.nextInt(2);
         if (result == 0) return "Head";
         return "Tails";
     }
+
+    public ArrayList<ICard> getPrizeCards() {
+        return this.prizeCards;
+    }
+
+    public void addCardToPrizeCards() {
+        if (this.prizeCards.size() < 6) {
+            this.prizeCards.add(this.deck.get(0));
+            this.deck.remove(0);
+        }
+    }
+
     /**
      * Compares the Trainer with another Trainer.
      *
@@ -191,7 +208,7 @@ public class Trainer {
                 Objects.equals(getHand(), trainer.getHand()) &&
                 Objects.equals(deck, trainer.deck) &&
                 Objects.equals(discardHeap, trainer.discardHeap) &&
-                Arrays.equals(prizeCards, trainer.prizeCards) &&
+                Objects.equals(prizeCards, trainer.prizeCards) &&
                 Objects.equals(getPlayerName(), trainer.getPlayerName());
     }
 

@@ -48,6 +48,9 @@ public class PlayCardVisitor implements ICardVisitor {
 
     @Override
     public void visitSupportCard(SupportCard aSupport) {
+        aSupport.getEffect().setAssociatedCard(aSupport);
+        aSupport.doSelectedEffect();
+        aSupport.discard(aSupport.getTrainer());
     }
 
     private void changePokemon(IPokemon oldPokemon, IPokemon newPokemon, boolean active) {

@@ -40,7 +40,6 @@ public abstract class AbstractCard implements ICard {
         aTrainer.getDiscardHeap().add(this);
     }
 
-
     @Override
     public abstract void accept(ICardVisitor v);
 }
