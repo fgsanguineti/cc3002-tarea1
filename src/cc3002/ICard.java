@@ -4,7 +4,7 @@ import cc3002.visitor.card.ICardVisitor;
 
 /**
  * Common interface for all the cards. Every card have a card name and should be able to be played by a Trainer
- *
+ * Also accepts a CardVisitor.
  * @author F. Giovanni Sanguineti Cortés
  */
 public interface ICard {
