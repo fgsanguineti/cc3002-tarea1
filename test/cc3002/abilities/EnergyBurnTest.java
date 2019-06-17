@@ -2,13 +2,13 @@ package cc3002.abilities;
 
 import cc3002.Trainer;
 import cc3002.energies.EnergyContainer;
-import cc3002.pokemontypes.IPokemon;
-import cc3002.pokemontypes.electric.BasicElectricPokemon;
-import cc3002.pokemontypes.fighting.BasicFightingPokemon;
-import cc3002.pokemontypes.fire.BasicFirePokemon;
-import cc3002.pokemontypes.grass.BasicGrassPokemon;
-import cc3002.pokemontypes.psychic.BasicPsychicPokemon;
-import cc3002.pokemontypes.water.BasicWaterPokemon;
+import cc3002.pokemon.IPokemon;
+import cc3002.pokemon.electric.BasicElectricPokemon;
+import cc3002.pokemon.fighting.BasicFightingPokemon;
+import cc3002.pokemon.fire.BasicFirePokemon;
+import cc3002.pokemon.grass.BasicGrassPokemon;
+import cc3002.pokemon.psychic.BasicPsychicPokemon;
+import cc3002.pokemon.water.BasicWaterPokemon;
 import org.junit.Before;
 import org.junit.Test;
 

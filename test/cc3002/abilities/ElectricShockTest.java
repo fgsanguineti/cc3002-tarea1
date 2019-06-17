@@ -3,9 +3,9 @@ package cc3002.abilities;
 import cc3002.Trainer;
 import cc3002.abilities.effects.concrete.ElectricShockEffect;
 import cc3002.energies.EnergyContainer;
-import cc3002.pokemontypes.IPokemon;
-import cc3002.pokemontypes.fire.BasicFirePokemon;
-import cc3002.pokemontypes.grass.BasicGrassPokemon;
+import cc3002.pokemon.IPokemon;
+import cc3002.pokemon.fire.BasicFirePokemon;
+import cc3002.pokemon.grass.BasicGrassPokemon;
 import org.junit.Before;
 import org.junit.Test;
 

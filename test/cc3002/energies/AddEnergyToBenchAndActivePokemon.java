@@ -5,10 +5,10 @@ import cc3002.abilities.AbilityContainer;
 import cc3002.abilities.Attack;
 import cc3002.abilities.NullAbility;
 import cc3002.abilities.effects.NullEffect;
-import cc3002.pokemontypes.IBasicPokemon;
-import cc3002.pokemontypes.fire.BasicFirePokemon;
-import cc3002.pokemontypes.psychic.BasicPsychicPokemon;
-import cc3002.pokemontypes.water.BasicWaterPokemon;
+import cc3002.pokemon.IBasicPokemon;
+import cc3002.pokemon.fire.BasicFirePokemon;
+import cc3002.pokemon.psychic.BasicPsychicPokemon;
+import cc3002.pokemon.water.BasicWaterPokemon;
 import org.junit.Before;
 import org.junit.Test;
 

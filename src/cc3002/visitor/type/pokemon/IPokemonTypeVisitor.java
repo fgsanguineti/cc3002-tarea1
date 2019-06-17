@@ -1,12 +1,12 @@
 package cc3002.visitor.type.pokemon;
 
 
-import cc3002.pokemontypes.electric.AbstractElectricPokemon;
-import cc3002.pokemontypes.fighting.AbstractFightingPokemon;
-import cc3002.pokemontypes.fire.AbstractFirePokemon;
-import cc3002.pokemontypes.grass.AbstractGrassPokemon;
-import cc3002.pokemontypes.psychic.AbstractPsychicPokemon;
-import cc3002.pokemontypes.water.AbstractWaterPokemon;
+import cc3002.pokemon.electric.AbstractElectricPokemon;
+import cc3002.pokemon.fighting.AbstractFightingPokemon;
+import cc3002.pokemon.fire.AbstractFirePokemon;
+import cc3002.pokemon.grass.AbstractGrassPokemon;
+import cc3002.pokemon.psychic.AbstractPsychicPokemon;
+import cc3002.pokemon.water.AbstractWaterPokemon;
 
 public interface IPokemonTypeVisitor {
     void visitElectricPokemon(AbstractElectricPokemon electricPokemon);

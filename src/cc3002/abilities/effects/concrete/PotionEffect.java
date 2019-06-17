@@ -1,7 +1,7 @@
 package cc3002.abilities.effects.concrete;
 
 import cc3002.abilities.effects.AbstractEffect;
-import cc3002.pokemontypes.IPokemon;
+import cc3002.pokemon.IPokemon;
 
 public class PotionEffect extends AbstractEffect {
     private int maximumCountersToIncrease;

@@ -1,9 +1,9 @@
 package cc3002.visitor.card;
 
 import cc3002.energies.AbstractEnergy;
-import cc3002.pokemontypes.IBasicPokemon;
-import cc3002.pokemontypes.IPhaseOnePokemon;
-import cc3002.pokemontypes.IPhaseTwoPokemon;
+import cc3002.pokemon.IBasicPokemon;
+import cc3002.pokemon.IPhaseOnePokemon;
+import cc3002.pokemon.IPhaseTwoPokemon;
 import cc3002.trainercards.ObjectCard;
 import cc3002.trainercards.StadiumCard;
 import cc3002.trainercards.SupportCard;

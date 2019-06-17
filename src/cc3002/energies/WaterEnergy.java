@@ -1,6 +1,6 @@
 package cc3002.energies;
 
-import cc3002.pokemontypes.IPokemon;
+import cc3002.pokemon.IPokemon;
 
 /**
  * This class defines the logic of a electric type energy.

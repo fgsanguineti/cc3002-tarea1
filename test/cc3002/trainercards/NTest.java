@@ -6,8 +6,8 @@ import cc3002.abilities.AbilityContainer;
 import cc3002.abilities.NullAbility;
 import cc3002.energies.ElectricEnergy;
 import cc3002.energies.WaterEnergy;
-import cc3002.pokemontypes.electric.BasicElectricPokemon;
-import cc3002.pokemontypes.water.BasicWaterPokemon;
+import cc3002.pokemon.electric.BasicElectricPokemon;
+import cc3002.pokemon.water.BasicWaterPokemon;
 import org.junit.Before;
 import org.junit.Test;
 

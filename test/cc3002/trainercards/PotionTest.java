@@ -3,9 +3,9 @@ package cc3002.trainercards;
 import cc3002.Trainer;
 import cc3002.abilities.AbilityContainer;
 import cc3002.abilities.NullAbility;
-import cc3002.pokemontypes.IPokemon;
-import cc3002.pokemontypes.psychic.BasicPsychicPokemon;
-import cc3002.pokemontypes.water.BasicWaterPokemon;
+import cc3002.pokemon.IPokemon;
+import cc3002.pokemon.psychic.BasicPsychicPokemon;
+import cc3002.pokemon.water.BasicWaterPokemon;
 import org.junit.Before;
 import org.junit.Test;
 

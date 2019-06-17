@@ -2,7 +2,7 @@ package cc3002.abilities;
 
 import cc3002.abilities.effects.IEffect;
 import cc3002.energies.EnergyContainer;
-import cc3002.pokemontypes.IPokemon;
+import cc3002.pokemon.IPokemon;
 import cc3002.visitor.ability.IAbilityVisitor;
 
 /**

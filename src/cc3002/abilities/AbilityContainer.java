@@ -1,7 +1,7 @@
 package cc3002.abilities;
 
 import cc3002.abilities.effects.NullEffect;
-import cc3002.pokemontypes.IPokemon;
+import cc3002.pokemon.IPokemon;
 
 import java.util.Arrays;
 

@@ -1,6 +1,6 @@
 package cc3002;
 
-import cc3002.pokemontypes.IPokemon;
+import cc3002.pokemon.IPokemon;
 import cc3002.trainercards.StadiumCard;
 
 import java.util.ArrayList;
