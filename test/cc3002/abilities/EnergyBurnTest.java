@@ -65,8 +65,8 @@ public class EnergyBurnTest {
     @Test
     public void checkGrassPokemon() {
         grassPokemon.setEnergyContainer(new EnergyContainer(5, 2, 7, 0, 1, 2));
-        t1.addCardToHand(charizard);
-        t1.play(charizard);
+        t1.addCardToHand(grassPokemon);
+        t1.play(grassPokemon);
         t1.makeAnAbility(1);
         assertEquals(17, grassPokemon.getAllEnergyQuantity().getTotalEnergyQuantity());
     }

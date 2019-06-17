@@ -37,6 +37,8 @@ public class PlayCardVisitor implements ICardVisitor {
 
     @Override
     public void visitObjectCard(ObjectCard aObject) {
+        aObject.getEffect().setAssociatedCard(aObject);
+        aObject.doSelectedEffect();
     }
 
     @Override

@@ -17,10 +17,12 @@ import cc3002.visitor.type.pokemon.IPokemonTypeVisitor;
 public abstract class AbstractPokemon extends AbstractCard implements IPokemon {
     private int id;
     private int hp;
+    private int initialHP;
     private AbilityContainer abilityList;
     private IAbility activeAbility;
     private IAttack activeAttack;
     private EnergyContainer pokemonEnergy;
+
     /**
      * Creates a new pokemon.
      * @param cardName The name of the card.
@@ -32,6 +34,7 @@ public abstract class AbstractPokemon extends AbstractCard implements IPokemon {
         super(cardName);
         this.id = id;
         this.hp = hp;
+        this.initialHP = hp;
         this.abilityList = abilityList;
         this.activeAbility = new NullAbility();
         this.activeAttack = new NullAbility();
@@ -59,6 +62,11 @@ public abstract class AbstractPokemon extends AbstractCard implements IPokemon {
     @Override
     public int getHP() {
         return this.hp;
+    }
+
+    @Override
+    public int getInitialHP() {
+        return this.initialHP;
     }
 
     @Override

@@ -5,7 +5,6 @@ import cc3002.abilities.effects.AbstractEffect;
 public class ElectricShockEffect extends AbstractEffect {
     private int x;
     private String coinFlippingResult;
-
     public ElectricShockEffect(int x) {
         this.x = x;
     }
