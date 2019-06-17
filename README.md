@@ -6,66 +6,34 @@ Please refers to the full file "uml_diagram.png" in the GitHub repo root directo
 
 ![Alt text](uml_diagram.jpg "UML")
 
-## Design
+## Diseño
 
-### ICard Interface
-<p align="justify">
-A ICard interface was implemented. This interface allows to the Pókemon and Energies behaves like a card.
-This also allows a double-dispatch design interaction when a Trainer plays a card. Please refers to Trainer section for more information.
-</p>
+Para implementar lo solicitado en esta entrega, se utilizaron tres de los patrones de diseño vistos en clase:
+Visitor, Template y NullObject.
 
-#### IEnergy interface
-<p align="justify">
-This interface describes the behavior of the energies. It allows to store different energies in the implemented data structures and interact with the Pókemon cards.
-</p>
+### Visitor
+
+Se utilizó el patrón de diseño Visitor para implementar, de partida, la desambiguación al jugar cada tipo de carta presenten en el juego:
+TrainerCard, PokemonCards y EnergyCards y en particulara para cada subtipo de ellos, puesto que tienen funcionamientos distintos.
+
+Además, se extendió el double dispatch realizado en la entrega anterior: sigue funcionando para desambiguar los tipos de los ataques, 
+pero además ahora es capaz de desambiguar entre ataques y habilidades. También se utilizó para implementar la StadiumCard Frozen City.
+
+Otra habilidad implementada utilizando Visitor fue el Energy Burn.
+
+Todos los Visitor se encuentran en la subcarpeta Visitor y están debidamente testeados, cada uno de ellos en la carpeta de Testing.
+
+### Template
+
+Se utilizó el Template en casi toda la estructura de diseño de las cartas, fundamentalmente en los Pokemon.
+A propósito de esto, se actualizó la estructura de todos los Pókemon: si bien antes contábamos con sólo un Pókemon para cada tipo,
+ahora, para implementar las evoluciones, tenemos un BasicPokemon, un PhaseOnePokemon y un PhaseTwoPokemon, implementado según los requerimientos de la tarea.
+
+### NullObject
+
+Para no tener problemas en consultar por null o obtener  NullPointerException fundamentalmente, se implementaron NullAbility y NullEffect.
 
 
-##### AbstractEnergy
-
-<p align="justify">
-This abstract class implements IEnergy interface. The ElectricEnergy, FightingEnergy, FireEnergy, GrassEnergy, PsychicEnergy
-and WaterEnergy was implemented using the AbstractEnergy class. The methods starting with addEnergyToPokemon 
-interact with the Pókemon with a double dispatch design interaction, that allows to the Pókemon calls
-the proper method to add this energy to his internal storage.
-</p>
-
-
-#### IPokemon interface
-
-<p align="justify">
-This interface describes the behavior of a Pokemon. It allow to storage Pókemon in the proper data structures and interact with the energies cards.
-</p>
-
-##### AbstractPokemon
-<p align="justify">
-This abstract class implements IPokemon interface. The ElectricPokemon, FightingPokemon, FirePokemon, GrassPokemon, PsychicPokemon
-and WaterPokemon was implemented using the AbstractPokemon class. The methods that allows Pókemon attacks each others
-was developed using double-dispatch design interaction, that allows to the Pókemon that receive the attack which kind of 
-Pókemon are attacking him. 
-</p>
-
-## IAbility interface
-<p align="justify">
-This interface was developed thinking in the future implementation of more abilities besides the attacks.
-At the moment, the only Interface that implements him is IAttack.
-</p>
-
-### IAttack interface
-
-This interface describes the behavior of a Attack. It allow to storage Pókemon in the proper data structures and interact with the Pókemon cards.
-
-#### Attack class
-
-This class implements IAttack interface. Describes an attack and knows if a Pókemon can perform the attack.
-
-## Data Structures
-
-### AttackContainer class
-   This class use a Array to storage up to four attacks.
-
-### EnergyContainer class
-
-This class use a HasMap to storage up to six energy types. Can add energies and return the number of energies that contains.
 
 ## Testing
 
