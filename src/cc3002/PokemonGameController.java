@@ -35,11 +35,20 @@ public class PokemonGameController {
     }
 
     private void initializePlayers() {
+        for (ICard c : firstTrainer.getDeck()) {
+            c.setTrainer(firstTrainer);
+        }
+        for (ICard c : secondTrainer.getDeck()) {
+            c.setTrainer(secondTrainer);
+        }
+
+
         for (int i = 0; i < 6; i++) {
             this.firstTrainer.drawACard();
             this.firstTrainer.addCardToPrizeCards();
             this.secondTrainer.drawACard();
             this.secondTrainer.addCardToPrizeCards();
+
         }
     }
 
@@ -47,7 +56,11 @@ public class PokemonGameController {
         this.activeTurnPlayer.setSelectedPokemon(aPokemon);
     }
 
-    void setTrainersHands(ArrayList<ICard> firstHand, ArrayList<ICard> secondHand) {
+    public ICard getSelectedCard() {
+        return this.activeTurnPlayer.getSelectedCard();
+    }
+
+    void testSetTrainersHands(ArrayList<ICard> firstHand, ArrayList<ICard> secondHand) {
         this.activeTurnPlayer.setHand(firstHand);
         this.activeTurnPlayer.getOpponent().setHand(secondHand);
     }
@@ -56,8 +69,14 @@ public class PokemonGameController {
         return this.activeTurnPlayer.getHand();
     }
 
-    public void playActivePlayerCard(int handIndex) {
+    void playActivePlayerCard(int handIndex) {
+        this.activeTurnPlayer.selectCard(viewActivePlayerHand().get(handIndex));
+        if (this.viewActiveStadiumCard() != null) {
+            this.viewActiveStadiumCard().doSelectedEffect();
+        }
         this.activeTurnPlayer.play(viewActivePlayerHand().get(handIndex));
+        this.activeTurnPlayer.unSelectCard();
+        this.activeTurnPlayer.unSelectPokemon();
     }
 
     ArrayList<IPokemon> viewActivePlayerBench() {
@@ -74,6 +93,10 @@ public class PokemonGameController {
 
     public StadiumCard viewActiveStadiumCard() {
         return this.activeStadiumCard;
+    }
+
+    public void changeActiveStadiumCard(StadiumCard stadiumCard) {
+        this.activeStadiumCard = stadiumCard;
     }
 
     public boolean isAnEnergyPlayedInTurn() {
@@ -97,6 +120,7 @@ public class PokemonGameController {
     private void beginTurn() {
         activeTurnPlayer.drawACard();
     }
+
 }
 
 

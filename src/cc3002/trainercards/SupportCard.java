@@ -5,8 +5,8 @@ import cc3002.visitor.card.ICardVisitor;
 
 public class SupportCard  extends AbstractTrainerCard{
 
-    public SupportCard(String cardName, String description, IEffect effect) {
-        super(cardName, description, effect);
+    public SupportCard(String cardName, String description, IEffect effect, int parameter) {
+        super(cardName, description, effect, parameter);
     }
 
     @Override

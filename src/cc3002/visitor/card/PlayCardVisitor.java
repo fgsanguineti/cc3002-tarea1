@@ -11,7 +11,7 @@ import cc3002.trainercards.ObjectCard;
 import cc3002.trainercards.StadiumCard;
 import cc3002.trainercards.SupportCard;
 
-public class PlayCardVisitor implements ICardVisitor {
+public class PlayCardVisitor extends CardVisitor {
     @Override
     public void visitBasicPokemon(IBasicPokemon basicPokemon) {
         basicPokemon.getTrainer().getHand().remove(basicPokemon);
@@ -40,7 +40,6 @@ public class PlayCardVisitor implements ICardVisitor {
         }
         aEnergy.addEnergyToPokemon(aEnergy.getTrainer().getSelectedPokemon());
         aEnergy.getTrainer().getHand().remove(aEnergy);
-        aEnergy.getTrainer().unSelectPokemon();
     }
 
     @Override
@@ -52,6 +51,8 @@ public class PlayCardVisitor implements ICardVisitor {
 
     @Override
     public void visitStadiumCard(StadiumCard aStadium) {
+        aStadium.getTrainer().getPokemonGameController().changeActiveStadiumCard(aStadium);
+        aStadium.getEffect().setAssociatedCard(aStadium);
         removeTrainerCard(aStadium);
     }
 

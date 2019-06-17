@@ -6,5 +6,7 @@ public interface ITrainerCard {
     String getDescription();
     void doSelectedEffect();
 
+    int getParameter();
+
     IEffect getEffect();
 }

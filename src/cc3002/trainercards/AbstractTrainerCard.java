@@ -8,11 +8,13 @@ import cc3002.visitor.card.ICardVisitor;
 public abstract class AbstractTrainerCard extends AbstractCard implements ITrainerCard {
     private String description;
     private IEffect effect;
+    private int parameter;
 
-    AbstractTrainerCard(String cardName, String description, IEffect anEffect) {
+    AbstractTrainerCard(String cardName, String description, IEffect anEffect, int parameter) {
         super(cardName);
         this.description = description;
         this.effect = anEffect;
+        this.parameter = parameter;
     }
 
     @Override
@@ -31,6 +33,11 @@ public abstract class AbstractTrainerCard extends AbstractCard implements ITrain
     @Override
     public IEffect getEffect() {
         return this.effect;
+    }
+
+    @Override
+    public int getParameter() {
+        return this.parameter;
     }
 
 }

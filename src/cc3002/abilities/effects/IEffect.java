@@ -7,9 +7,7 @@ public interface IEffect {
     IAbility getAssociatedAbility();
     void setAssociatedAbility(IAbility anAbility);
     void doEffect();
-
     ICard getAssociatedCard();
-
     void setAssociatedCard(ICard aCard);
 }
 

@@ -26,6 +26,7 @@ public class Trainer {
     private Trainer opponent;
     private ObjectCard associatedObject;
     private PokemonGameController pokemonGameController;
+    private ICard selectedCard;
 
     /**
      * Constructor that creates the Trainer.
@@ -41,6 +42,7 @@ public class Trainer {
         this.playerName = playerName;
         this.opponent = null;
         this.pokemonGameController = null;
+        this.selectedCard = null;
     }
 
     /**
@@ -115,12 +117,24 @@ public class Trainer {
         this.opponent = opponent;
     }
 
+    void selectCard(ICard aCard) {
+        this.selectedCard = aCard;
+    }
+
+    void unSelectCard() {
+        this.selectedCard = null;
+    }
+
+    ICard getSelectedCard() {
+        return this.selectedCard;
+    }
     /**
      * Lets the trainer to play a card.
      * @param aCard the ICard that wants to play.
      */
     public void play(ICard aCard) {
-        aCard.setTrainer(this);
+        this.selectCard(aCard);
+        if (aCard.getTrainer() == null) aCard.setTrainer(this);
         PlayCardVisitor v = new PlayCardVisitor();
         aCard.accept(v);
     }
@@ -166,7 +180,7 @@ public class Trainer {
         this.selectedPokemon = null;
     }
 
-    public void setDeck(ArrayList<ICard> deck) {
+    void setDeck(ArrayList<ICard> deck) {
         this.deck = deck;
     }
 
@@ -179,18 +193,6 @@ public class Trainer {
         this.deck.remove(0);
     }
 
-    /*
-        public void addACardToTheTopOfDeck(ICard aCard) {
-            ArrayList<ICard> newDeck = new ArrayList<>();
-            newDeck.add(aCard);
-            newDeck.addAll(this.deck);
-            this.setDeck(newDeck);
-        }
-
-        public void addACardToTheBottomOfDeck(ICard aCard) {
-            this.deck.add(aCard);
-        }
-    */
     public String flipACoin() {
         Random coin = new Random();
         int result = coin.nextInt(2);

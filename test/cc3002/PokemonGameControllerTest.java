@@ -9,13 +9,12 @@ import cc3002.energytypes.*;
 import cc3002.pokemontypes.IPokemon;
 import cc3002.pokemontypes.electric.BasicElectricPokemon;
 import cc3002.pokemontypes.fire.BasicFirePokemon;
+import cc3002.pokemontypes.fire.PhaseOneFirePokemon;
+import cc3002.pokemontypes.fire.PhaseTwoFirePokemon;
 import cc3002.pokemontypes.grass.BasicGrassPokemon;
 import cc3002.pokemontypes.psychic.BasicPsychicPokemon;
 import cc3002.pokemontypes.water.BasicWaterPokemon;
-import cc3002.trainercards.N;
-import cc3002.trainercards.ObjectCard;
-import cc3002.trainercards.Potion;
-import cc3002.trainercards.SupportCard;
+import cc3002.trainercards.*;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -62,10 +61,10 @@ public class PokemonGameControllerTest {
             secondEnergies.add(new WaterEnergy());
         }
         for (int i = 0; i < 20; i++) {
-            firstTrainer.add(new ObjectCard("", "", new NullEffect()));
+            firstTrainer.add(new ObjectCard("", "", new NullEffect(), 0));
         }
         for (int i = 0; i < 20; i++) {
-            secondTrainer.add(new SupportCard("", "", new NullEffect()));
+            secondTrainer.add(new SupportCard("", "", new NullEffect(), 0));
         }
 
         ArrayList<ICard> firstDeck = new ArrayList<>(firstPokemon);
@@ -125,7 +124,7 @@ public class PokemonGameControllerTest {
         hand2.add(new GrassEnergy());
         hand2.add(new FightingEnergy());
 
-        game.setTrainersHands(hand1, hand2);
+        game.testSetTrainersHands(hand1, hand2);
 
         assertEquals(game.viewActivePlayerHand(), hand1);
         game.playActivePlayerCard(0);
@@ -169,7 +168,7 @@ public class PokemonGameControllerTest {
         hand2.add(potionCard);
         hand2.add(new N());
         game.startGame();
-        game.setTrainersHands(hand1, hand2);
+        game.testSetTrainersHands(hand1, hand2);
         game.playActivePlayerCard(0);
         game.selectPokemon(game.viewActivePlayerActivePokemon());
         game.playActivePlayerCard(0);
@@ -199,4 +198,98 @@ public class PokemonGameControllerTest {
 
         assertEquals(7, game.viewActivePlayerHand().size());
     }
+
+    @Test
+    public void applyFrozenCityStadiumCardAndEvolveTest() {
+        ArrayList<ICard> hand1 = new ArrayList<>();
+        ArrayList<ICard> hand2 = new ArrayList<>();
+        ICard potionCard = new Potion(6);
+        IPokemon firePokemon = new BasicFirePokemon("basicFirePokemon", 102, 10,
+                new AbilityContainer(new NullAbility(), new NullAbility(), new NullAbility(), new NullAbility()));
+        IPokemon fireOnePokemon = new PhaseOneFirePokemon("phaseOneFirePokemon", 103, 40,
+                new AbilityContainer(new NullAbility(), new NullAbility(), new NullAbility(), new NullAbility()), 102);
+        IPokemon fireTwoPokemon = new PhaseTwoFirePokemon("phaseTwoFirePokemon", 104, 500,
+                new AbilityContainer(new EnergyBurn(), new ElectricShock(50), new NullAbility(), new NullAbility()), 103);
+
+        IPokemon grassPokemon = new BasicGrassPokemon("grassPokemon", 23, 234,
+                new AbilityContainer(new EnergyBurn(), new NullAbility(), new NullAbility(), new NullAbility()));
+        ICard firstFrozenCity = new FrozenCity(3);
+        ICard secondFrozenCity = new FrozenCity(2);
+
+        hand1.add(firstFrozenCity);
+        hand1.add(firePokemon);
+        hand1.add(fireOnePokemon);
+        hand1.add(fireTwoPokemon);
+        hand1.add(new ElectricEnergy());
+        hand1.add(new GrassEnergy());
+        hand1.add(new GrassEnergy());
+        hand1.add(new GrassEnergy());
+        hand1.add(new GrassEnergy());
+        hand1.add(potionCard);
+
+        hand2.add(secondFrozenCity);
+        hand2.add(grassPokemon);
+        hand2.add(new ElectricEnergy());
+        hand2.add(new GrassEnergy());
+        hand2.add(new GrassEnergy());
+        hand2.add(new GrassEnergy());
+        hand2.add(new GrassEnergy());
+
+        for (ICard c : hand1) {
+            c.setTrainer(t1);
+        }
+        for (ICard c : hand2) {
+            c.setTrainer(t2);
+        }
+
+        game.startGame();
+        game.testSetTrainersHands(hand1, hand2);
+
+        game.playActivePlayerCard(0);
+        assertEquals(firstFrozenCity, game.viewActiveStadiumCard());
+        game.playActivePlayerCard(0);
+        game.selectPokemon(game.viewActivePlayerActivePokemon());
+        game.playActivePlayerCard(0);
+        assertEquals(fireOnePokemon, game.viewActivePlayerActivePokemon());
+        game.selectPokemon(game.viewActivePlayerActivePokemon());
+        game.playActivePlayerCard(0);
+        assertEquals(fireTwoPokemon, game.viewActivePlayerActivePokemon());
+        game.selectPokemon(game.viewActivePlayerActivePokemon());
+        game.playActivePlayerCard(0);
+        assertEquals(470, game.viewActivePlayerActivePokemon().getHP());
+
+        game.endTurn();
+        game.endTurn();
+
+        game.selectPokemon(game.viewActivePlayerActivePokemon());
+        game.playActivePlayerCard(0);
+        assertEquals(440, game.viewActivePlayerActivePokemon().getHP());
+
+        game.endTurn();
+        game.endTurn();
+
+        game.selectPokemon(game.viewActivePlayerActivePokemon());
+        game.playActivePlayerCard(0);
+        assertEquals(410, game.viewActivePlayerActivePokemon().getHP());
+
+        game.endTurn();
+        game.endTurn();
+
+        game.selectPokemon(game.viewActivePlayerActivePokemon());
+        game.playActivePlayerCard(2);
+        assertEquals(470, game.viewActivePlayerActivePokemon().getHP());
+
+        game.endTurn();
+        game.playActivePlayerCard(0);
+        assertEquals(secondFrozenCity, game.viewActiveStadiumCard());
+        game.playActivePlayerCard(0);
+        game.selectPokemon(game.viewActivePlayerActivePokemon());
+        game.playActivePlayerCard(0);
+        assertEquals(214, game.viewActivePlayerActivePokemon().getHP());
+        game.playActivePlayerCard(0);
+        assertEquals(214, game.viewActivePlayerActivePokemon().getHP());
+
+
+    }
+
 }

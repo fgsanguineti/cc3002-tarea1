@@ -306,7 +306,7 @@ public class TrainerTest {
         Trainer giova = new Trainer("Giovanni");
         giova.addCardToHand(pikachu);
         giova.play(giova.getHand().get(giova.getHand().indexOf(pikachu)));
-        assertEquals(giova, Giovanni);
+        assertNotEquals(giova, Giovanni);
 
         Giovanni.addCardToHand(pikachu);
         giova.play(Giovanni.getHand().get(Giovanni.getHand().indexOf(pikachu)));
