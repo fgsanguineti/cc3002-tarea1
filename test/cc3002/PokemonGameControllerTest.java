@@ -5,7 +5,7 @@ import cc3002.abilities.ElectricShock;
 import cc3002.abilities.EnergyBurn;
 import cc3002.abilities.NullAbility;
 import cc3002.abilities.effects.NullEffect;
-import cc3002.energytypes.*;
+import cc3002.energies.*;
 import cc3002.pokemontypes.IPokemon;
 import cc3002.pokemontypes.electric.BasicElectricPokemon;
 import cc3002.pokemontypes.fire.BasicFirePokemon;

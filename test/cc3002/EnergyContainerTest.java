@@ -1,6 +1,6 @@
 package cc3002;
 
-import cc3002.energytypes.EnergyContainer;
+import cc3002.energies.EnergyContainer;
 import org.junit.Before;
 import org.junit.Test;
 

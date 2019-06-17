@@ -1,22 +1,22 @@
-package cc3002.energytypes;
+package cc3002.energies;
 
 import cc3002.pokemontypes.IPokemon;
 
-
 /**
- * This class defines the logic of a fire type energy.
+ * This class defines the logic of a electric type energy.
  *
- * @author F. Giovanni Sanguineti.
+ * @author F. Giovanni Sanguineti
  */
-public class FireEnergy extends AbstractEnergy {
+public class ElectricEnergy extends AbstractEnergy {
 
     /**
-     * Creates a new fire energy card.
+     * Creates a new electric energy card.
      * @author F. Giovanni Sanguineti.
      */
-    public FireEnergy() {
-        super("Fire Energy");
+    public ElectricEnergy() {
+        super("Electric Energy");
     }
+
 
     /**
      * {@inheritDoc}
@@ -24,9 +24,8 @@ public class FireEnergy extends AbstractEnergy {
      */
     @Override
     public void addEnergyToPokemon(IPokemon other) {
-        if (other != null) other.receiveFireEnergy(this);
+        if (other != null) other.receiveElectricEnergy(this);
     }
-
 
     /**
      * {@inheritDoc}
@@ -37,8 +36,8 @@ public class FireEnergy extends AbstractEnergy {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof FireEnergy)) return false;
-        FireEnergy that = (FireEnergy) o;
+        if (!(o instanceof ElectricEnergy)) return false;
+        ElectricEnergy that = (ElectricEnergy) o;
         return getCardName().equals(that.getCardName());
     }
 }

@@ -1,7 +1,7 @@
 package cc3002.abilities;
 
 import cc3002.abilities.effects.concrete.ElectricShockEffect;
-import cc3002.energytypes.EnergyContainer;
+import cc3002.energies.EnergyContainer;
 
 public class ElectricShock extends Attack {
     /**

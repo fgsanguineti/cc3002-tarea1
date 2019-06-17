@@ -5,7 +5,7 @@ import cc3002.abilities.AbilityContainer;
 import cc3002.abilities.IAbility;
 import cc3002.abilities.IAttack;
 import cc3002.abilities.NullAbility;
-import cc3002.energytypes.*;
+import cc3002.energies.*;
 import cc3002.visitor.card.ICardVisitor;
 import cc3002.visitor.type.pokemon.IPokemonTypeVisitor;
 

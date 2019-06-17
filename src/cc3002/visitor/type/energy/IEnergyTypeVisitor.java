@@ -1,6 +1,6 @@
 package cc3002.visitor.type.energy;
 
-import cc3002.energytypes.*;
+import cc3002.energies.*;
 
 public interface IEnergyTypeVisitor {
     void visitElectricEnergy(ElectricEnergy electricEnergy);

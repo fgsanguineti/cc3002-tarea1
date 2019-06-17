@@ -1,7 +1,7 @@
 package cc3002.abilities;
 
 import cc3002.abilities.effects.IEffect;
-import cc3002.energytypes.EnergyContainer;
+import cc3002.energies.EnergyContainer;
 import cc3002.visitor.ability.IAbilityVisitor;
 
 /**

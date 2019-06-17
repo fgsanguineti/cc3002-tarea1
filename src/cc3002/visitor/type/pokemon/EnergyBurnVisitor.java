@@ -1,6 +1,6 @@
 package cc3002.visitor.type.pokemon;
 
-import cc3002.energytypes.EnergyContainer;
+import cc3002.energies.EnergyContainer;
 import cc3002.pokemontypes.electric.AbstractElectricPokemon;
 import cc3002.pokemontypes.fighting.AbstractFightingPokemon;
 import cc3002.pokemontypes.fire.AbstractFirePokemon;

@@ -2,7 +2,7 @@ package cc3002.abilities;
 
 import cc3002.Trainer;
 import cc3002.abilities.effects.concrete.ElectricShockEffect;
-import cc3002.energytypes.EnergyContainer;
+import cc3002.energies.EnergyContainer;
 import cc3002.pokemontypes.IPokemon;
 import cc3002.pokemontypes.fire.BasicFirePokemon;
 import cc3002.pokemontypes.grass.BasicGrassPokemon;

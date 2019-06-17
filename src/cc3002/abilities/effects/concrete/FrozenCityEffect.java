@@ -1,5 +1,6 @@
-package cc3002.abilities.effects;
+package cc3002.abilities.effects.concrete;
 
+import cc3002.abilities.effects.AbstractEffect;
 import cc3002.visitor.card.FrozenCityCardVisitor;
 import cc3002.visitor.card.ICardVisitor;
 

@@ -1,20 +1,21 @@
-package cc3002.energytypes;
+package cc3002.energies;
 
 import cc3002.pokemontypes.IPokemon;
 
+
 /**
- * This class defines the logic of a Fighting type energy.
+ * This class defines the logic of a fire type energy.
  *
- * @author F. Giovanni Sanguineti
+ * @author F. Giovanni Sanguineti.
  */
-public class FightingEnergy extends AbstractEnergy {
+public class FireEnergy extends AbstractEnergy {
 
     /**
-     * Creates a new fighting energy card.
+     * Creates a new fire energy card.
      * @author F. Giovanni Sanguineti.
      */
-    public FightingEnergy() {
-        super("Fighting Energy");
+    public FireEnergy() {
+        super("Fire Energy");
     }
 
     /**
@@ -23,8 +24,9 @@ public class FightingEnergy extends AbstractEnergy {
      */
     @Override
     public void addEnergyToPokemon(IPokemon other) {
-        if (other != null) other.receiveFightingEnergy(this);
+        if (other != null) other.receiveFireEnergy(this);
     }
+
 
     /**
      * {@inheritDoc}
@@ -35,8 +37,8 @@ public class FightingEnergy extends AbstractEnergy {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof FightingEnergy)) return false;
-        FightingEnergy that = (FightingEnergy) o;
+        if (!(o instanceof FireEnergy)) return false;
+        FireEnergy that = (FireEnergy) o;
         return getCardName().equals(that.getCardName());
     }
 }

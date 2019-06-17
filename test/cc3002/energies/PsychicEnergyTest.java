@@ -1,4 +1,4 @@
-package cc3002.energytypes;
+package cc3002.energies;
 
 import org.junit.Before;
 import org.junit.Test;

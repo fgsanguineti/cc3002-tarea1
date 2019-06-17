@@ -1,7 +1,7 @@
 package cc3002.abilities;
 
 import cc3002.abilities.effects.concrete.EnergyBurnEffect;
-import cc3002.energytypes.EnergyContainer;
+import cc3002.energies.EnergyContainer;
 
 public class EnergyBurn extends Ability {
     public EnergyBurn() {

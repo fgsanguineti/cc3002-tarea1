@@ -1,6 +1,6 @@
 package cc3002.trainercards;
 
-import cc3002.abilities.effects.FrozenCityEffect;
+import cc3002.abilities.effects.concrete.FrozenCityEffect;
 
 public class FrozenCity extends StadiumCard {
     private int x;

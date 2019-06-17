@@ -5,7 +5,7 @@ import cc3002.abilities.AbilityContainer;
 import cc3002.abilities.Attack;
 import cc3002.abilities.NullAbility;
 import cc3002.abilities.effects.NullEffect;
-import cc3002.energytypes.EnergyContainer;
+import cc3002.energies.EnergyContainer;
 import cc3002.pokemontypes.electric.BasicElectricPokemon;
 import cc3002.pokemontypes.electric.PhaseOneElectricPokemon;
 import cc3002.pokemontypes.electric.PhaseTwoElectricPokemon;

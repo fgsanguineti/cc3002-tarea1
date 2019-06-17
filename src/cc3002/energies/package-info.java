@@ -4,4 +4,4 @@
  * @author F. Giovanni Sanguineti
  */
 
-package cc3002.energytypes;
+package cc3002.energies;

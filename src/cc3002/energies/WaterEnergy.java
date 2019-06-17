@@ -1,20 +1,19 @@
-package cc3002.energytypes;
+package cc3002.energies;
 
 import cc3002.pokemontypes.IPokemon;
 
-
 /**
- * This class defines the logic of a psychic type energy.
+ * This class defines the logic of a electric type energy.
  *
- * @author F. Giovanni Sanguineti.
+ * @author F. Giovanni Sanguineti
  */
-public class PsychicEnergy extends AbstractEnergy {
+public class WaterEnergy extends AbstractEnergy {
 
     /**
-     * Creates a new psychic energy card.
+     * Creates a new water energy card.
      */
-    public PsychicEnergy() {
-        super("Psychic Energy");
+    public WaterEnergy() {
+        super("Water Energy");
     }
 
     /**
@@ -23,7 +22,7 @@ public class PsychicEnergy extends AbstractEnergy {
      */
     @Override
     public void addEnergyToPokemon(IPokemon other) {
-        if (other != null) other.receivePsychicEnergy(this);
+        if (other != null) other.receiveWaterEnergy(this);
     }
 
 
@@ -36,8 +35,8 @@ public class PsychicEnergy extends AbstractEnergy {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof PsychicEnergy)) return false;
-        PsychicEnergy that = (PsychicEnergy) o;
+        if (!(o instanceof WaterEnergy)) return false;
+        WaterEnergy that = (WaterEnergy) o;
         return getCardName().equals(that.getCardName());
     }
 }

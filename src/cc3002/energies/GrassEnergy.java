@@ -1,4 +1,4 @@
-package cc3002.energytypes;
+package cc3002.energies;
 
 import cc3002.pokemontypes.IPokemon;
 

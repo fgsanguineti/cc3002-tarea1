@@ -5,7 +5,7 @@ import cc3002.abilities.AbilityContainer;
 import cc3002.abilities.Attack;
 import cc3002.abilities.NullAbility;
 import cc3002.abilities.effects.NullEffect;
-import cc3002.energytypes.*;
+import cc3002.energies.*;
 import cc3002.pokemontypes.water.BasicWaterPokemon;
 import org.junit.Before;
 import org.junit.Test;
