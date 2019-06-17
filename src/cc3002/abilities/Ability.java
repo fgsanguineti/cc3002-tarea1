@@ -20,6 +20,11 @@ public class Ability extends AbstractAbility {
         super(name, description, costs, effect);
     }
 
+    /**
+     * {@inheritDoc}
+     *
+     * @param v the Visitor that performs the operation.
+     */
     @Override
     public void accept(IAbilityVisitor v) {
         v.visitAbility(this);

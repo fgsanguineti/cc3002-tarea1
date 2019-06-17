@@ -37,6 +37,11 @@ public class AbilityContainer {
         return this.abilityContainer[n - 1];
     }
 
+    /**
+     * Associate all the Abilities of the container to a specific Trainer.
+     *
+     * @param aPokemon The owner to associate.
+     */
     public void setAssociatedPokemonToAllAbilities(IPokemon aPokemon) {
         for (IAbility a : this.abilityContainer) {
             if (!a.equals(new NullAbility())) {

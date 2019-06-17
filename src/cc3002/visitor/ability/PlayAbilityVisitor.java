@@ -5,7 +5,6 @@ import cc3002.Trainer;
 import cc3002.abilities.Ability;
 import cc3002.abilities.Attack;
 import cc3002.abilities.NullAbility;
-
 public class PlayAbilityVisitor implements IAbilityVisitor {
     @Override
     public void visitAttack(Attack anAttack) {

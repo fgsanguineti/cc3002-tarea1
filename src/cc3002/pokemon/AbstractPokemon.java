@@ -64,11 +64,21 @@ public abstract class AbstractPokemon extends AbstractCard implements IPokemon {
         return this.hp;
     }
 
+    /**
+     * Returns the initial HP of the Pokemon.
+     *
+     * @return a Integer with the Pokemon HP.
+     */
     @Override
     public int getInitialHP() {
         return this.initialHP;
     }
 
+    /**
+     * modify the HP of the Pokemon adding the given integer.
+     *
+     * @param x a Integer to add to the Pokemon HP.
+     */
     @Override
     public void modifyHP(int x) {
         this.hp += x;
@@ -92,6 +102,9 @@ public abstract class AbstractPokemon extends AbstractCard implements IPokemon {
         return this.activeAbility;
     }
 
+    /**
+     * unselect the Pokemon active ability
+     */
     @Override
     public void unSelectActiveAbility() {
         this.activeAbility = new NullAbility();
@@ -183,6 +196,11 @@ public abstract class AbstractPokemon extends AbstractCard implements IPokemon {
         return this.pokemonEnergy;
     }
 
+    /**
+     * Set the given EnergyContainer how the energies of the Pokemon.
+     *
+     * @param aEnergyContainer to set how the Pokemon energies.
+     */
     @Override
     public void setEnergyContainer(EnergyContainer aEnergyContainer) {
         this.pokemonEnergy = aEnergyContainer;
@@ -315,7 +333,6 @@ public abstract class AbstractPokemon extends AbstractCard implements IPokemon {
         int aux = anAttack.getBaseDamage() - 30;
         if (aux > 0) this.hp -= (anAttack.getBaseDamage() - 30);
     }
-
     /**
      * Lets the Pokemon receive a normal attack that doesn't has type-weakness or type-resistant to the Pokemon that
      * performs it.
@@ -334,11 +351,20 @@ public abstract class AbstractPokemon extends AbstractCard implements IPokemon {
     @Override
     public abstract void attack(IPokemon other);
 
-
+    /**
+     * Get the active attack of the Pokemon.
+     *
+     * @return other the active attack of the Pokemon.
+     */
     public IAttack getActiveAttack() {
         return activeAttack;
     }
 
+    /**
+     * Set the active attack of the Pokemon.
+     *
+     * @param activeAttack to set active.
+     */
     public void setActiveAttack(IAttack activeAttack) {
         this.activeAttack = activeAttack;
     }

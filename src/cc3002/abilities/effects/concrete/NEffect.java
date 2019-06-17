@@ -7,7 +7,15 @@ import cc3002.abilities.effects.AbstractEffect;
 import java.util.Collections;
 import java.util.Iterator;
 
+/**
+ * This class creates a new NEffect.
+ *
+ * @author F. Giovanni Sanguineti
+ */
 public class NEffect extends AbstractEffect {
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void doEffect() {
         Trainer theTrainer = getAssociatedCard().getTrainer();

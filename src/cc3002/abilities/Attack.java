@@ -32,6 +32,11 @@ public class Attack extends AbstractAbility implements IAttack {
         return this.baseDamage;
     }
 
+    /**
+     * {@inheritDoc}
+     *
+     * @param v the Visitor that performs the operation.
+     */
     @Override
     public void accept(IAbilityVisitor v) {
         v.visitAttack(this);

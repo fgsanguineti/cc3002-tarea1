@@ -89,6 +89,11 @@ public class EnergyContainer {
         return container.get("Water");
     }
 
+    /**
+     * Gets the total number of all energies
+     *
+     * @return Integer with the value of the total number of all energies
+     */
     public int getTotalEnergyQuantity() {
         return this.getFighting() + this.getElectric() + this.getFire() + this.getGrass()
                 + this.getPsychic() + this.getWater();

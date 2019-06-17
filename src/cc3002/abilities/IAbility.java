@@ -6,8 +6,7 @@ import cc3002.pokemon.IPokemon;
 import cc3002.visitor.ability.IAbilityVisitor;
 
 /**
- * Common interface for all the abilities. abilities had a name, a description and a energy cost.
- *
+ * Common interface for all the abilities. abilities had a name, a description, a owner and a energy cost.
  * @author F. Giovanni Sanguineti
  */
 public interface IAbility {
@@ -15,11 +14,8 @@ public interface IAbility {
     String getDescription();
     EnergyContainer getCost();
     boolean isEnoughEnergyToUseTheAbility(IPokemon aPokemon);
-
     IEffect getEffect();
     void accept(IAbilityVisitor v);
-
     IPokemon getAssociatedPokemon();
-
     void setAssociatedPokemon(IPokemon aPokemon);
 }
