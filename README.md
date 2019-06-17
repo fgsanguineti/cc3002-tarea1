@@ -41,7 +41,7 @@ De la tarea anterior, fueron conservados (y rediseñados) los 108 test. Además 
 21 nuevos test, para todas las funcionalidades solicitadas en esta tarea. Para la habilidad, referirse a test.cc3002.abilities.EnergyBurnTest.java.
 y para el ataque, test.cc3002.abilities.ElectricShockTest.java. Los test de evolucionar Pokemon están presentes en test.cc3002.pokemon.pokemonevolvingtest.
 La ObjectCard y la SupportCard se testean en test.cc3002.trainercards. Finalmente, la lógica del controlador, las cartas que se pueden usar una vez por turno
-y el efeccto de la StadiumCard se pueden encontrar testeadas en test.cc3002.PokemonGameControllerTest.java.
+y el efecto de la StadiumCard se pueden encontrar testeadas en test.cc3002.PokemonGameControllerTest.java.
 
 ## Authors
 
