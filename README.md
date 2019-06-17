@@ -4,7 +4,7 @@ This is the Homework 2 project, developed using the Java 1.8 SDK, and continued 
 Includes all the files that implements the requested for this work. Here, you can see the UML Java class diagram.
 Please refers to the full file "uml_diagram.png" in the GitHub repo root directory for a better view.
 
-![Alt text](uml_diagram.png "UML")
+![Alt text](uml_diagram.jpg "UML")
 
 ## Design
 
