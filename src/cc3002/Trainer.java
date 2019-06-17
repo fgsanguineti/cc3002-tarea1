@@ -25,7 +25,7 @@ public class Trainer {
     private IPokemon selectedPokemon;
     private Trainer opponent;
     private ObjectCard associatedObject;
-
+    private PokemonGameController pokemonGameController;
 
     /**
      * Constructor that creates the Trainer.
@@ -40,6 +40,7 @@ public class Trainer {
         this.prizeCards = new ArrayList<>();
         this.playerName = playerName;
         this.opponent = null;
+        this.pokemonGameController = null;
     }
 
     /**
@@ -48,6 +49,14 @@ public class Trainer {
      */
     String getPlayerName() {
         return playerName;
+    }
+
+    public PokemonGameController getPokemonGameController() {
+        return this.pokemonGameController;
+    }
+
+    public void setPokemonGameController(PokemonGameController pokemonGameController) {
+        this.pokemonGameController = pokemonGameController;
     }
 
     /**
@@ -74,6 +83,15 @@ public class Trainer {
     }
 
     /**
+     * Set the trainer's hand
+     *
+     * @param hand trainer's ArrayList with cards object.
+     */
+    public void setHand(ArrayList<ICard> hand) {
+        this.hand = hand;
+    }
+
+    /**
      * Add a card to the trainer's hand.
      * @param aCard the card to add in the hand.
      */
@@ -89,7 +107,6 @@ public class Trainer {
         return bench;
     }
 
-
     public Trainer getOpponent() {
         return opponent;
     }
@@ -103,7 +120,6 @@ public class Trainer {
      * @param aCard the ICard that wants to play.
      */
     public void play(ICard aCard) {
-        hand.remove(aCard);
         aCard.setTrainer(this);
         PlayCardVisitor v = new PlayCardVisitor();
         aCard.accept(v);
@@ -149,7 +165,7 @@ public class Trainer {
         this.selectedPokemon = null;
     }
 
-    private void setDeck(ArrayList<ICard> deck) {
+    public void setDeck(ArrayList<ICard> deck) {
         this.deck = deck;
     }
 

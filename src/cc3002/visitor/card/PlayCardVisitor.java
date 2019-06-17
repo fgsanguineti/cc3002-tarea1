@@ -6,6 +6,7 @@ import cc3002.pokemontypes.IBasicPokemon;
 import cc3002.pokemontypes.IPhaseOnePokemon;
 import cc3002.pokemontypes.IPhaseTwoPokemon;
 import cc3002.pokemontypes.IPokemon;
+import cc3002.trainercards.AbstractTrainerCard;
 import cc3002.trainercards.ObjectCard;
 import cc3002.trainercards.StadiumCard;
 import cc3002.trainercards.SupportCard;
@@ -13,6 +14,7 @@ import cc3002.trainercards.SupportCard;
 public class PlayCardVisitor implements ICardVisitor {
     @Override
     public void visitBasicPokemon(IBasicPokemon basicPokemon) {
+        basicPokemon.getTrainer().getHand().remove(basicPokemon);
         Trainer theTrainer = basicPokemon.getTrainer();
         if ((theTrainer.getActivePokemon() == null)) theTrainer.setActivePokemon(basicPokemon);
         else if (theTrainer.getBench().size() < 5) theTrainer.getBench().add(basicPokemon);
@@ -32,22 +34,30 @@ public class PlayCardVisitor implements ICardVisitor {
 
     @Override
     public void visitEnergyCard(AbstractEnergy aEnergy) {
+        if (aEnergy.getTrainer().getPokemonGameController() != null) {
+            if (aEnergy.getTrainer().getPokemonGameController().isAnEnergyPlayedInTurn()) return;
+            aEnergy.getTrainer().getPokemonGameController().notifyEnergyPlayedInTurn();
+        }
         aEnergy.addEnergyToPokemon(aEnergy.getTrainer().getSelectedPokemon());
+        aEnergy.getTrainer().getHand().remove(aEnergy);
+
     }
 
     @Override
     public void visitObjectCard(ObjectCard aObject) {
+        removeTrainerCard(aObject);
         aObject.getEffect().setAssociatedCard(aObject);
         aObject.doSelectedEffect();
     }
 
     @Override
     public void visitStadiumCard(StadiumCard aStadium) {
-
+        removeTrainerCard(aStadium);
     }
 
     @Override
     public void visitSupportCard(SupportCard aSupport) {
+        removeTrainerCard(aSupport);
         aSupport.getEffect().setAssociatedCard(aSupport);
         aSupport.doSelectedEffect();
         aSupport.discard(aSupport.getTrainer());
@@ -64,7 +74,12 @@ public class PlayCardVisitor implements ICardVisitor {
         }
     }
 
+    private void removeTrainerCard(AbstractTrainerCard aTrainerCard) {
+        aTrainerCard.getTrainer().getHand().remove(aTrainerCard);
+    }
+
     private void changePreEvolution(IPokemon newPokemon, int lookedID) {
+        newPokemon.getTrainer().getHand().remove(newPokemon);
         Trainer theTrainer = newPokemon.getTrainer();
         IPokemon selected = theTrainer.getSelectedPokemon();
         if (lookedID == theTrainer.getActivePokemon().getID() && selected.equals(theTrainer.getActivePokemon()))
