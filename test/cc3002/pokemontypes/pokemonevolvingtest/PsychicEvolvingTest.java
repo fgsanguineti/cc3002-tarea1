@@ -71,28 +71,28 @@ public class PsychicEvolvingTest {
 
         trainer.setSelectedPokemon(basic);
         trainer.play(trainer.getHand().get(0));
-        trainer.unselectPokemon();
+        trainer.unSelectPokemon();
         assertEquals(trainer.getActivePokemon(), phaseOne);
         assertEquals(trainer.getActivePokemon().getAllEnergyQuantity(), first);
         assertEquals(trainer.getDiscardHeap().get(0), basic);
 
         trainer.setSelectedPokemon(basicTwo);
         trainer.play(secondPhaseOne);
-        trainer.unselectPokemon();
+        trainer.unSelectPokemon();
         assertEquals(trainer.getBench().get(0), secondPhaseOne);
         assertEquals(trainer.getBench().get(0).getAllEnergyQuantity(), first);
         assertEquals(trainer.getDiscardHeap().get(1), basicTwo);
 
         trainer.setSelectedPokemon(phaseOne);
         trainer.play(phaseTwo);
-        trainer.unselectPokemon();
+        trainer.unSelectPokemon();
         assertEquals(trainer.getActivePokemon(), phaseTwo);
         assertEquals(trainer.getActivePokemon().getAllEnergyQuantity(), first);
         assertEquals(trainer.getDiscardHeap().get(2), phaseOne);
 
         trainer.setSelectedPokemon(secondPhaseOne);
         trainer.play(secondPhaseTwo);
-        trainer.unselectPokemon();
+        trainer.unSelectPokemon();
         assertEquals(trainer.getBench().get(0), secondPhaseTwo);
         assertEquals(trainer.getBench().get(0).getAllEnergyQuantity(), first);
         assertEquals(trainer.getDiscardHeap().get(3), secondPhaseOne);

@@ -12,7 +12,7 @@ public class PotionEffect extends AbstractEffect {
 
     @Override
     public void doEffect() {
-        IPokemon selectedPokemon = super.getAssociatedCard().getTrainer().getActivePokemon();
+        IPokemon selectedPokemon = super.getAssociatedCard().getTrainer().getSelectedPokemon();
         int totalDamageCounters = (selectedPokemon.getInitialHP() - selectedPokemon.getHP()) / 10;
         if (totalDamageCounters > maximumCountersToIncrease) selectedPokemon.modifyHP(maximumCountersToIncrease * 10);
         else selectedPokemon.modifyHP(totalDamageCounters * 10);

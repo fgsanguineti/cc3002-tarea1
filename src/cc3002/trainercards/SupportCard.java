@@ -5,7 +5,7 @@ import cc3002.visitor.card.ICardVisitor;
 
 public class SupportCard  extends AbstractTrainerCard{
 
-    SupportCard(String cardName, String description, IEffect effect) {
+    public SupportCard(String cardName, String description, IEffect effect) {
         super(cardName, description, effect);
     }
 

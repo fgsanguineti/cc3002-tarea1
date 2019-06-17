@@ -279,10 +279,13 @@ public class TrainerTest {
         t2.play(jolteon);
         t2.setSelectedPokemon(jolteon);
         t2.play(fighting1);
+        t2.setSelectedPokemon(jolteon);
         t2.play(fire1);
+        t2.setSelectedPokemon(jolteon);
         t2.play(water1);
+        t2.setSelectedPokemon(jolteon);
         t2.play(psychic1);
-        t2.unselectPokemon();
+        t2.unSelectPokemon();
 
         t2.makeAnAbility(4);
         assertEquals(t1.getActivePokemon().getHP(), 50);

@@ -4,7 +4,7 @@ import cc3002.abilities.effects.IEffect;
 import cc3002.visitor.card.ICardVisitor;
 
 public class ObjectCard extends AbstractTrainerCard {
-    ObjectCard(String cardName, String description, IEffect effect) {
+    public ObjectCard(String cardName, String description, IEffect effect) {
         super(cardName, description, effect);
     }
 

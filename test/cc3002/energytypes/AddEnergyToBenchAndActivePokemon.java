@@ -58,18 +58,21 @@ public class AddEnergyToBenchAndActivePokemon {
 
         franco.setSelectedPokemon(franco.getActivePokemon());
         franco.play(electric);
+        franco.setSelectedPokemon(franco.getActivePokemon());
         franco.play(fighting);
-        franco.unselectPokemon();
+        franco.unSelectPokemon();
         assertEquals(franco.getActivePokemon().getAllEnergyQuantity(), new EnergyContainer(1, 1, 0, 0, 0, 0));
         franco.setSelectedPokemon(franco.getBench().get(0));
         franco.play(fire);
+        franco.setSelectedPokemon(franco.getBench().get(0));
         franco.play(grass);
-        franco.unselectPokemon();
+        franco.unSelectPokemon();
         assertEquals(franco.getBench().get(0).getAllEnergyQuantity(), new EnergyContainer(0, 0, 1, 1, 0, 0));
         franco.setSelectedPokemon(franco.getBench().get(1));
         franco.play(psychic);
+        franco.setSelectedPokemon(franco.getBench().get(1));
         franco.play(water);
-        franco.unselectPokemon();
+        franco.unSelectPokemon();
         assertEquals(franco.getBench().get(1).getAllEnergyQuantity(), new EnergyContainer(0, 0, 0, 0, 1, 1));
 
     }

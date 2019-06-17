@@ -55,7 +55,7 @@ public class Trainer {
         return this.pokemonGameController;
     }
 
-    public void setPokemonGameController(PokemonGameController pokemonGameController) {
+    void setPokemonGameController(PokemonGameController pokemonGameController) {
         this.pokemonGameController = pokemonGameController;
     }
 
@@ -87,7 +87,7 @@ public class Trainer {
      *
      * @param hand trainer's ArrayList with cards object.
      */
-    public void setHand(ArrayList<ICard> hand) {
+    void setHand(ArrayList<ICard> hand) {
         this.hand = hand;
     }
 
@@ -134,6 +134,7 @@ public class Trainer {
         PlayAbilityVisitor v = new PlayAbilityVisitor();
         activePokemon.getActiveAbility().accept(v);
         this.activePokemon.unSelectActiveAbility();
+        this.unSelectPokemon();
     }
 
     public void receiveAnAttack(Trainer other) {
@@ -161,7 +162,7 @@ public class Trainer {
         this.selectedPokemon = selectedPokemon;
     }
 
-    public void unselectPokemon() {
+    public void unSelectPokemon() {
         this.selectedPokemon = null;
     }
 

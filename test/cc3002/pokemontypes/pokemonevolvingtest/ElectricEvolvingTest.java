@@ -75,28 +75,28 @@ public class ElectricEvolvingTest {
 
         trainer.setSelectedPokemon(electricBasic);
         trainer.play(trainer.getHand().get(0));
-        trainer.unselectPokemon();
+        trainer.unSelectPokemon();
         assertEquals(trainer.getActivePokemon(), electricPhaseOne);
         assertEquals(trainer.getActivePokemon().getAllEnergyQuantity(), first);
         assertEquals(trainer.getDiscardHeap().get(0), electricBasic);
 
         trainer.setSelectedPokemon(electricBasicTwo);
         trainer.play(secondElectricPhaseOne);
-        trainer.unselectPokemon();
+        trainer.unSelectPokemon();
         assertEquals(trainer.getBench().get(0), secondElectricPhaseOne);
         assertEquals(trainer.getBench().get(0).getAllEnergyQuantity(), first);
         assertEquals(trainer.getDiscardHeap().get(1), electricBasicTwo);
 
         trainer.setSelectedPokemon(electricPhaseOne);
         trainer.play(electricPhaseTwo);
-        trainer.unselectPokemon();
+        trainer.unSelectPokemon();
         assertEquals(trainer.getActivePokemon(), electricPhaseTwo);
         assertEquals(trainer.getActivePokemon().getAllEnergyQuantity(), first);
         assertEquals(trainer.getDiscardHeap().get(2), electricPhaseOne);
 
         trainer.setSelectedPokemon(secondElectricPhaseOne);
         trainer.play(secondElectricPhaseTwo);
-        trainer.unselectPokemon();
+        trainer.unSelectPokemon();
         assertEquals(trainer.getBench().get(0), secondElectricPhaseTwo);
         assertEquals(trainer.getBench().get(0).getAllEnergyQuantity(), first);
         assertEquals(trainer.getDiscardHeap().get(3), secondElectricPhaseOne);

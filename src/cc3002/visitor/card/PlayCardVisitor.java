@@ -40,7 +40,7 @@ public class PlayCardVisitor implements ICardVisitor {
         }
         aEnergy.addEnergyToPokemon(aEnergy.getTrainer().getSelectedPokemon());
         aEnergy.getTrainer().getHand().remove(aEnergy);
-
+        aEnergy.getTrainer().unSelectPokemon();
     }
 
     @Override

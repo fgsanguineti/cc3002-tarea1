@@ -177,12 +177,17 @@ public class BasicFirePokemonTest {
 
         t1.setSelectedPokemon(tepig);
         t1.play(fighting1);
+        t1.setSelectedPokemon(tepig);
         t1.play(fire1);
+        t1.setSelectedPokemon(tepig);
         t1.play(fire2);
+        t1.setSelectedPokemon(tepig);
         t1.play(fire3);
+        t1.setSelectedPokemon(tepig);
         t1.play(fire4);
+        t1.setSelectedPokemon(tepig);
         t1.play(fire5);
-        t1.unselectPokemon();
+
 
         t2.play(flareon);
         t1.makeAnAbility(1);

@@ -4,6 +4,7 @@ import cc3002.pokemontypes.IPokemon;
 import cc3002.trainercards.StadiumCard;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class PokemonGameController {
     private Trainer firstTrainer;
@@ -21,9 +22,11 @@ public class PokemonGameController {
         this.secondTrainer.setPokemonGameController(this);
         if (firstDeck.size() == 60) this.firstTrainer.setDeck(firstDeck);
         if (secondDeck.size() == 60) this.secondTrainer.setDeck(secondDeck);
+        Collections.shuffle(this.firstTrainer.getDeck());
+        Collections.shuffle(this.secondTrainer.getDeck());
     }
 
-    public void startGame() {
+    void startGame() {
         initializePlayers();
         this.activeTurnPlayer = firstTrainer;
         this.isAnEnergyPlayedInTurn = false;
@@ -40,12 +43,16 @@ public class PokemonGameController {
         }
     }
 
-    public void setTrainersHands(ArrayList<ICard> firstHand, ArrayList<ICard> secondHand) {
-        this.firstTrainer.setHand(firstHand);
-        this.secondTrainer.setHand(secondHand);
+    void selectPokemon(IPokemon aPokemon) {
+        this.activeTurnPlayer.setSelectedPokemon(aPokemon);
     }
 
-    public ArrayList<ICard> viewActivePlayerHand() {
+    void setTrainersHands(ArrayList<ICard> firstHand, ArrayList<ICard> secondHand) {
+        this.activeTurnPlayer.setHand(firstHand);
+        this.activeTurnPlayer.getOpponent().setHand(secondHand);
+    }
+
+    ArrayList<ICard> viewActivePlayerHand() {
         return this.activeTurnPlayer.getHand();
     }
 
@@ -53,15 +60,15 @@ public class PokemonGameController {
         this.activeTurnPlayer.play(viewActivePlayerHand().get(handIndex));
     }
 
-    public ArrayList<IPokemon> viewActivePlayerBench() {
+    ArrayList<IPokemon> viewActivePlayerBench() {
         return this.activeTurnPlayer.getBench();
     }
 
-    public IPokemon viewActivePlayerActivePokemon() {
+    IPokemon viewActivePlayerActivePokemon() {
         return this.activeTurnPlayer.getActivePokemon();
     }
 
-    public void useActivePlayerActivePokemonAbility(int index) {
+    void useActivePlayerActivePokemonAbility(int index) {
         this.activeTurnPlayer.makeAnAbility(index);
     }
 
